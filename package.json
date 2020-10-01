@@ -1,0 +1,25 @@
+{
+  "name": "bootcamp2",
+  "version": "2.0.0",
+  "description": "Persisting data using MongoDB and Mongoose",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "cd tests && jest test_sanity.test.js && jest test_connect.test.js && jest footballClub.model.test.js && jest test_save.test.js && jest test_queries_find.test.js && jest test_queries_delete.test.js && jest test_queries_update.test.js",
+    "start": "node server.js"
+  },
+  "authors": [
+    {
+      "name": "Edward Mensah"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.9.26"
+  },
+  "devDependencies": {
+    "jest-esm-transformer": "^1.0.0",
+    "jest": "^26.1.0",
+    "@shelf/jest-mongodb": "^1.2.1"
+  }
+}
