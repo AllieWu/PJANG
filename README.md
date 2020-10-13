@@ -33,3 +33,6 @@ Say you are working on https://github.com/AllieWu/PJANG/issues/40
 7. `git push origin head`
 8. In the GitHub.com PJANG repository, make a pull request from task40_productPage_graphics to master
 9. Done! Every time someone pulls from remote master, the product page should have product graphics
+
+### Git Version Control Figure:
+##### Screenshot: https://gyazo.com/b3c4c5baab560b266c4069b3a86b17ad
