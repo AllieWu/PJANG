@@ -4,7 +4,7 @@ To see the team's tasks for the current sprint, navigate to the Projects tab > S
 To see your individual tasks, navigate to the Issues tab & under assignee, select your username. 
 To see ALL tasks for all sprints, navigate to the Issues tab
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## Task development workflow
 ### General steps
 ##### IN LOCAL REPOSITORY FOLDER (C:\...\Documents\GitHub\PJANG)
