@@ -4,8 +4,9 @@ To see the team's tasks for the current sprint, navigate to the Projects tab > S
 To see your individual tasks, navigate to the Issues tab & under assignee, select your username. 
 To see ALL tasks for all sprints, navigate to the Issues tab
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## Task development workflow
-#### General steps
+### General steps
 ##### IN LOCAL REPOSITORY FOLDER (C:\...\Documents\GitHub\PJANG)
 1. `git checkout master` *// go to your local master branch*
 2. `git pull origin head` *// makes sure your local master branch has the most recent remote master branch changes*
@@ -20,7 +21,7 @@ To see ALL tasks for all sprints, navigate to the Issues tab
 2. Wait for confirmation from scrum master/other developers *(For best code quality, we want multiple eyes on new code before commiting it to our remote master branch)*
 3. Approve the pull request, your newly added code should now be on the master branch! Everyone who pulls from the remote master branch will now have your changes.
 
-#### Example:
+### Example:
 Say you are working on https://github.com/AllieWu/PJANG/issues/40
 ##### IN LOCAL REPOSITORY FOLDER (C:\...\Documents\GitHub\PJANG)
 1. `git checkout master`
