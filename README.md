@@ -4,17 +4,17 @@ To see the team's tasks for the current sprint, navigate to the Projects tab > S
 To see your individual tasks, navigate to the Issues tab & under assignee, select your username. 
 To see ALL tasks for all sprints, navigate to the Issues tab
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## Task development workflow
 ### General steps
 ##### IN LOCAL REPOSITORY FOLDER (C:\...\Documents\GitHub\PJANG)
-1. `git checkout master` *// go to your local master branch*
-2. `git pull origin head` *// makes sure your local master branch has the most recent remote master branch changes*
-3. `git checkout -b new_branch` *// create a new local branch to develop your features*
+1. `git checkout master`                          *// go to your local master branch*
+2. `git pull origin head`                         *// makes sure your local master branch has the most recent remote master branch changes*
+3. `git checkout -b new_branch`                   *// create a new local branch to develop your features*
 4. Develop your code for the feature
-5. `git add --all` *// adds all your changes*
-6. `git commit -m "I am commiting my changes"` *// saves all your changes to your local branch*
-7. `git push origin head` *// pushes all your changes to the remote test branch*
+5. `git add --all`                                *// adds all your changes*
+6. `git commit -m "I am commiting my changes"`    *// saves all your added changes to your local branch*
+7. `git push origin head`                         *// pushes all your changes to the remote test branch*
 
 ##### IN THE GITHUB.COM PJANG REPOSITORY
 1. Make a pull request from new_branch branch into master branch
