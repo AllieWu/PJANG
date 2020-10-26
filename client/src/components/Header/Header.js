@@ -7,7 +7,7 @@ const Header = () => {
         <div className='topnav'>
             {/* Logo */}
             <Link id="logo-link" to="/">
-                <img className="topnav-logo" src={ "/logo192.png" } alt="React logo" />
+                <img className="topnav-logo" src="/assets/laundrLogo.png" alt="Laundr logo" />
             </Link>
 
             {/* Page Links */}
