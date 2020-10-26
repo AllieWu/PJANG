@@ -1,10 +1,13 @@
 import React from 'react';
+import {Switch, Route, Link, Redirect} from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import './Home.css';
 
 function Home() {
     return (
         <div className="App">
+            <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>
+            
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
