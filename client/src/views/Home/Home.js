@@ -1,13 +1,13 @@
 import React from 'react';
-import {Switch, Route, Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
+import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 import './Home.css';
 
 function Home() {
     return (
         <div className="App">
             <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>
-            
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
@@ -18,11 +18,10 @@ function Home() {
                     href="https://reactjs.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                >
-                </a>
+                ></a>
+                <AddToCartButton />
             </header>
         </div>
     );
-}
 
 export default Home;
