@@ -23,5 +23,6 @@ function Home() {
             </header>
         </div>
     );
+}
 
 export default Home;
