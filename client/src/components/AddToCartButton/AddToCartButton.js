@@ -4,20 +4,30 @@ import "./AddToCartButton.css";
 export default class AddToCartButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = {
+      count: props.count,
+      key: props.key,
+      onAddToCartClick: props.onAddToCartClick,
+      onRemoveFromCartClick: props.onRemoveFromCartClick,
+    };
 
     // bind all clicking mechanisms
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+    this.cartIncrement = this.cartIncrement.bind(this);
+    this.cartDecrement = this.cartDecrement.bind(this);
   }
 
-  increment() {
+  cartIncrement() {
+    this.state.onAddToCartClick(this.state.key); // update the shopping cart
+
+    // this is to update the button type
     this.state.count++;
-    // force update makes the component re-render (so we can recalculate the incrementDecrementComponent)
-    this.forceUpdate();
+    this.forceUpdate(); // force update makes the component re-render (so we can recalculate the incrementDecrementComponent)
   }
 
-  decrement() {
+  cartDecrement() {
+    this.state.onRemoveFromCartClick(this.state.key); // up date the shopping cart
+
+    // this is to update the button type
     this.state.count--;
     this.forceUpdate();
   }
@@ -26,7 +36,7 @@ export default class AddToCartButton extends React.Component {
     let addToCartComponent = (
       <button
         className="height-width100 countText"
-        onMouseDown={this.increment}
+        onMouseDown={this.cartIncrement}
       >
         ADD TO CART
       </button>
@@ -36,7 +46,7 @@ export default class AddToCartButton extends React.Component {
       <div className="height-width100 vertical-align">
         <span>
           <button
-            onMouseDown={this.decrement}
+            onMouseDown={this.cartDecrement}
             className="increment-decrement-button"
           >
             -
@@ -45,7 +55,7 @@ export default class AddToCartButton extends React.Component {
         <span className="countText">{this.state.count}</span>
         <span>
           <button
-            onMouseDown={this.increment}
+            onMouseDown={this.cartIncrement}
             className="increment-decrement-button"
           >
             +
