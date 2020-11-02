@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ShoppingCartButton from "../ShoppingCartButton/ShoppingCartButton";
 import './Header.css';
 
 const Header = () => {
