@@ -5,7 +5,7 @@ export default class AddToCartButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: props.count,
+      quantity: props.quantity,
       key: props.key,
       onAddToCartClick: props.onAddToCartClick,
       onRemoveFromCartClick: props.onRemoveFromCartClick,
@@ -20,7 +20,7 @@ export default class AddToCartButton extends React.Component {
     this.state.onAddToCartClick(this.state.key); // update the shopping cart
 
     // this is to update the button type
-    this.state.count++;
+    this.state.quantity++;
     this.forceUpdate(); // force update makes the component re-render (so we can recalculate the incrementDecrementComponent)
   }
 
@@ -28,7 +28,7 @@ export default class AddToCartButton extends React.Component {
     this.state.onRemoveFromCartClick(this.state.key); // up date the shopping cart
 
     // this is to update the button type
-    this.state.count--;
+    this.state.quantity--;
     this.forceUpdate();
   }
 
@@ -52,7 +52,7 @@ export default class AddToCartButton extends React.Component {
             -
           </button>
         </span>
-        <span className="countText">{this.state.count}</span>
+        <span className="countText">{this.props.quantity}</span>
         <span>
           <button
             onMouseDown={this.cartIncrement}
@@ -66,7 +66,7 @@ export default class AddToCartButton extends React.Component {
 
     let componentToShow = (
       <div className="height-width100">
-        {this.state.count == 0
+        {this.props.quantity == 0
           ? addToCartComponent
           : incrementDecrementComponent}
       </div>
