@@ -65,6 +65,15 @@ button {
     cursor: pointer;
 }
 
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-item-name {
+  font-size: 16px;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}

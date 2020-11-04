@@ -5,7 +5,7 @@ html,body {
 span {
     display:table-cell;
     vertical-align:middle;
-        line-height: 20px !important;
+    line-height: 20px !important;
 }
 
 button {
@@ -14,7 +14,6 @@ button {
     height: 20px;
     color: black;
     line-height: 19.5px !important;
-
     border-width: 0px;
 }
 
@@ -24,6 +23,8 @@ button {
     border-color: -internal-light-dark(lightgrey, grey);
     border-image: initial;
     border-radius: 3px;
+    max-width: 30px !important;
+    max-height: 30px !important;
 }
 
 .add-to-cart-parent {
