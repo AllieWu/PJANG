@@ -2,6 +2,11 @@ html,body {
     height:100%;
 }
 
+h4 {
+  color: white;
+  margin-left: 15px;
+}
+
 button {
     background-color: lightgrey;
     width: 80px;
@@ -34,7 +39,7 @@ button {
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 10px;
+  padding: 10px 0px 10px 0px;
 }
 
 .sidenav a {
@@ -68,10 +73,13 @@ button {
 .cart-item {
   display: flex;
   justify-content: space-between;
+  margin-left: 15px;
 }
 
 .cart-item-name {
   font-size: 16px;
+  color: white;
+  margin: 0px;
 }
 
 @media screen and (max-height: 450px) {

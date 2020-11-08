@@ -4,6 +4,7 @@ import "./AddToCartButton.css";
 export default class AddToCartButton extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       quantity: props.quantity,
       key: props.key,
