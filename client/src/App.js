@@ -6,6 +6,7 @@ import NotFound from "./views/NotFound";
 import Header from "./components/Header/Header";
 import items from "./views/Product/productinfo.json";
 import ShoppingCartButton from "./components/ShoppingCartButton/ShoppingCartButton.js";
+import "./App.css";
 
 const App = () => {
   const [itemsInCart, setItemsInCart] = useState([]);

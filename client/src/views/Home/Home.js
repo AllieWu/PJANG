@@ -10,6 +10,7 @@ export default class Home extends React.Component {
   }
 
   render() {
+    console.log(this.props.itemsInCart);
     return (
       <div className="App">
         <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>

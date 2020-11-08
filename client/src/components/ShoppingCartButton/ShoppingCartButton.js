@@ -67,7 +67,7 @@ export default class ShoppingCartButton extends React.Component {
           </a>
           <h4>Your Box</h4>
           {shoppingCartItems}
-          <p>Total Cost: {totalCost}</p>
+          <p className="cost-text">Total Cost: {totalCost}</p>
         </div>
       </div>
     );
