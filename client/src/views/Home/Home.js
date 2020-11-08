@@ -31,20 +31,15 @@ export default class Home extends React.Component {
               <AddToCartButton
                 style={{ width: "200px" }}
                 quantity={
-                  this.props.itemsInCart.find((i) => i.name == item.name)
+                  this.props.itemsInCart.find((i) => i.name === item.name)
                     ?.quantity ?? 0
                 } // try to find the existing count in our shopping cart before assuming count = 0
                 name={item.name}
-                onAddToCartClick={() =>
-                  this.props.handleAddToCartClick(item.name)
-                }
-                onRemoveFromCartClick={() =>
-                  this.props.handleRemoveFromCartClick(item.name)
-                }
+                onAddToCartClick={this.props.handleAddToCartClick}
+                onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
               />
             </div>
           ))}
-          <p>Total Cost: {this.props.totalCost}</p>
         </header>
       </div>
     );
