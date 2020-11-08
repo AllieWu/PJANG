@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import "./Checkout.css"
+//import "./Checkout.css"
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe("pk_test_51HbYaBJLO8JomVlxAM0xPNa8aOTJhtpR5ewl0faUyrHlhr53Lh0TM1EpjULdrUKBLo81b9fTBfzFiOtUlS9pDGxs00moKvzhXG")
@@ -51,14 +51,11 @@ const Checkout = () => {
   }, []);
 
   const handleClick = async (event) => {
-    console.log("Clicked");
     const stripe = await stripePromise;
-    console.log("Progress");
 
     const response = await fetch("/create-session", {
       method: "POST",
     });
-    console.log("Progress2");
 
     const session = await response.json();
 
