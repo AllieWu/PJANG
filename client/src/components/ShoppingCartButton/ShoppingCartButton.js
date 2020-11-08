@@ -24,16 +24,38 @@ export default class ShoppingCartButton extends React.Component {
   }
 
   render() {
-    const totalCost = this.props.cart.reduce(
+    const totalCost = this.props.itemsInCart.reduce(
       (acc, item) => acc + 15.99 * item.quantity,
       0
     );
 
-    console.log("ShoppingCartButton");
-    console.log(this.props.cart);
+    let shoppingCartItems = (
+      <div>
+        {this.props.itemsInCart.map((item) => {
+          // if you decrease to 0, remove from shopping cart
+          if (item.quantity != 0) {
+            return (
+              <div id={item.name} className="cart-item">
+                <p className="cart-item-name">{item.name}</p>
+                <AddToCartButton
+                  quantity={item.quantity} // try to find the existing count in our shopping cart before assuming count = -
+                  name={item.name}
+                  onAddToCartClick={() =>
+                    this.props.onAddToCartClick(item.name)
+                  }
+                  onRemoveFromCartClick={() =>
+                    this.props.onRemoveFromCartClick(item.name)
+                  }
+                />
+              </div>
+            );
+          }
+        })}
+      </div>
+    );
 
     let showCart = (
-      <div style={{ width: "25%" }}>
+      <div>
         <button onMouseDown={this.ShowSidebar}>Cart</button>
         <div id="cartSideNavID" class="sidenav">
           <a
@@ -44,25 +66,7 @@ export default class ShoppingCartButton extends React.Component {
             Close
           </a>
           <h4>Your Box</h4>
-          {this.props.cart.map((item) => {
-            if (item.quantity != 0)
-              // if you decrease to 0, remove from shopping cart
-              return (
-                <div id={item.name} className="cart-item">
-                  <p className="cart-item-name">{item.name}</p>
-                  <AddToCartButton
-                    quantity={item.quantity} // try to find the existing count in our shopping cart before assuming count = -
-                    name={item.name}
-                    onAddToCartClick={() =>
-                      this.props.onAddToCartClick(item.name)
-                    }
-                    onRemoveFromCartClick={() =>
-                      this.props.onRemoveFromCartClick(item.name)
-                    }
-                  />
-                </div>
-              );
-          })}
+          {shoppingCartItems}
           <p>Total Cost: {totalCost}</p>
         </div>
       </div>
