@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
+import Checkout from "./../../components/Checkout/Checkout.js";
 import './Home.css';
 
 function Home() {
@@ -20,6 +21,7 @@ function Home() {
                     rel="noopener noreferrer"
                 ></a>
                 <AddToCartButton />
+                <Checkout />
             </header>
         </div>
     );
