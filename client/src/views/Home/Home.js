@@ -5,6 +5,7 @@ import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCa
 import "./Home.css";
 import items from "./../Product/productinfo.json";
 
+
 function Home() {
   const [itemsInCart, setItemsInCart] = useState([]);
 
