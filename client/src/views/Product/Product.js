@@ -27,8 +27,13 @@ const Product = (props) => {
     }
   });
 
-  console.log(props.page);
-  console.log(props.match.params.pageNumber);
+  //  console.log(props.page);
+  //  console.log(props.match.params.pageNumber);
+  console.log(props.page.name);
+  console.log(props.itemsInCart);
+  console.log(
+    props.itemsInCart.find((i) => i.name === props.page.name)?.quantity ?? -1
+  );
 
   return (
     <div>
@@ -46,16 +51,12 @@ const Product = (props) => {
       <AddToCartButton
         style={{ width: "200px" }}
         quantity={
-          props.itemsInCart.find((i) => i.name == props.page.name)?.quantity ??
+          props.itemsInCart.find((i) => i.name === props.page.name)?.quantity ??
           0
         } // try to find the existing count in our shopping cart before assuming count = 0
         name={props.page.name}
-        onAddToCartClick={() =>
-          this.props.handleAddToCartClick(props.page.name)
-        }
-        onRemoveFromCartClick={() =>
-          this.props.handleRemoveFromCartClick(props.page.name)
-        }
+        onAddToCartClick={props.handleAddToCartClick}
+        onRemoveFromCartClick={props.handleRemoveFromCartClick}
       />
       <div>
         <h4>Products</h4>
