@@ -23,14 +23,14 @@ p{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     bottom: 0;
     z-index: -1;
 }
 .freshairBackground{
-    position: relative;
-    background: url(backgroundPatterns/freshair_pattern.png);
+    position: absolute;
+    background: url(/backgroundPatterns/freshair_pattern.png);
     background-size: 650px 487.5px;
     background-position-x: 0px;
     width:100%;
@@ -46,7 +46,7 @@ p{
     z-index: 10;
 }
 .coffeeBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/vanilla_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
@@ -63,7 +63,7 @@ p{
     z-index: 10;
 }
 .eucalyptusBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/eucalyptus_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
@@ -80,7 +80,7 @@ p{
     z-index: 10;
 }
 .gardeniaBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/gardenia_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
@@ -97,7 +97,7 @@ p{
     z-index: 10;
 }
 .mahoganyBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/mahogany_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
@@ -114,7 +114,7 @@ p{
     z-index: 10;
 }
 .watermelonBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/watermelon_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
@@ -166,9 +166,10 @@ p{
 }
 .productImage{
     width: 650px;
-    position:absolute;
+    position: absolute;
     left:0; 
-    top:150px;
+    top: -150px;
+    z-index: 15;
     right:0;
     margin:auto; 
 }
