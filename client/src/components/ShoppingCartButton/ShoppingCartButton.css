@@ -17,7 +17,7 @@ button {
 }
 
 .shopping-cart-parent {
-    height: 100%;
+    height: auto;
     width: 80px;
     padding: 0px;
     margin: 5px;
