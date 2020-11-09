@@ -14,6 +14,13 @@ app.post('/create-session', async (req, res) => {
     const YOUR_DOMAIN = 'http://localhost:3000/Home';
     //const YOUR_DOMAIN = req.protocol + '://' + req.hostname + '/Home';
 
+    //console.log("request made");
+    //console.log(req.body.itemsInCart[0].quantity);
+
+    //req.body.itemsInCart[0].quantity
+
+    console.log(req.body);
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -21,14 +28,68 @@ app.post('/create-session', async (req, res) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'Laundr Bombs',
-              images: ['https://i.imgur.com/EHyR2nP.png'],
+              name: 'Watermelon Cucumber',
+              images: ['https://i.imgur.com/X3mBQfo.jpg'],
             },
-            unit_amount: 2000,
+            unit_amount: 1899,
           },
-          quantity: 1,
+          quantity: 5,
         },
-        
+        {
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                name: 'White Gardenia',
+                images: ['https://i.imgur.com/ZLWnA25.jpg'],
+                },
+                unit_amount: 1899,
+            },
+            quantity: 1,
+        },
+        {
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                name: 'Mahogany Teakwood',
+                images: ['https://i.imgur.com/AXs5etu.jpg'],
+                },
+                unit_amount: 1899,
+            },
+            quantity: 1,
+        },
+        {
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                name: 'Fresh Air',
+                images: ['https://i.imgur.com/JLbEBbg.jpg'],
+                },
+                unit_amount: 1899,
+            },
+            quantity: 1,
+        },
+        {
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                name: 'Coffee Vanila',
+                images: ['https://i.imgur.com/TVUydqG.jpg'],
+                },
+                unit_amount: 1899,
+            },
+            quantity: 1,
+        },
+        {
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                name: 'Eucalyptus Tea Tree',
+                images: ['https://i.imgur.com/cKUqNqK.jpg'],
+                },
+                unit_amount: 1899,
+            },
+            quantity: 1,
+        },
       ],
       mode: 'payment',
       success_url: `${YOUR_DOMAIN}?success=true`,
