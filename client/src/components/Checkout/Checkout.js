@@ -1,37 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 //import "./Checkout.css"
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe("pk_test_51HbYaBJLO8JomVlxAM0xPNa8aOTJhtpR5ewl0faUyrHlhr53Lh0TM1EpjULdrUKBLo81b9fTBfzFiOtUlS9pDGxs00moKvzhXG")
 
-const Checkout = () => {
+//to make toast notifications work
+toast.configure();
 
-  const ProductDisplay = ({ handleClick }) => (
-    <section>
-      <div className="product">
-        <img
-          src="https://i.imgur.com/EHyR2nP.png"
-          alt="The cover of Stubborn Attachments"
-        />
-        <div className="description">
-          <h3>Stubborn Attachments</h3>
-          <h5>$20.00</h5>
-        </div>
-      </div>
-      <button id="checkout-button" role="link" onClick={handleClick}>
-        Checkout
-      </button>
-    </section>
-  );
-  
-  const Message = ({ message }) => (
-    <section>
-      <p>{message}</p>
-    </section>
-  );
-
-  const [message, setMessage] = useState("");
+const Checkout = (props) => {
 
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -39,14 +18,16 @@ const Checkout = () => {
     console.log("WLS: " + window.location.search)
     console.log("URLSearchParams: " + query)
 
+    //when redirected back to site, send notification depending on status of checkout page
     if (query.get("success")) {
-      setMessage("Order placed! You will receive an email confirmation.");
+      //"Order placed! You will receive an email confirmation."
+      toast("Success! You will be emailed your receipt shorlty", { type: "success" });
     }
 
     if (query.get("canceled")) {
-      setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
+      //"Could not connect to Checkout. Please try again later"
+      //"Order canceled -- continue to shop around and checkout when you're ready."
+      toast("Order canceled", { type: "error" });
     }
   }, []);
 
@@ -55,7 +36,9 @@ const Checkout = () => {
 
     const response = await fetch("/create-session", {
       method: "POST",
+      body: JSON.stringify(props.itemsInCart)
     });
+    console.log("request made");
 
     const session = await response.json();
 
@@ -68,15 +51,26 @@ const Checkout = () => {
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer
       // using `result.error.message`.
+      toast("Could not connect to Checkout. Please try again later", { type: "error" });
     }
   };
 
-  return message ? (
-    <Message message={message} />
-  ) : (
-    <ProductDisplay handleClick={handleClick} />
-  );
+  const checkB = () => {
 
+    console.log(props.itemsInCart[0].quantity);
+    const data = JSON.stringify(props.itemsInCart);
+    console.log(data[0].quantity);
+
+  }
+
+  return(
+    <div>
+    <button onClick={checkB}>Click</button>
+    <button id="checkout-button" role="link" onClick={handleClick}>
+      Checkout
+    </button>
+    </div>
+  )
 
 }
 
