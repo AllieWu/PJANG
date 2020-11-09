@@ -1,6 +1,7 @@
 import React from "react";
 import AddToCartButton from "./../AddToCartButton/AddToCartButton.js";
 import "./ShoppingCartButton.css";
+import Checkout from "./../Checkout/Checkout.js";
 
 export default class ShoppingCartButton extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class ShoppingCartButton extends React.Component {
 
   render() {
     const totalCost = this.props.itemsInCart.reduce(
-      (acc, item) => acc + 15.99 * item.quantity,
+      (acc, item) => acc + 18.99 * item.quantity,
       0
     );
 
@@ -68,6 +69,7 @@ export default class ShoppingCartButton extends React.Component {
           <h4>Your Box</h4>
           {shoppingCartItems}
           <p>Total Cost: {totalCost}</p>
+          <Checkout itemsInCart={this.props.itemsInCart}/>
         </div>
       </div>
     );
