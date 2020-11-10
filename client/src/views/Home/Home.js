@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 import "./Home.css";
 import items from "./../Product/productinfo.json";
+import NavBarButton       from "./../../components/NavBarButton/NavBarButton";
+import NextPageButton       from "./../../components/NextPageButton/NextPageButton";
+
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -11,10 +14,18 @@ export default class Home extends React.Component {
 
   render() {
     return (
+	
       <div className="App">
+	  
         <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>
+		
+		
         <header className="App-header">
+		
+		< NextPageButton redirectpage={"/newpage_1"} /> 
+		
           {items.map((item) => (
+		  
             <div
               id="example-product"
               style={{ display: "inline-block", width: "450px" }}
@@ -40,6 +51,7 @@ export default class Home extends React.Component {
               />
             </div>
           ))}
+		  
         </header>
       </div>
     );
