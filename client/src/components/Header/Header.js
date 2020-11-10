@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import NavBarButton       from "./../../components/NavBarButton/NavBarButton";
+import NextPageButton       from "./../../components/NextPageButton/NextPageButton";
+
 
 const Header = () => {
   return (
@@ -12,9 +15,11 @@ const Header = () => {
           src="/assets/laundrLogo.png"
           alt="Laundr logo"
         />
+		
       </Link>
 
       {/* Page Links */}
+	  
       <div className="topnav-right">
         <Link className="topnav-link" to="/Register">
           Sign in
@@ -50,6 +55,8 @@ const Header = () => {
           About
         </Link>
       </div>
+	  
+	  
     </div>
   );
 };
