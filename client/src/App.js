@@ -4,6 +4,7 @@ import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import NotFound from "./views/NotFound";
 import items from "./views/Product/productinfo.json";
+
 const App = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
   const [page, setPage] = useState([{}]);

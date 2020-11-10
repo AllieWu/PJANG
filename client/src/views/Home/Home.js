@@ -19,38 +19,44 @@ export default class Home extends React.Component {
   }
 
   getProductPage(name) {
-    let classPrePend, img;
+    let classPrePend, img, path;
 
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
         img = eucalyptusImg;
+        path = "eucalyptus-tea-tree";
         break;
       case "White Gardenia":
         classPrePend = "gardenia";
         img = gardeniaImg;
+        path = "white-gardenia";
         break;
       case "Fresh Air":
         classPrePend = "freshair";
         img = freshImg;
+        path = "fresh-air";
         break;
       case "Coffee Vanilla":
         classPrePend = "coffee";
         img = coffeeImg;
+        path = "coffee-vanilla";
         break;
       case "Mahogany Teakwood":
         classPrePend = "mahogany";
         img = mahoganyImg;
+        path = "mahogany-teakwood";
         break;
       case "Watermelon Cucumber":
         classPrePend = "watermelon";
         img = watermelonImg;
+        path = "watermelon-cucumber";
         break;
     }
 
     return (
       <div className="child">
-        <div className={classPrePend + "Header topnav"}>
+        <div className={classPrePend + " homeHeader topnav"}>
           <ShoppingCartButton
             style={{ top: "50", left: "0" }}
             itemsInCart={this.props.itemsInCart}
@@ -82,11 +88,17 @@ export default class Home extends React.Component {
         </div>
         <div className="backgroundContainer">
           <div className={classPrePend + "Background"}></div>
-          <img
-            src={img}
-            alt={classPrePend + " Image"}
-            className="productImage"
-          />
+          <Link
+            id="logo-link"
+            to="/Product/watermelon-cucumber"
+            style={{ width: "50px", height: "50px", color: "black" }}
+          >
+            <img
+              src={img}
+              alt={classPrePend + " Image"}
+              className="productImage"
+            />
+          </Link>
         </div>
       </div>
     );
