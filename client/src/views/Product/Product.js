@@ -33,7 +33,7 @@ const Product = (props) => {
   console.log(props.page.name);
   console.log(props.itemsInCart);
   console.log(
-    props.itemsInCart.find((i) => i.name === props.page.name)?.quantity ?? -1
+    props.itemsInCart.find((i) => i.price_data.product_data.name === props.page.name)?.quantity ?? -1
   );
 
   return (
@@ -67,7 +67,7 @@ const Product = (props) => {
       <AddToCartButton
         style={{ width: "200px" }}
         quantity={
-          props.itemsInCart.find((i) => i.name === props.page.name)?.quantity ??
+          props.itemsInCart?.find((i) => i.price_data.product_data.name === props.page.name)?.quantity ??
           0
         } // try to find the existing count in our shopping cart before assuming count = 0
         name={props.page.name}
