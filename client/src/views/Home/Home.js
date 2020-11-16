@@ -12,7 +12,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>
+        <Link to="/Product/watermelon-cucumber">Products</Link>
         <header className="App-header">
           {items.map((item) => (
             <div

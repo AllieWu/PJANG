@@ -1,5 +1,5 @@
-//?? .env
-const stripe = require('stripe')('sk_test_51HbYaBJLO8JomVlxJjLgosNPiIFuwG5xrS43edDpOOmcWjfbafUAZhqZYj54Ce96kcocA5PkPiI9F9cs4L4zQhM700NsAdmA7i')
+require('dotenv').config()
+const stripe = require('stripe')(process.env.REACT_APP_BKEY)
 const express = require('./config/express.js')
 
 //initialize app, pass in any middleware
@@ -14,13 +14,6 @@ app.post('/create-session', async (req, res) => {
     const YOUR_DOMAIN = 'http://localhost:3000/Home';
     //const YOUR_DOMAIN = req.protocol + '://' + req.hostname + '/Home';
 
-    //console.log("request made");
-    //console.log(req.body.itemsInCart[0].quantity);
-
-    //req.body.itemsInCart[0].quantity
-
-    console.log(req.body);
-
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -33,7 +26,7 @@ app.post('/create-session', async (req, res) => {
             },
             unit_amount: 1899,
           },
-          quantity: 5,
+          quantity: req.body[0].quantity,
         },
         {
             price_data: {

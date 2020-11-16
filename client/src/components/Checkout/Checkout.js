@@ -3,9 +3,12 @@ import { loadStripe } from "@stripe/stripe-js";
 //import "./Checkout.css"
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+//require('dotenv').config({path: '../../../../../.env'});
+
+//console.log(process.env.REACT_APP_FKEY);
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
-const stripePromise = loadStripe("pk_test_51HbYaBJLO8JomVlxAM0xPNa8aOTJhtpR5ewl0faUyrHlhr53Lh0TM1EpjULdrUKBLo81b9fTBfzFiOtUlS9pDGxs00moKvzhXG")
+const stripePromise = loadStripe('pk_test_51HbYaBJLO8JomVlxAM0xPNa8aOTJhtpR5ewl0faUyrHlhr53Lh0TM1EpjULdrUKBLo81b9fTBfzFiOtUlS9pDGxs00moKvzhXG');
 
 //to make toast notifications work
 toast.configure();
@@ -36,6 +39,7 @@ const Checkout = (props) => {
 
     const response = await fetch("/create-session", {
       method: "POST",
+      headers: {'Content-Type':'application/json'},
       body: JSON.stringify(props.itemsInCart)
     });
     console.log("request made");
@@ -64,12 +68,9 @@ const Checkout = (props) => {
   }
 
   return(
-    <div>
-    <button onClick={checkB}>Click</button>
     <button id="checkout-button" role="link" onClick={handleClick}>
       Checkout
     </button>
-    </div>
   )
 
 }
