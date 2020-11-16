@@ -3,9 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import NotFound from "./views/NotFound";
-import Header from "./components/Header/Header";
 import items from "./views/Product/productinfo.json";
-import ShoppingCartButton from "./components/ShoppingCartButton/ShoppingCartButton.js";
 
 const App = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -13,31 +11,70 @@ const App = () => {
 
   const handleAddToCartClick = (name) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find((item) => item.name === name);
+      const itemInCart = itemsInCart.find((item) => item.price_data.product_data.name === name);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
+        console.log("updating item with name " + name);
+
         return itemsInCart.map((item) => {
-          if (item.name !== name) return item;
-          return { ...itemInCart, quantity: item.quantity + 1 };
+          if (item.price_data.product_data.name !== name) return item;
+
+          return { 
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: item.price_data.product_data.name,
+                image: item.price_data.product_data.image
+              }
+            },
+            quantity: item.quantity + 1,
+          };
+          //return { ...itemInCart, quantity: item.price_data.quantity + 1 };
         });
       }
-
+      
       // otherwise, add new item to cart
+      console.log("adding new item with name " + name);
       const item = items.find((item) => item.name === name);
-      return [...itemsInCart, { ...item, quantity: 1 }];
-    });
+      return [...itemsInCart, 
+        { 
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: item.name,
+              image: item.images,
+            }
+          },
+          quantity: 1, 
+        }
+      ]
+      //return [...itemsInCart, { ...item, quantity: 1 }];
+      }
+    );
+
+    itemsInCart.forEach(e => console.log(e))
   };
 
   const handleRemoveFromCartClick = (name) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find((item) => item.name === name);
+      const itemInCart = itemsInCart.find((item) => item.price_data.product_data.name === name);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.name !== name) return item;
-          return { ...itemInCart, quantity: item.quantity - 1 };
+          if (item.price_data.product_data.name !== name) return item;
+
+          return { 
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: item.price_data.product_data.name,
+                image: item.price_data.product_data.image,
+              }
+            },
+            quantity: item.quantity - 1 
+          };
         });
       }
     });
@@ -45,12 +82,6 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <ShoppingCartButton
-        itemsInCart={itemsInCart}
-        onAddToCartClick={handleAddToCartClick}
-        onRemoveFromCartClick={handleRemoveFromCartClick}
-      />
       <Switch>
         <Route
           exact
