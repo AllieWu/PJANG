@@ -16,134 +16,99 @@ p{
     margin: 0px;
     font-family: Roboto, Times, serif;
 }
-@font-face {
-    font-family: "Calmer Regular";
-    src: url("assets/Calmer Regular.ttf") format("truetype");
-}
-@font-face {
-    font-family: "Roboto-Regular";
-    src: url("assets/Roboto-Regular.ttf") format("truetype");
-}
 .backgroundContainer{
     width: 100%;
     height:100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     bottom: 0;
     z-index: -1;
 }
-.freshairBackground{
-    position: relative;
-    background: url(backgroundPatterns/freshair_pattern.png);
-    background-size: 650px 487.5px;
-    background-position-x: 0px;
-    width:100%;
-    height:250%;
-    animation: bgAnimation2 15s linear infinite;
-}
-.freshairHeader{
+.homeHeader{
     width: 100%;
     height:50%;
-    display: block;
-    background-color: #e2f1f7;
+    display: inline-block;
     position:static;
     z-index: 10;
 }
+.watermelon {
+    background-color: #dea5a4;
+}
+.mahogany {
+    background-color: #321c20;
+}
+.gardenia {
+    background-color: #FDFD96;
+}
+.eucalyptus {
+    background-color: #44d7a8;
+}
+.coffee {
+    background-color: #6f4e37;
+}
+.freshair {
+    background-color: #e2f1f7;
+}
+.freshairBackground{
+    position: absolute;
+    background: url(/backgroundPatterns/freshair_pattern.png);
+    background-size: 650px;
+    background-position-x: 0px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
+}
 .coffeeBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/vanilla_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
     width:100%;
     height:250%;
-    animation: bgAnimation 15s linear infinite;
-}
-.coffeeHeader{
-    width: 100%;
-    height:50%;
-    display: block;
-    background-color: #6f4e37;
-    position:static;
-    z-index: 10;
+    animation: animatedBackground 15s linear infinite;
 }
 .eucalyptusBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/eucalyptus_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
     width:100%;
     height:250%;
-    animation: bgAnimation 15s linear infinite;
-}
-.eucalyptusHeader{
-    width: 100%;
-    height:50%;
-    display: block;
-    background-color: #44d7a8;
-    position:static;
-    z-index: 10;
+    animation: animatedBackground 15s linear infinite;
 }
 .gardeniaBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/gardenia_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
     width:100%;
     height:250%;
-    animation: bgAnimation 15s linear infinite;
-}
-.gardeniaHeader{
-    width: 100%;
-    height:50%;
-    display: block;
-    background-color: #FDFD96;
-    position:static;
-    z-index: 10;
+    animation: animatedBackground 15s linear infinite;
 }
 .mahoganyBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/mahogany_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
     width:100%;
     height:250%;
-    animation: bgAnimation 15s linear infinite;
-}
-.mahoganyHeader{
-    width: 100%;
-    height:50%;
-    display: block;
-    background-color: #321c20;
-    position:static;
-    z-index: 10;
+    animation: animatedBackground 15s linear infinite;
 }
 .watermelonBackground{
-    position: relative;
+    position: absolute;
     background: url(backgroundPatterns/watermelon_pattern.png);
     background-size: 650px;
     background-position-x: -100px;
     width:100%;
     height:250%;
-    animation: bgAnimation 15s linear infinite;
+    animation: animatedBackground 15s linear infinite;
 }
-.watermelonHeader{
-    width: 100%;
-    height:50%;
-    display: block;
-    background-color: #dea5a4;
-    position:static;
-    z-index: 10;
-}
-@keyframes bgAnimation{
-    from{bottom:0px}
-    to{bottom:650px}
-}
-@keyframes bgAnimation2{
-    from{bottom:0px}
-    to{bottom:487.5px}
+@keyframes animatedBackground {
+	from { background-position: 0 100%; }
+	to { background-position: 0 0; }
 }
 .logoImage{
     height:50px;
@@ -173,10 +138,10 @@ p{
 }
 .productImage{
     width: 650px;
-    position:absolute;
+    position: absolute;
     left:0; 
-    top:150px;
+    top: -150px;
+    z-index: 15;
     right:0;
     margin:auto; 
 }
-
