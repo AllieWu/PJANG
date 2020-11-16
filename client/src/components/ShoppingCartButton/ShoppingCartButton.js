@@ -25,27 +25,27 @@ export default class ShoppingCartButton extends React.Component {
   }
 
   render() {
-    const totalCost = this.props.itemsInCart.reduce(
+    const totalCost = this.props.itemsInCart?.reduce(
       (acc, item) => acc + 18.99 * item.quantity,
       0
     );
 
     let shoppingCartItems = (
       <div>
-        {this.props.itemsInCart.map((item) => {
+        {this.props.itemsInCart.map((ele) => {
           // if you decrease to 0, remove from shopping cart
-          if (item.quantity != 0) {
+          if (ele.quantity != 0) {
             return (
-              <div id={item.name} className="cart-item">
-                <p className="cart-item-name">{item.name}</p>
+              <div id={ele.price_data.product_data.name} className="cart-item">
+                <p className="cart-item-name">{ele.price_data.product_data.name}</p>
                 <AddToCartButton
-                  quantity={item.quantity} // try to find the existing count in our shopping cart before assuming count = -
-                  name={item.name}
+                  quantity={ele.quantity} // try to find the existing count in our shopping cart before assuming count = -
+                  name={ele.price_data.product_data.name}
                   onAddToCartClick={() =>
-                    this.props.onAddToCartClick(item.name)
+                    this.props.onAddToCartClick(ele.price_data.product_data.name)
                   }
                   onRemoveFromCartClick={() =>
-                    this.props.onRemoveFromCartClick(item.name)
+                    this.props.onRemoveFromCartClick(ele.price_data.product_data.name)
                   }
                 />
               </div>

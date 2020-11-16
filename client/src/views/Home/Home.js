@@ -79,7 +79,7 @@ export default class Home extends React.Component {
               left: "0",
             }}
             quantity={
-              this.props.itemsInCart.find((i) => i.name === name)?.quantity ?? 0
+              this.props.itemsInCart?.find((i) => i.price_data.product_data.name === name)?.quantity ?? 0
             } // try to find the existing count in our shopping cart before assuming count = 0
             name={name}
             onAddToCartClick={this.props.handleAddToCartClick}
