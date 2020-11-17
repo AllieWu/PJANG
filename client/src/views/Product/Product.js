@@ -4,6 +4,13 @@ import pages from "./productinfo.json";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
 
+import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
+import coffeeImg from "./../../assets/detergentImages/coffeeMockup.png";
+import eucalyptusImg from "./../../assets/detergentImages/eucalyptusMockup.png";
+import freshImg from "./../../assets/detergentImages/freshairMockup.png";
+import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
+import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
+
 const Product = (props) => {
   useEffect(() => {
     switch (props.match.params.pageNumber) {
