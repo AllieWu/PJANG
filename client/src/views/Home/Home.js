@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import "./../../assets/style.css";
 
-import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
+import productInfo from "./../Product/productinfo.json"
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 
 import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
@@ -20,6 +20,7 @@ export default class Home extends React.Component {
 
   getProductPage(name) {
     let classPrePend, img, path;
+    let desc1, desc2, scent1, scent2, scent3;
 
     switch (name) {
       case "Eucalyptus Tea Tree":
@@ -54,23 +55,22 @@ export default class Home extends React.Component {
         break;
     }
 
+    const matching = productInfo.find((ele) => ele.name === name);
+    [desc1, desc2, scent1, scent2, scent3] = [matching.desc1, matching.desc2, matching.scent1, matching.scent2, matching.scent3];
+    
+
     return (
       <div className="child">
-        <div className={classPrePend + " homeHeader topnav"}>
-          <ShoppingCartButton
-            style={{ top: "50", left: "0" }}
-            itemsInCart={this.props.itemsInCart}
-            onAddToCartClick={this.props.handleAddToCartClick}
-            onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
-          />
-          <Link id="logo-link" to="/" style={{ top: "0", left: "0" }}>
-            <img
-              className="topnav-logo"
-              src="./../assets/laundrLogo.png"
-              alt="Laundr logo"
-            />
-          </Link>
+        <div className={classPrePend + " homeHeader"}>
           <h1 className="title">{name + " Laundr Bombs"}</h1>
+          <h2>{desc1}</h2>
+          <h2 >{desc2}</h2>
+          <h3>This fragrance has hints of:
+          </h3>
+          <ul style={{marginLeft: "5%"}}>
+          <li>{scent1}</li>
+          <li>{scent2}</li>
+          <li>{scent3}</li></ul>
           <p className="price">$18.99</p>
           <AddToCartButton
             style={{
@@ -85,10 +85,7 @@ export default class Home extends React.Component {
             onAddToCartClick={this.props.handleAddToCartClick}
             onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           />
-        </div>
-        <div className="backgroundContainer">
-          <div className={classPrePend + "Background"}></div>
-          <Link
+            <Link
             id="logo-link"
             to="/Product/watermelon-cucumber"
             style={{ width: "50px", height: "50px", color: "black" }}
@@ -99,6 +96,10 @@ export default class Home extends React.Component {
               className="productImage"
             />
           </Link>
+        </div>
+
+        <div className="backgroundContainer">
+          <div className={classPrePend + "Background"}></div>
         </div>
       </div>
     );
