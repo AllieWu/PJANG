@@ -1,7 +1,7 @@
 /* Calmer font definitions */
 @font-face {
     font-family: 'calmer';
-    src: url("./assets/calmer-font/Calmer\ Regular.ttf");
+    src: url("./assets/fonts/calmer-font/Calmer\ Regular.ttf");
 }
 @font-face {
     font-family: 'calmer-bold';
@@ -61,11 +61,13 @@
 h1 {
     font-family: 'calmer' !important;
     color: black;
+    padding: 3px 0 3px 0;
 }
 
 h2, h3, h4 {
     font-family: 'roboto' !important;
-    color: #676767;
+    color: #3a3a3a;
+    padding: 3px 0 3px 0;
 }
 
 p, li, a {
