@@ -3,7 +3,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import NotFound from "./views/NotFound";
+import Header from "./components/Header/Header.js"
 import items from "./views/Product/productinfo.json";
+import "./App.css";
 
 const App = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -25,7 +27,7 @@ const App = () => {
               currency: 'usd',
               product_data: {
                 name: item.price_data.product_data.name,
-                image: item.price_data.product_data.image
+                images: item.price_data.product_data.images
               }
             },
             quantity: item.quantity + 1,
@@ -43,7 +45,7 @@ const App = () => {
             currency: 'usd',
             product_data: {
               name: item.name,
-              image: item.images,
+              images: item.images,
             }
           },
           quantity: 1, 
@@ -70,7 +72,7 @@ const App = () => {
               currency: 'usd',
               product_data: {
                 name: item.price_data.product_data.name,
-                image: item.price_data.product_data.image,
+                images: item.price_data.product_data.images,
               }
             },
             quantity: item.quantity - 1 
@@ -82,6 +84,10 @@ const App = () => {
 
   return (
     <div>
+      <Header
+        itemsInCart={itemsInCart}
+        handleAddToCartClick={handleAddToCartClick}
+        handleRemoveFromCartClick={handleRemoveFromCartClick}/>
       <Switch>
         <Route
           exact

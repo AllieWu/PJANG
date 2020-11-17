@@ -11,7 +11,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   section {
-    background: #ffffff;
+    background: #F9F9F9;
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -64,7 +64,7 @@ body {
   #checkout-button {
     height: 36px;
     background: #556cd6;
-    color: white;
+    color: F9F9F9;
     width: 100%;
     font-size: 14px;
     border: 0;
