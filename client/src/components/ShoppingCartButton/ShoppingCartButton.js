@@ -13,7 +13,7 @@ export default class ShoppingCartButton extends React.Component {
   }
 
   ShowSidebar() {
-    document.getElementById("cartSideNavID").style.width = "250px";
+    document.getElementById("cartSideNavID").style.width = "20%";
     this.forceUpdate();
     console.log("Show the Sidebar 55\n");
   }
@@ -57,7 +57,7 @@ export default class ShoppingCartButton extends React.Component {
 
     let showCart = (
       <div>
-        <button onMouseDown={this.ShowSidebar}>Cart</button>
+        <button onMouseDown={this.ShowSidebar} className="cart-text">CART</button>
         <div id="cartSideNavID" class="sidenav">
           <a
             href="javascript:void(0)"
@@ -66,7 +66,7 @@ export default class ShoppingCartButton extends React.Component {
           >
             Close
           </a>
-          <h4>Your Box</h4>
+          <h2 style={{paddingLeft: "15px"}}>Your Box</h2>
           {shoppingCartItems}
           <p>Total Cost: {totalCost}</p>
           <Checkout itemsInCart={this.props.itemsInCart} />

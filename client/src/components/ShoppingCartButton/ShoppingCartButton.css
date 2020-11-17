@@ -3,7 +3,7 @@ html,body {
 }
 
 h4 {
-  color: white;
+  color: F9F9F9;
   margin-left: 15px;
 }
 
@@ -27,6 +27,7 @@ button {
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
     border-image: initial;
     border-radius: 5px;
+    float: right;
 }
 
 .sidenav {
@@ -56,7 +57,6 @@ button {
 }
 
 .sidenav .closebtn {
-  position: right;
   top: 0;
   right: 5px;
   font-size: 25px;
@@ -68,6 +68,7 @@ button {
     font-size: 16px;
     line-height: 1em;
     cursor: pointer;
+    float: right;
 }
 
 .cart-item {
@@ -78,14 +79,22 @@ button {
 
 .cart-item-name {
   font-size: 16px;
-  color: white;
+  color: F9F9F9;
   margin: 0px;
 }
 
 .cost-text {
-  color: white;
+  color: #F9F9F9;
   margin-left: 15px;
 }
+
+.cart-text {
+  font-weight: 600;
+  font-size: 12px;
+  color: black;
+  letter-spacing: 1px;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}

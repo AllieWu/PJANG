@@ -36,8 +36,8 @@ const Checkout = (props) => {
 
     const response = await fetch("/create-session", {
       method: "POST",
-      body: JSON.stringify(props.itemsInCart)
-    });
+      body: JSON.stringify(props.itemsInCart.filter(e => e.quantity > 0))
+      });
     console.log("request made");
 
     const session = await response.json();
@@ -58,9 +58,11 @@ const Checkout = (props) => {
   const checkB = () => {
 
     console.log(props.itemsInCart[0].quantity);
-    const data = JSON.stringify(props.itemsInCart);
+    const validItemsInCart = props.itemsInCart.filter(function (e) { // we don't want it if quantity = 0
+      return e.quantity > 0;
+    });
+    const data = JSON.stringify(validItemsInCart);
     console.log(data[0].quantity);
-
   }
 
   return(
