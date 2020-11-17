@@ -34,30 +34,39 @@ export default class ShoppingCartButton extends React.Component {
       <div>
         {this.props.itemsInCart.map((ele) => {
           // if you decrease to 0, remove from shopping cart
-          if (ele.quantity != 0) {
+          if (ele.quantity !== 0) {
             return (
               <div id={ele.price_data.product_data.name} className="cart-item">
-                <p className="cart-item-name">{ele.price_data.product_data.name}</p>
+                <p className="cart-item-name">
+                  {ele.price_data.product_data.name}
+                </p>
                 <AddToCartButton
                   quantity={ele.quantity} // try to find the existing count in our shopping cart before assuming count = -
                   name={ele.price_data.product_data.name}
                   onAddToCartClick={() =>
-                    this.props.onAddToCartClick(ele.price_data.product_data.name)
+                    this.props.onAddToCartClick(
+                      ele.price_data.product_data.name
+                    )
                   }
                   onRemoveFromCartClick={() =>
-                    this.props.onRemoveFromCartClick(ele.price_data.product_data.name)
+                    this.props.onRemoveFromCartClick(
+                      ele.price_data.product_data.name
+                    )
                   }
                 />
               </div>
             );
           }
+          return undefined;
         })}
       </div>
     );
 
     let showCart = (
       <div>
-        <button onMouseDown={this.ShowSidebar} className="cart-text">CART</button>
+        <button onMouseDown={this.ShowSidebar} className="cart-text">
+          CART
+        </button>
         <div id="cartSideNavID" class="sidenav">
           <a
             href="javascript:void(0)"
@@ -66,7 +75,7 @@ export default class ShoppingCartButton extends React.Component {
           >
             Close
           </a>
-          <h2 style={{paddingLeft: "15px"}}>Your Box</h2>
+          <h2 style={{ paddingLeft: "15px" }}>Your Box</h2>
           {shoppingCartItems}
           <p>Total Cost: {totalCost}</p>
           <Checkout itemsInCart={this.props.itemsInCart} />
