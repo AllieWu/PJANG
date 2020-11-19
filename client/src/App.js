@@ -3,7 +3,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import NotFound from "./views/NotFound";
+import Header from "./components/Header/Header.js"
 import items from "./views/Product/productinfo.json";
+import "./App.css";
 
 const App = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -85,6 +87,10 @@ const App = () => {
 
   return (
     <div>
+      <Header
+        itemsInCart={itemsInCart}
+        handleAddToCartClick={handleAddToCartClick}
+        handleRemoveFromCartClick={handleRemoveFromCartClick}/>
       <Switch>
         <Route
           exact

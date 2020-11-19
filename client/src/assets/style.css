@@ -33,28 +33,29 @@ p{
     display: inline-block;
     position:static;
     z-index: 10;
+    padding-left: 1%;
 }
 .watermelon {
-    background-color: #dea5a4;
+    background-color: #ff5656;
 }
 .mahogany {
-    background-color: #321c20;
+    background-color: #6b6b6b;
 }
 .gardenia {
-    background-color: #FDFD96;
+    background-color: rgb(221, 205, 84)
 }
 .eucalyptus {
-    background-color: #44d7a8;
+    background-color: #48c47e;
 }
 .coffee {
-    background-color: #6f4e37;
+    background-color: #e2cea3;
 }
 .freshair {
-    background-color: #e2f1f7;
+    background-color: #8dcfdd;
 }
 .freshairBackground{
     position: absolute;
-    background: url(/backgroundPatterns/freshair_pattern.png);
+    background: url(backgroundPatterns/freshair_pattern.png);
     background-size: 650px;
     background-position-x: 0px;
     width:100%;
@@ -114,11 +115,11 @@ p{
     height:50px;
 }
 .title{
-    font-size: 50px;
-    
+    font-size: 40px;
+    margin-top: 7%;
 }
 .price{
-    color:white;
+    color:F9F9F9;
     font-family: "Roboto-Regular",Times,serif;
     font-size:20px;
     
@@ -140,7 +141,7 @@ p{
     width: 650px;
     position: absolute;
     left:0; 
-    top: -150px;
+    top: 300px;
     z-index: 15;
     right:0;
     margin:auto; 
