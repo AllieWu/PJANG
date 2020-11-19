@@ -2,54 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
+import laundrLogo from "./../../assets/laundrLogo.png"
+
+const Header = (props) => {
   return (
     <div className="topnav">
       {/* Logo */}
       <Link id="logo-link" to="/">
         <img
           className="topnav-logo"
-          src="/assets/laundrLogo.png"
+          src={laundrLogo}
           alt="Laundr logo"
         />
       </Link>
 
       {/* Page Links */}
-      <div className="topnav-right">
+      <div className="topnav-right align">
         <Link className="topnav-link" to="/Register">
           Sign in
         </Link>
-        <Link className="topnav-link" to="/projects">
-          Projects
-        </Link>
-        <a
-          className="topnav-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.facebook.com/groups/ufosc/events/?source=4&action_history=null&filter=calendar"
-        >
-          Events
-          <i
-            className="fas fa-external-link-alt external-link"
-            data-fa-transform="up-6"
-          ></i>
-        </a>
-        <a
-          className="topnav-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/ufosc/club-resources"
-        >
-          Resources
-          <i
-            className="fas fa-external-link-alt external-link"
-            data-fa-transform="up-6 right-4"
-          ></i>
-        </a>
-        <Link className="topnav-link" to="/about">
-          About
-        </Link>
+        <ShoppingCartButton
+            style={{ top: "50", left: "0" }}
+            itemsInCart={props.itemsInCart}
+            onAddToCartClick={props.handleAddToCartClick}
+            onRemoveFromCartClick={props.handleRemoveFromCartClick}
+          />
       </div>
+      
     </div>
   );
 };
