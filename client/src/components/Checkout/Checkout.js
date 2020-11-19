@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 //import "./Checkout.css"
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./Checkout.css";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe(
@@ -71,10 +72,14 @@ const Checkout = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={checkB}>Click</button>
-      <button id="checkout-button" role="link" onClick={handleClick}>
-        Checkout
+    <div className="checkoutButtonParent">
+      <button
+        className="checkoutButton"
+        id="checkout-button"
+        role="link"
+        onClick={handleClick}
+      >
+        CHECKOUT
       </button>
     </div>
   );
