@@ -28,7 +28,8 @@ const App = () => {
               product_data: {
                 name: item.price_data.product_data.name,
                 images: item.price_data.product_data.images
-              }
+              },
+              unit_amount: 1899,
             },
             quantity: item.quantity + 1,
           };
@@ -46,7 +47,8 @@ const App = () => {
             product_data: {
               name: item.name,
               images: item.images,
-            }
+            },
+            unit_amount: 1899,
           },
           quantity: 1, 
         }
@@ -73,7 +75,8 @@ const App = () => {
               product_data: {
                 name: item.price_data.product_data.name,
                 images: item.price_data.product_data.images,
-              }
+              },
+              unit_amount: 1899,
             },
             quantity: item.quantity - 1 
           };
