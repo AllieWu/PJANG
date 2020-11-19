@@ -8,7 +8,7 @@ import "./Checkout.css";
 import { Link } from "react-router-dom";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
-const stripePromise = loadStripe(process.env.REACT_APP_FKEY);
+const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
 
 const Checkout = (props) => {
 
