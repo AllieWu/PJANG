@@ -25,8 +25,9 @@ const App = () => {
               currency: 'usd',
               product_data: {
                 name: item.price_data.product_data.name,
-                image: item.price_data.product_data.image
-              }
+                images: item.price_data.product_data.images
+              },
+              unit_amount: 1899,
             },
             quantity: item.quantity + 1,
           };
@@ -43,8 +44,9 @@ const App = () => {
             currency: 'usd',
             product_data: {
               name: item.name,
-              image: item.images,
-            }
+              images: item.images,
+            },
+            unit_amount: 1899,
           },
           quantity: 1, 
         }
@@ -70,8 +72,9 @@ const App = () => {
               currency: 'usd',
               product_data: {
                 name: item.price_data.product_data.name,
-                image: item.price_data.product_data.image,
-              }
+                images: item.price_data.product_data.images,
+              },
+              unit_amount: 1899,
             },
             quantity: item.quantity - 1 
           };
