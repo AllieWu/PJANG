@@ -1,5 +1,5 @@
 require('dotenv').config()
-const stripe = require('stripe')('sk_test_51HbYaBJLO8JomVlxJjLgosNPiIFuwG5xrS43edDpOOmcWjfbafUAZhqZYj54Ce96kcocA5PkPiI9F9cs4L4zQhM700NsAdmA7i')
+const stripe = require('stripe')(process.env.REACT_APP_BKEY)
 const express = require('./config/express.js')
 
 //initialize app, pass in any middleware
