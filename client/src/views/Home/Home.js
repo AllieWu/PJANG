@@ -13,6 +13,10 @@ import freshImg from "./../../assets/detergentImages/freshairMockup.png";
 import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
 import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -52,6 +56,21 @@ export default class Home extends React.Component {
         img = watermelonImg;
         path = "watermelon-cucumber";
         break;
+    }
+
+    window.onload = function() {
+
+      const query = new URLSearchParams(window.location.search);
+
+      if (query.get("success")) {
+        //"Order placed! You will receive an email confirmation."
+        toast("Success! You will be emailed your receipt shortly", { type: "success" });
+      }
+      else if (query.get("error")) {
+        //"Order canceled -- continue to shop around and checkout when you're ready."
+        toast("Could not connect to Checkout. Please try again later", { type: "error" });
+      }
+
     }
 
     return (
@@ -116,35 +135,6 @@ export default class Home extends React.Component {
 
     return (
       <div className="App">
-        <Link to="/Product/watermelon-cucumber">Products</Link>
-        <header className="App-header">
-          {items.map((item) => (
-            <div
-              id="example-product"
-              style={{ display: "inline-block", width: "450px" }}
-            >
-              <p
-                style={{
-                  fontSize: "12px",
-                  height: "auto",
-                  width: "250px",
-                }}
-              >
-                Purchase {item.name}
-              </p>
-              <AddToCartButton
-                style={{ width: "200px" }}
-                quantity={
-                  this.props.itemsInCart.find((i) => i.name === item.name)
-                    ?.quantity ?? 0
-                } // try to find the existing count in our shopping cart before assuming count = 0
-                name={item.name}
-                onAddToCartClick={this.props.handleAddToCartClick}
-                onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
-              />
-            </div>
-          ))}
-        </header>
         <div className="container">
           {productNames.map((name) => this.getProductPage(name))}
         </div>
