@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+
+//import "./Checkout.css"
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Checkout.css";
 import { Link } from "react-router-dom";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
-const stripePromise = loadStripe(process.env.REACT_APP_FKEY);
+const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
 
 const Checkout = (props) => {
 
@@ -44,12 +49,19 @@ const Checkout = (props) => {
  
   };
 
-  return(
-    <button id="checkout-button" role="link" onClick={handleClick}>
-      Checkout
-    </button>
-  )
 
-}
+  return (
+    <div className="checkoutButtonParent">
+      <button
+        className="checkoutButton"
+        id="checkout-button"
+        role="link"
+        onClick={handleClick}
+      >
+        CHECKOUT
+      </button>
+    </div>
+  );
+};
 
 export default Checkout;
