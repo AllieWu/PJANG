@@ -1,32 +1,20 @@
+/* General Stuff */
 *{
     margin: 0;
     padding: 0;
-    font-family:sans-serif;
 }
 h1 {
     margin: 0px;
-    font-family: "Calmer Regular", Times, serif;
     color:#fff;
 }
 bodytext {
     margin: 0px;
-    font-family: Roboto, Times, serif;
 }
 p{
     margin: 0px;
-    font-family: Roboto, Times, serif;
 }
-.backgroundContainer{
-    width: 100%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    overflow: hidden;
-    bottom: 0;
-    z-index: -1;
-}
+
+/* Home page product pages headers*/
 .homeHeader{
     width: 100%;
     height:50%;
@@ -53,64 +41,54 @@ p{
 .freshair {
     background-color: #8dcfdd;
 }
-.freshairBackground{
-    position: absolute;
-    background: url(backgroundPatterns/freshair_pattern.png);
-    background-size: 650px;
-    background-position-x: 0px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
+
+/* Home page product pages backgrounds */
+.backgroundContainer{
+    width: 100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden;
+    bottom: 0;
+    z-index: -1;
 }
-.coffeeBackground{
+.background{
     position: absolute;
-    background: url(backgroundPatterns/vanilla_pattern.png);
-    background-size: 650px;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: 650px !important;
     background-position-x: -100px;
     width:100%;
     height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.eucalyptusBackground{
-    position: absolute;
-    background: url(backgroundPatterns/eucalyptus_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.gardeniaBackground{
-    position: absolute;
-    background: url(backgroundPatterns/gardenia_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.mahoganyBackground{
-    position: absolute;
-    background: url(backgroundPatterns/mahogany_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.watermelonBackground{
-    position: absolute;
-    background: url(backgroundPatterns/watermelon_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
+    animation: animatedBackground 15s infinite linear;
 }
 @keyframes animatedBackground {
 	from { background-position: 0 100%; }
 	to { background-position: 0 0; }
 }
+.watermelonBG {
+    background: url(backgroundPatterns/watermelon_pattern.png);
+}
+.freshairBG{
+    background: url(backgroundPatterns/freshair_pattern.png);
+    background-position-x: 0 !important;
+}
+.coffeeBG{
+    background: url(backgroundPatterns/vanilla_pattern.png);
+}
+.eucalyptusBG{
+    background: url(backgroundPatterns/eucalyptus_pattern.png);
+}
+.gardeniaBG{
+    background: url(backgroundPatterns/gardenia_pattern.png);
+}
+.mahoganyBG{
+    background: url(backgroundPatterns/mahogany_pattern.png);
+}
+
+/* Other */
 .logoImage{
     height:50px;
 }
@@ -122,7 +100,6 @@ p{
     color:F9F9F9;
     font-family: "Roboto-Regular",Times,serif;
     font-size:20px;
-    
 }
 .button{
     color: #fbfcfd;

@@ -7,21 +7,23 @@ export default class ShoppingCartButton extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { showCart: false };
+
     // bind all clicking mechanisms
     this.ShowSidebar = this.ShowSidebar.bind(this);
     this.ShowNoSidebar = this.ShowNoSidebar.bind(this);
   }
 
   ShowSidebar() {
-    document.getElementById("cartSideNavID").style.width = "20%";
+    //document.getElementById("cartSideNavID").style.width = "20%";
+    this.setState({ showCart: true });
     this.forceUpdate();
-    console.log("Show the Sidebar 55\n");
   }
 
   ShowNoSidebar() {
-    document.getElementById("cartSideNavID").style.width = "0px";
+    //document.getElementById("cartSideNavID").style.width = "0px";
+    this.setState({ showCart: false });
     this.forceUpdate();
-    console.log("No Show the Sidebar\n");
   }
 
   render() {
@@ -29,6 +31,7 @@ export default class ShoppingCartButton extends React.Component {
       (acc, item) => acc + 18.99 * item.quantity,
       0
     );
+    const showCart = this.state.showCart;
 
     let shoppingCartItems = (
       <div>
@@ -62,11 +65,8 @@ export default class ShoppingCartButton extends React.Component {
       </div>
     );
 
-    let showCart = (
-      <div>
-        <button onMouseDown={this.ShowSidebar} className="cart-text">
-          CART
-        </button>
+    let cart = (
+      <div className="shopping-cart-parent">
         <div id="cartSideNavID" class="sidenav">
           <a
             href="javascript:void(0)"
@@ -75,14 +75,33 @@ export default class ShoppingCartButton extends React.Component {
           >
             Close
           </a>
-          <h2 style={{ paddingLeft: "15px" }}>Your Box</h2>
+          <h2
+            style={{
+              paddingLeft: "15px",
+              marginBottom: "10px",
+              letterSpacing: "1px",
+            }}
+          >
+            YOUR BOX
+          </h2>
           {shoppingCartItems}
-          <p>Total Cost: {totalCost}</p>
+          <p
+            style={{ paddingLeft: "15px", marginTop: "10%", fontSize: "20px" }}
+          >
+            Total Cost: {totalCost.toFixed(2)}
+          </p>
           <Checkout itemsInCart={this.props.itemsInCart} />
         </div>
       </div>
     );
 
-    return <div className="shopping-cart-parent">{showCart}</div>;
+    return (
+      <div>
+        <button onMouseDown={this.ShowSidebar} className="cart-text">
+          CART
+        </button>
+        {showCart ? cart : undefined}
+      </div>
+    );
   }
 }

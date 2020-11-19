@@ -1,6 +1,7 @@
 html {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    background-color: #f9f9f9;
 }
 .child {
     height: 100vh;

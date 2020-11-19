@@ -12,11 +12,15 @@
 
 .topnav-right {
     float: right;
+    width: auto;
+    position: relative;
 }
 
 .topnav-link {
+    float: left;
     margin-top: 10px;
     margin-right: 10px;
+    position: absolute;
 }
 
 #wrapper {
