@@ -13,6 +13,10 @@ import freshImg from "./../../assets/detergentImages/freshairMockup.png";
 import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
 import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -50,6 +54,20 @@ export default class Home extends React.Component {
         break;
     }
 
+    window.onload = function() {
+
+      const query = new URLSearchParams(window.location.search);
+
+      if (query.get("success")) {
+        //"Order placed! You will receive an email confirmation."
+        toast("Success! You will be emailed your receipt shortly", { type: "success" });
+      }
+      else if (query.get("error")) {
+        //"Order canceled -- continue to shop around and checkout when you're ready."
+        toast("Could not connect to Checkout. Please try again later", { type: "error" });
+      }
+
+    }
     const matching = productInfo.find((ele) => ele.name === name);
     [desc1, desc2, scent1, scent2, scent3] = [
       matching.desc1,
