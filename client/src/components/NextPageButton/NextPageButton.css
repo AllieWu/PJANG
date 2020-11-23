@@ -1,15 +1,10 @@
 
-html, body {
-  cursor: progress;
-  background-color: white;
-  transition: all 1s ease-in-out;
-  transition-duration: 2s;
-}
+
 button1 {
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
-    overflow: hidden;  
+    overflow: hidden;
     height: 120px; 
     width:  120px;
 	cursor:pointer, auto;

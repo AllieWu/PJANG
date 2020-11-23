@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import pages from "./productinfo.json";
+
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 
 const Product = (props) => {
   useEffect(() => {
     switch (props.match.params.pageNumber) {
       case "watermelon-cucumber":
+      default:
         props.setPage(pages[0]);
         break;
       case "white-gardenia":
@@ -27,17 +29,9 @@ const Product = (props) => {
     }
   });
 
-  //  console.log(props.page);
-  //  console.log(props.match.params.pageNumber);
-  console.log(props.page.name);
-  console.log(props.itemsInCart);
-  console.log(
-    props.itemsInCart.find((i) => i.name === props.page.name)?.quantity ?? -1
-  );
-
   return (
     <div>
-      <div>
+      <div style={{ top: "15%" }}>
         <h1>{props.page.name}</h1>
         <h3>{props.page.desc1}</h3>
         <h3>{props.page.desc2}</h3>
@@ -51,8 +45,9 @@ const Product = (props) => {
       <AddToCartButton
         style={{ width: "200px" }}
         quantity={
-          props.itemsInCart.find((i) => i.name === props.page.name)?.quantity ??
-          0
+          props.itemsInCart?.find(
+            (i) => i.price_data.product_data.name === props.page.name
+          )?.quantity ?? 0
         } // try to find the existing count in our shopping cart before assuming count = 0
         name={props.page.name}
         onAddToCartClick={props.handleAddToCartClick}
