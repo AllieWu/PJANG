@@ -109,7 +109,7 @@ const App = () => {
           <Redirect to="/Home" />
         </Route>
         <Route
-          path="/Product/:pageNumber"
+          path="/product/:pageNumber"
           render={(props) => {
             return (
               <Product
