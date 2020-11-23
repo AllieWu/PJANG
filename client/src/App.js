@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
+import History from "./views/History/History";
 import NotFound from "./views/NotFound";
 import Header from "./components/Header/Header.js"
 import items from "./views/Product/productinfo.json";
@@ -119,6 +120,15 @@ const App = () => {
                 itemsInCart={itemsInCart}
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
+              />
+            );
+          }}
+        />
+        <Route 
+          path="/History"
+          render={() => {
+            return (
+              <History 
               />
             );
           }}
