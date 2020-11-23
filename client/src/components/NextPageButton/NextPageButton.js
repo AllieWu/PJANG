@@ -56,7 +56,7 @@ export default class NextPageButton extends React.Component {
   let showNextPage = (
 
 		<div >
-  <button id= {this.props.id2} z-index="2" outline="none" transparent  vertical-align="bottom" text-align="center" fill="none" 
+  <button className="nextPageButton" id= {this.props.id2}
 		      onMouseMove={this.CaptureAndUpdate.bind(this)} onMouseLeave={this.PutBackToNormal}
 			  onMouseDown={this.routeChange}>
 	    <svg viewBox="0 0 120 120" height="120" width="120" > 
