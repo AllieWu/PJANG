@@ -7,7 +7,8 @@
         "desc2": "A sweet, cool and refreshing smell for brightening up your day. Great for picnic blankets, overalls, and being in a generally good mood.",
         "scent1": "Crisp Cucumber",
         "scent2": "Sweet Melon",
-        "scent3": "Cool Grapefruit"
+        "scent3": "Cool Grapefruit",
+        "images": ["https://i.imgur.com/X3mBQfo.jpg"]
     },
 
     {
@@ -18,7 +19,8 @@
         "desc2": "A sweet and floral perfume with relaxing notes, best used after a carefree frolic through a field of wildflowers.",
         "scent1": "Gardenia Shrub",
         "scent2": "Floral Essence",
-        "scent3": "Apple Water"
+        "scent3": "Apple Water",
+        "images": ["https://i.imgur.com/ZLWnA25.jpg"]
     },
 
     {
@@ -29,7 +31,8 @@
         "desc2": "A great everyday alternative to cologne, or for a getaway to a log cabin hidden deep in a snowy forest.",
         "scent1": "Oak and Mahogany Wood",
         "scent2": "Boreal Forestry",
-        "scent3": "Light Musk"
+        "scent3": "Light Musk",
+        "images": ["https://i.imgur.com/AXs5etu.jpg"]
     },
 
     {
@@ -40,7 +43,8 @@
         "desc2": "A soft, cottony fragrance that smells even cleaner than clean. Great for leaping face-first into a gigantic, fluffy comforter.",
         "scent1": "Cotton",
         "scent2": "Ozone",
-        "scent3": "Tropical Fruit"
+        "scent3": "Tropical Fruit",
+        "images": ["https://i.imgur.com/JLbEBbg.jpg"]
     },
 
     {
@@ -51,7 +55,8 @@
         "desc2": "Smells like the steam rising off of a hot vanilla latte. Great for sitting in an armchair in a quaint neighborhood cafe.",
         "scent1": "Dark Coffee Beans",
         "scent2": "Vanilla Extract",
-        "scent3": "Hazelnut Cream"
+        "scent3": "Hazelnut Cream",
+        "images": ["https://i.imgur.com/TVUydqG.jpg"]
     },
 
     {
@@ -62,7 +67,8 @@
         "desc2": "A natural scent inspired by popular aromatherapy oil mixtures. Great for towels, bath robes, and having a \"me day.\"",
         "scent1": "Tea Tree and Eucalyptus",
         "scent2": "Natural Herbs",
-        "scent3": "Bergamot Orange"
+        "scent3": "Bergamot Orange",
+        "images": ["https://i.imgur.com/cKUqNqK.jpg"]
     }
 
 ]

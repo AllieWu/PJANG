@@ -20,7 +20,7 @@ export default class AddToCartButton extends React.Component {
     this.state.onAddToCartClick(this.props.name); // update the shopping cart
 
     // this is to update the button type
-    this.state.quantity++;
+    this.setState({ quantity: this.state.quantity + 1 });
     this.forceUpdate(); // force update makes the component re-render (so we can recalculate the incrementDecrementComponent)
   }
 
@@ -28,7 +28,7 @@ export default class AddToCartButton extends React.Component {
     this.state.onRemoveFromCartClick(this.props.name); // up date the shopping cart
 
     // this is to update the button type
-    this.state.quantity--;
+    this.setState({ quantity: this.state.quantity - 1 });
     this.forceUpdate();
   }
 
@@ -66,7 +66,7 @@ export default class AddToCartButton extends React.Component {
 
     let componentToShow = (
       <div className="height-width100">
-        {this.props.quantity == 0
+        {this.props.quantity === 0
           ? addToCartComponent
           : incrementDecrementComponent}
       </div>

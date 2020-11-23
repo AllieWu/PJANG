@@ -1,6 +1,7 @@
 import React from "react";
 import AddToCartButton from "./../AddToCartButton/AddToCartButton.js";
 import "./ShoppingCartButton.css";
+import Checkout from "./../Checkout/Checkout.js";
 
 export default class ShoppingCartButton extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class ShoppingCartButton extends React.Component {
   }
 
   ShowSidebar() {
-    document.getElementById("cartSideNavID").style.width = "250px";
+    document.getElementById("cartSideNavID").style.width = "20%";
     this.forceUpdate();
     console.log("Show the Sidebar 55\n");
   }
@@ -24,39 +25,48 @@ export default class ShoppingCartButton extends React.Component {
   }
 
   render() {
-    const totalCost = this.props.itemsInCart.reduce(
-      (acc, item) => acc + 15.99 * item.quantity,
+    const totalCost = this.props.itemsInCart?.reduce(
+      (acc, item) => acc + 18.99 * item.quantity,
       0
     );
 
     let shoppingCartItems = (
       <div>
-        {this.props.itemsInCart.map((item) => {
+        {this.props.itemsInCart.map((ele) => {
           // if you decrease to 0, remove from shopping cart
-          if (item.quantity != 0) {
+          if (ele.quantity !== 0) {
             return (
-              <div id={item.name} className="cart-item">
-                <p className="cart-item-name">{item.name}</p>
+              <div id={ele.price_data.product_data.name} className="cart-item">
+                <p className="cart-item-name">
+                  {ele.price_data.product_data.name}
+                </p>
                 <AddToCartButton
-                  quantity={item.quantity} // try to find the existing count in our shopping cart before assuming count = -
-                  name={item.name}
+                  quantity={ele.quantity} // try to find the existing count in our shopping cart before assuming count = -
+                  name={ele.price_data.product_data.name}
                   onAddToCartClick={() =>
-                    this.props.onAddToCartClick(item.name)
+                    this.props.onAddToCartClick(
+                      ele.price_data.product_data.name
+                    )
                   }
                   onRemoveFromCartClick={() =>
-                    this.props.onRemoveFromCartClick(item.name)
+                    this.props.onRemoveFromCartClick(
+                      ele.price_data.product_data.name
+                    )
                   }
                 />
               </div>
             );
           }
+          return undefined;
         })}
       </div>
     );
 
     let showCart = (
       <div>
-        <button onMouseDown={this.ShowSidebar}>Cart</button>
+        <button onMouseDown={this.ShowSidebar} className="cart-text">
+          CART
+        </button>
         <div id="cartSideNavID" class="sidenav">
           <a
             href="javascript:void(0)"
@@ -65,9 +75,10 @@ export default class ShoppingCartButton extends React.Component {
           >
             Close
           </a>
-          <h4>Your Box</h4>
+          <h2 style={{ paddingLeft: "15px" }}>Your Box</h2>
           {shoppingCartItems}
           <p>Total Cost: {totalCost}</p>
+          <Checkout itemsInCart={this.props.itemsInCart} />
         </div>
       </div>
     );
