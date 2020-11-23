@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { Link } from "react-router-dom";
+//import config from "../../config.js";
+
+console.log(process.env.REACT_APP_FKEY);
+console.log(process.env.REACT_APP_AUTH0_DOMAIN);
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe(process.env.REACT_APP_FKEY);
