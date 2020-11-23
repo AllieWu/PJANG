@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+
+import items from "./../Product/productinfo.json";
+import NavBarButton       from "./../../components/NavBarButton/NavBarButton";
+import NextPageButton       from "./../../components/NextPageButton/NextPageButton";
+
+
 import "./../../assets/style.css";
 
 import productInfo from "./../Product/productinfo.json";
@@ -17,6 +23,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -25,37 +32,55 @@ export default class Home extends React.Component {
   getProductPage(name) {
     let classPrePend, img;
     let desc1, desc2, scent1, scent2, scent3;
-
+    let redirectpage, newpage, newpage2;
+  
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
         img = eucalyptusImg;
+        newpage = "/newpage_1";
+        newpage2 = "/newpage_2";
+        redirectpage = "/product/eucalyptus-tea-tree";
         break;
       case "White Gardenia":
         classPrePend = "gardenia";
         img = gardeniaImg;
+        newpage = "/newpage_3";
+        newpage2 = "/newpage_4";
+        redirectpage = "/product/white-gardenia";
         break;
       case "Fresh Air":
         classPrePend = "freshair";
         img = freshImg;
+        newpage = "/newpage_5";
+        newpage2 = "/newpage_6";
+        redirectpage = "/product/fresh-air";
         break;
       case "Coffee Vanilla":
         classPrePend = "coffee";
         img = coffeeImg;
+        newpage = "/newpage_7";
+        newpage2 = "/newpage_8";
+        redirectpage = "/product/coffee-vanilla";
         break;
       case "Mahogany Teakwood":
         classPrePend = "mahogany";
         img = mahoganyImg;
+        newpage = "/newpage_9";
+        newpage2 = "/newpage_10";
+        redirectpage = "/product/mahogany-teakwood";
         break;
       case "Watermelon Cucumber":
       default:
         classPrePend = "watermelon";
         img = watermelonImg;
+        newpage = "/newpage_11";
+        newpage2 = "/newpage_12";
+        redirectpage = "/product/watermelon-cucumber";
         break;
     }
 
     window.onload = function() {
-
       const query = new URLSearchParams(window.location.search);
 
       if (query.get("success")) {
@@ -90,12 +115,18 @@ export default class Home extends React.Component {
             <li>{scent3}</li>
           </ul>
           <p className="price">$18.99</p>
+		  
+		  <div class="center">
+			< NextPageButton id = {newpage} id2 = {newpage2} redirectpage={redirectpage}/> 
+			</div> 
+		  
           <AddToCartButton
             style={{
               width: "200px",
               bottom: "0",
               left: "0",
             }}
+			
             quantity={
               this.props.itemsInCart?.find(
                 (i) => i.price_data.product_data.name === name
@@ -105,27 +136,28 @@ export default class Home extends React.Component {
             onAddToCartClick={this.props.handleAddToCartClick}
             onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           />
-          <Link
-            id="logo-link"
-            to="/Product/watermelon-cucumber"
-            style={{ width: "50px", height: "50px", color: "black" }}
-          >
-            <img
-              src={img}
-              alt={classPrePend + " Image"}
-              className="productImage"
-            />
-          </Link>
+          <img
+            src={img}
+            alt={classPrePend + " Image"}
+            className="productImage"
+          />	
         </div>
+
 
         <div className="backgroundContainer">
           <div className={classPrePend + "BG background"}></div>
         </div>
       </div>
     );
+	
+	
+	
+	
+	
+	
   }
 
-  render() {
+ render() {
     let productNames = [
       "Watermelon Cucumber",
       "Eucalyptus Tea Tree",
@@ -135,12 +167,25 @@ export default class Home extends React.Component {
       "Mahogany Teakwood",
     ];
 
+
+
+
     return (
+	
       <div className="App">
+
+	  
+		
+		
+       
+
         <div className="container">
           {productNames.map((name) => this.getProductPage(name))}
         </div>
+        
+
       </div>
     );
   }
+  
 }

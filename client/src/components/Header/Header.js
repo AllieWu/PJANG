@@ -29,7 +29,7 @@ const Header = (props) => {
             onRemoveFromCartClick={props.handleRemoveFromCartClick}
           />
       </div>
-      
+
     </div>
   );
 };

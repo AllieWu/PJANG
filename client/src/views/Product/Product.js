@@ -57,22 +57,22 @@ const Product = (props) => {
         <h4>Products</h4>
         <ul>
           <li>
-            <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>
+            <Link to="/product/watermelon-cucumber">Watermelon Cucumber</Link>
           </li>
           <li>
-            <Link to="/Product/white-gardenia">White Gardenia</Link>
+            <Link to="/product/white-gardenia">White Gardenia</Link>
           </li>
           <li>
-            <Link to="/Product/mahogany-teakwood">Mahogany Teakwood</Link>
+            <Link to="/product/mahogany-teakwood">Mahogany Teakwood</Link>
           </li>
           <li>
-            <Link to="/Product/fresh-air">Fresh Air</Link>
+            <Link to="/product/fresh-air">Fresh Air</Link>
           </li>
           <li>
-            <Link to="/Product/coffee-vanilla">Coffee Vanilla</Link>
+            <Link to="/product/coffee-vanilla">Coffee Vanilla</Link>
           </li>
           <li>
-            <Link to="/Product/eucalyptus-tea-tree">Eucalyptus Tea Tree</Link>
+            <Link to="/product/eucalyptus-tea-tree">Eucalyptus Tea Tree</Link>
           </li>
         </ul>
         <h4>Return Home</h4>
