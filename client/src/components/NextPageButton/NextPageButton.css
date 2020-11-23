@@ -1,6 +1,4 @@
-
-
-button1 {
+.button1 {
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
@@ -10,6 +8,11 @@ button1 {
 	cursor:pointer, auto;
     transition-duration: 2s;
 	outline: none;
-
-	
+}
+.nextPageButton {
+    background-color: transparent;
+    z-index: 2;
+    outline: none transparent;
+    vertical-align: bottom;
+    text-align: center;
 }
