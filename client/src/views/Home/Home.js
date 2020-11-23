@@ -32,69 +32,55 @@ export default class Home extends React.Component {
   getProductPage(name) {
     let classPrePend, img;
     let desc1, desc2, scent1, scent2, scent3;
-	let myCircle;
-	let redirectpage, space1, space2;
-	let newpage, newpage2;
-
+    let redirectpage, newpage, newpage2;
+  
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
         img = eucalyptusImg;
-				
-		newpage = "/newpage_1";
-		newpage2 = "/newpage_2";
-
-				////put the circle button here
+        newpage = "/newpage_1";
+        newpage2 = "/newpage_2";
+        redirectpage = "/product/eucalyptus-tea-tree";
         break;
       case "White Gardenia":
         classPrePend = "gardenia";
         img = gardeniaImg;
-		
-		newpage = "/newpage_3";
-		newpage2 = "/newpage_4";
-		
-		
-		
+        newpage = "/newpage_3";
+        newpage2 = "/newpage_4";
+        redirectpage = "/product/white-gardenia";
         break;
       case "Fresh Air":
         classPrePend = "freshair";
         img = freshImg;
-		
-		newpage = "/newpage_5";
-		newpage2 = "/newpage_6";
-		
+        newpage = "/newpage_5";
+        newpage2 = "/newpage_6";
+        redirectpage = "/product/fresh-air";
         break;
       case "Coffee Vanilla":
         classPrePend = "coffee";
         img = coffeeImg;
-		
-		newpage = "/newpage_7";
-		newpage2 = "/newpage_8";
-		
-		
+        newpage = "/newpage_7";
+        newpage2 = "/newpage_8";
+        redirectpage = "/product/coffee-vanilla";
         break;
       case "Mahogany Teakwood":
         classPrePend = "mahogany";
         img = mahoganyImg;
-		
-		newpage = "/newpage_9";
-		newpage2 = "/newpage_10";
-		
+        newpage = "/newpage_9";
+        newpage2 = "/newpage_10";
+        redirectpage = "/product/mahogany-teakwood";
         break;
       case "Watermelon Cucumber":
       default:
         classPrePend = "watermelon";
         img = watermelonImg;
-		
-		
-		newpage = "/newpage_11";
-		newpage2 = "/newpage_12";
-		
+        newpage = "/newpage_11";
+        newpage2 = "/newpage_12";
+        redirectpage = "/product/watermelon-cucumber";
         break;
     }
 
     window.onload = function() {
-
       const query = new URLSearchParams(window.location.search);
 
       if (query.get("success")) {
@@ -131,10 +117,8 @@ export default class Home extends React.Component {
           <p className="price">$18.99</p>
 		  
 		  <div class="center">
-			< NextPageButton id = {newpage} id2 = {newpage2}/> 
+			< NextPageButton id = {newpage} id2 = {newpage2} redirectpage={redirectpage}/> 
 			</div> 
-			 
-			
 		  
           <AddToCartButton
             style={{
@@ -152,18 +136,11 @@ export default class Home extends React.Component {
             onAddToCartClick={this.props.handleAddToCartClick}
             onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           />
-          <Link
-            id="logo-link"
-            to="/Product/watermelon-cucumber"
-            style={{ width: "50px", height: "50px", color: "black" }}
-          >
-            <img
-              src={img}
-              alt={classPrePend + " Image"}
-              className="productImage"
-            />	
-			
-          </Link>
+          <img
+            src={img}
+            alt={classPrePend + " Image"}
+            className="productImage"
+          />	
         </div>
 
 
