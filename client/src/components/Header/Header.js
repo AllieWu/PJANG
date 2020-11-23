@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import NavBarButton       from "./../../components/NavBarButton/NavBarButton";
+import NextPageButton       from "./../../components/NextPageButton/NextPageButton";
+
 
 import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
 import laundrLogo from "./../../assets/laundrLogo.png"
@@ -15,10 +18,13 @@ const Header = (props) => {
           src={laundrLogo}
           alt="Laundr logo"
         />
+		
       </Link>
 
       {/* Page Links */}
+
       <div className="topnav-right align">
+
         <Link className="topnav-link" to="/Register">
           Sign in
         </Link>
@@ -29,7 +35,7 @@ const Header = (props) => {
             onRemoveFromCartClick={props.handleRemoveFromCartClick}
           />
       </div>
-      
+
     </div>
   );
 };

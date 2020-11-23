@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+
+import items from "./../Product/productinfo.json";
+import NavBarButton       from "./../../components/NavBarButton/NavBarButton";
+import NextPageButton       from "./../../components/NextPageButton/NextPageButton";
+
+
 import "./../../assets/style.css";
 
 import productInfo from "./../Product/productinfo.json";
@@ -17,6 +23,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -25,32 +32,64 @@ export default class Home extends React.Component {
   getProductPage(name) {
     let classPrePend, img;
     let desc1, desc2, scent1, scent2, scent3;
+	let myCircle;
+	let redirectpage, space1, space2;
+	let newpage, newpage2;
 
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
         img = eucalyptusImg;
+				
+		newpage = "/newpage_1";
+		newpage2 = "/newpage_2";
+
+				////put the circle button here
         break;
       case "White Gardenia":
         classPrePend = "gardenia";
         img = gardeniaImg;
+		
+		newpage = "/newpage_3";
+		newpage2 = "/newpage_4";
+		
+		
+		
         break;
       case "Fresh Air":
         classPrePend = "freshair";
         img = freshImg;
+		
+		newpage = "/newpage_5";
+		newpage2 = "/newpage_6";
+		
         break;
       case "Coffee Vanilla":
         classPrePend = "coffee";
         img = coffeeImg;
+		
+		newpage = "/newpage_7";
+		newpage2 = "/newpage_8";
+		
+		
         break;
       case "Mahogany Teakwood":
         classPrePend = "mahogany";
         img = mahoganyImg;
+		
+		newpage = "/newpage_9";
+		newpage2 = "/newpage_10";
+		
         break;
       case "Watermelon Cucumber":
       default:
         classPrePend = "watermelon";
         img = watermelonImg;
+		
+		
+		newpage = "/newpage_11";
+		newpage2 = "/newpage_12";
+		
         break;
     }
 
@@ -90,12 +129,20 @@ export default class Home extends React.Component {
             <li>{scent3}</li>
           </ul>
           <p className="price">$18.99</p>
+		  
+		  <div class="center">
+			< NextPageButton id = {newpage} id2 = {newpage2}/> 
+			</div> 
+			 
+			
+		  
           <AddToCartButton
             style={{
               width: "200px",
               bottom: "0",
               left: "0",
             }}
+			
             quantity={
               this.props.itemsInCart?.find(
                 (i) => i.price_data.product_data.name === name
@@ -114,18 +161,26 @@ export default class Home extends React.Component {
               src={img}
               alt={classPrePend + " Image"}
               className="productImage"
-            />
+            />	
+			
           </Link>
         </div>
+
 
         <div className="backgroundContainer">
           <div className={classPrePend + "BG background"}></div>
         </div>
       </div>
     );
+	
+	
+	
+	
+	
+	
   }
 
-  render() {
+ render() {
     let productNames = [
       "Watermelon Cucumber",
       "Eucalyptus Tea Tree",
@@ -135,12 +190,25 @@ export default class Home extends React.Component {
       "Mahogany Teakwood",
     ];
 
+
+
+
     return (
+	
       <div className="App">
+
+	  
+		
+		
+       
+
         <div className="container">
           {productNames.map((name) => this.getProductPage(name))}
         </div>
+        
+
       </div>
     );
   }
+  
 }
