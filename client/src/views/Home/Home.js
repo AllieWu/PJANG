@@ -118,11 +118,6 @@ export default class Home extends React.Component {
           </div>
 
           <AddToCartButton
-            style={{
-              width: "200px",
-              bottom: "0",
-              left: "0",
-            }}
             quantity={
               this.props.itemsInCart?.find(
                 (i) => i.price_data.product_data.name === name
@@ -158,9 +153,7 @@ export default class Home extends React.Component {
 
     return (
       <div className="App">
-        <div className="container">
-          {productNames.map((name) => this.getProductPage(name))}
-        </div>
+        {productNames.map((name) => this.getProductPage(name))}
       </div>
     );
   }

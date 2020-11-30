@@ -1,9 +1,6 @@
 import React from "react";
 import "./NextPageButton.css";
-import { Redirect, Link } from "react-router-dom";
-// use import NextPageButton from "./../../components/NextPageButton/NextPageButton";
-// use <NextPageButton  redirectpage="/newpage_1" />
-// npm install --save-dev @iconify/react @iconify/icons-carbon
+
 export default class NextPageButton extends React.Component {
   constructor(props) {
     super(props);
@@ -15,30 +12,24 @@ export default class NextPageButton extends React.Component {
   }
 
   routeChange() {
-    console.log("Changing the route to [", this.props.redirectpage, "]\n");
     window.location.pathname = this.props.redirectpage;
   }
 
   CaptureAndUpdate(e) {
     this.setState({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
-    //console.log("Show the NextPageButton [",this.state.x, ",", this.state.y, "] \n");
-    if (this.state.x > 85) {
-      document.getElementById(this.props.id).style.cx = 85;
-    } else {
-      if (this.state.x < 26) {
+
+    if (this.state.x > 85) document.getElementById(this.props.id).style.cx = 85;
+    else {
+      if (this.state.x < 26)
         document.getElementById(this.props.id).style.cx = 26;
-      } else {
-        document.getElementById(this.props.id).style.cx = this.state.x;
-      }
+      else document.getElementById(this.props.id).style.cx = this.state.x;
     }
-    if (this.state.y > 85) {
-      document.getElementById(this.props.id).style.cy = 85;
-    } else {
-      if (this.state.y < 26) {
+
+    if (this.state.y > 85) document.getElementById(this.props.id).style.cy = 85;
+    else {
+      if (this.state.y < 26)
         document.getElementById(this.props.id).style.cy = 26;
-      } else {
-        document.getElementById(this.props.id).style.cy = this.state.y;
-      }
+      else document.getElementById(this.props.id).style.cy = this.state.y;
     }
     document.getElementById(this.props.id).style.stroke = "black";
   }
@@ -46,7 +37,6 @@ export default class NextPageButton extends React.Component {
   PutBackToNormal() {
     document.getElementById(this.props.id).style.cx = 60;
     document.getElementById(this.props.id).style.cy = 60;
-    console.log("No Show the NextPageButton\n");
   }
 
   render() {

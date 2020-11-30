@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
-
-//import "./Checkout.css"
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
@@ -36,10 +32,9 @@ const Checkout = (props) => {
       // using `result.error.message`.
       console.log(result.error.message);
       window.location.href = "/Home/?error=true";
-    } else {
-      //if checkout session was successful and the user made a payment,
-      //append to the user's payment history
     }
+    // else, checkout session was successful and the user made a payment,
+    //append to the user's payment history
   };
 
   return (
