@@ -109,7 +109,7 @@ export default class Home extends React.Component {
           </ul>
           <p className="price">$18.99</p>
 
-          <div class="center">
+          <div className="center">
             <NextPageButton
               id={newpage}
               id2={newpage2}

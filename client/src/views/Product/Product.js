@@ -43,7 +43,7 @@ const Product = (props) => {
         </ul>
       </div>
       <AddToCartButton
-        style={{ width: "200px" }}
+        style={{ width: "20em" }}
         quantity={
           props.itemsInCart?.find(
             (i) => i.price_data.product_data.name === props.page.name

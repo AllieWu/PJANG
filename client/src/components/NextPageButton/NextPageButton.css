@@ -3,8 +3,8 @@
   background-repeat: no-repeat;
   border: none;
   overflow: hidden;
-  height: 120px;
-  width: 120px;
+  height: 12em;
+  width: 12em;
   cursor: pointer, auto;
   transition-duration: 2s;
   outline: none;

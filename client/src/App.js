@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import "./App.css";
+
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import NotFound from "./views/NotFound";
 import Header from "./components/Header/Header.js";
 import items from "./views/Product/productinfo.json";
-import "./App.css";
 
 const App = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -19,8 +20,6 @@ const App = () => {
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
-        console.log("updating item with name " + name);
-
         return itemsInCart.map((item) => {
           if (item.price_data.product_data.name !== name) return item;
 
@@ -35,12 +34,10 @@ const App = () => {
             },
             quantity: item.quantity + 1,
           };
-          //return { ...itemInCart, quantity: item.price_data.quantity + 1 };
         });
       }
 
       // otherwise, add new item to cart
-      console.log("adding new item with name " + name);
       const item = items.find((item) => item.name === name);
       return [
         ...itemsInCart,
@@ -56,7 +53,6 @@ const App = () => {
           quantity: 1,
         },
       ];
-      //return [...itemsInCart, { ...item, quantity: 1 }];
     });
 
     itemsInCart.forEach((e) => console.log(e));
