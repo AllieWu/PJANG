@@ -1,15 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./Home.css";
-
-import items from "./../Product/productinfo.json";
-import NavBarButton       from "./../../components/NavBarButton/NavBarButton";
-import NextPageButton       from "./../../components/NextPageButton/NextPageButton";
-
-
 import "./../../assets/style.css";
 
 import productInfo from "./../Product/productinfo.json";
+import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 
 import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
@@ -19,10 +16,7 @@ import freshImg from "./../../assets/detergentImages/freshairMockup.png";
 import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
 import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 toast.configure();
-
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -33,7 +27,7 @@ export default class Home extends React.Component {
     let classPrePend, img;
     let desc1, desc2, scent1, scent2, scent3;
     let redirectpage, newpage, newpage2;
-  
+
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
@@ -80,19 +74,18 @@ export default class Home extends React.Component {
         break;
     }
 
-    window.onload = function() {
+    window.onload = function () {
       const query = new URLSearchParams(window.location.search);
+      if (query.get("success"))
+        toast("Success! You will be emailed your receipt shortly", {
+          type: "success",
+        });
+      else if (query.get("error"))
+        toast("Could not connect to Checkout. Please try again later", {
+          type: "error",
+        });
+    };
 
-      if (query.get("success")) {
-        //"Order placed! You will receive an email confirmation."
-        toast("Success! You will be emailed your receipt shortly", { type: "success" });
-      }
-      else if (query.get("error")) {
-        //"Order canceled -- continue to shop around and checkout when you're ready."
-        toast("Could not connect to Checkout. Please try again later", { type: "error" });
-      }
-
-    }
     const matching = productInfo.find((ele) => ele.name === name);
     [desc1, desc2, scent1, scent2, scent3] = [
       matching.desc1,
@@ -115,18 +108,16 @@ export default class Home extends React.Component {
             <li>{scent3}</li>
           </ul>
           <p className="price">$18.99</p>
-		  
-		  <div class="center">
-			< NextPageButton id = {newpage} id2 = {newpage2} redirectpage={redirectpage}/> 
-			</div> 
-		  
+
+          <div class="center">
+            <NextPageButton
+              id={newpage}
+              id2={newpage2}
+              redirectpage={redirectpage}
+            />
+          </div>
+
           <AddToCartButton
-            style={{
-              width: "200px",
-              bottom: "0",
-              left: "0",
-            }}
-			
             quantity={
               this.props.itemsInCart?.find(
                 (i) => i.price_data.product_data.name === name
@@ -140,24 +131,17 @@ export default class Home extends React.Component {
             src={img}
             alt={classPrePend + " Image"}
             className="productImage"
-          />	
+          />
         </div>
-
 
         <div className="backgroundContainer">
           <div className={classPrePend + "BG background"}></div>
         </div>
       </div>
     );
-	
-	
-	
-	
-	
-	
   }
 
- render() {
+  render() {
     let productNames = [
       "Watermelon Cucumber",
       "Eucalyptus Tea Tree",
@@ -167,25 +151,10 @@ export default class Home extends React.Component {
       "Mahogany Teakwood",
     ];
 
-
-
-
     return (
-	
       <div className="App">
-
-	  
-		
-		
-       
-
-        <div className="container">
-          {productNames.map((name) => this.getProductPage(name))}
-        </div>
-        
-
+        {productNames.map((name) => this.getProductPage(name))}
       </div>
     );
   }
-  
 }

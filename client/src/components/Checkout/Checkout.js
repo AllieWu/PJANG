@@ -1,27 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
-
-//import "./Checkout.css"
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
 
 const Checkout = (props) => {
-
   // When the customer clicks on the button, redirect them to Checkout.
   const handleClick = async (event) => {
-
     const stripe = await stripePromise;
 
     //creates checkout session
     const response = await fetch("/create-session", {
       method: "POST",
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(props.itemsInCart.filter(e => e.quantity > 0))
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(props.itemsInCart.filter((e) => e.quantity > 0)),
     });
     console.log("request made");
 
@@ -37,18 +31,11 @@ const Checkout = (props) => {
       // error, display the localized error message to your customer
       // using `result.error.message`.
       console.log(result.error.message);
-      window.location.href = '/Home/?error=true';
-
+      window.location.href = "/Home/?error=true";
     }
-    else {
-
-      //if checkout session was successful and the user made a payment,
-      //append to the user's payment history 
-
-    }
- 
+    // else, checkout session was successful and the user made a payment,
+    //append to the user's payment history
   };
-
 
   return (
     <div className="checkoutButtonParent">

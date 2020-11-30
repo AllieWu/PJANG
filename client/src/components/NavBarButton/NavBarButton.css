@@ -1,31 +1,32 @@
-html,body {
-    height:100%;
+html,
+body {
+  height: 100%;
 }
 
 button {
-    background-color: white;
-    width: 80px;
-    height: 20px;
-    color: black;
-    line-height: 19.5px !important;
-    border-width: 2px;
+  background-color: white;
+  width: 80px;
+  height: 20px;
+  color: black;
+  line-height: 19.5px !important;
+  border-width: 2px;
 }
 
 .navbarbutton-parent {
-    height: 0px;
-    width: 100%;
-    padding: 0px;
-    margin: 5px;
-    background-color: white;
-    border-width: 2px;
-    border-style: outset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial;
-    border-radius: 5px;
+  height: 0px;
+  width: 100%;
+  padding: 0px;
+  margin: 5px;
+  background-color: white;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  border-radius: 5px;
 }
 /* Add a black background color to the top navigation */
 .NavBarButtonID {
-    height: 0px;
+  height: 0px;
   background-color: purple;
   overflow: hidden;
 }
@@ -59,6 +60,10 @@ button {
   display: none;
 }
 @media screen and (max-height: 450px) {
-  .NavBarButtonID {padding-top: 15px;}
-  .NavBarButtonID a {font-size: 18px;}
+  .NavBarButtonID {
+    padding-top: 15px;
+  }
+  .NavBarButtonID a {
+    font-size: 18px;
+  }
 }
