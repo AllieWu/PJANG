@@ -13,14 +13,10 @@ export default class NavBarButton extends React.Component {
   ShowNavBarButton() {
     document.getElementById("myTopnav").style.height = "40px";
     this.forceUpdate();
-    console.log("Show the NavBar 77\n");
-    this.forceUpdate();
   }
 
   ShowNoNavBarButton() {
     document.getElementById("myTopnav").style.height = "0px";
-    this.forceUpdate();
-    console.log("No Show the NavBar\n");
     this.forceUpdate();
   }
 

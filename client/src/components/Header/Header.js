@@ -8,12 +8,9 @@ import laundrLogo from "./../../assets/laundrLogo.png";
 const Header = (props) => {
   return (
     <div className="topnav">
-      {/* Logo */}
       <Link id="logo-link" to="/">
         <img className="topnav-logo" src={laundrLogo} alt="Laundr logo" />
       </Link>
-
-      {/* Page Links */}
       <div className="topnav-right align">
         <Link className="topnav-link" to="/Register">
           Sign in
