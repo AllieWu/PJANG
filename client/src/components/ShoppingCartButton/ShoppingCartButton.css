@@ -1,5 +1,6 @@
-html,body {
-    height:100%;
+html,
+body {
+  height: 100%;
 }
 
 h4 {
@@ -8,21 +9,21 @@ h4 {
 }
 
 button {
-    background-color: #F9F9F9;
-    color: #3a3a3a;
-    width: 80px;
-    height: 20px;
-    line-height: 19.5px !important;
-    border-width: 0px;
+  background-color: #f9f9f9;
+  color: #3a3a3a;
+  width: 80px;
+  height: 20px;
+  line-height: 19.5px !important;
+  border-width: 0px;
 }
 
 .shopping-cart-parent {
-    height: auto;
-    width: 80px;
-    padding: 0px;
-    margin: 5px;
-    background-color: #F9F9F9;
-    color: #3a3a3a;
+  height: auto;
+  width: 80px;
+  padding: 0px;
+  margin: 5px;
+  background-color: #f9f9f9;
+  color: #3a3a3a;
 }
 
 .sidenav {
@@ -35,10 +36,10 @@ button {
   background-color: #d4d4d4;
   overflow-x: hidden;
   transition: 0.5s;
-  padding: 1.3% .5% 1% .5%;
+  padding: 1.3% 0.5% 1% 0.5%;
   border-width: 5px;
   border-style: outset;
-  border-color: -internal-light-dark(#F9F9F9, grey);
+  border-color: -internal-light-dark(#f9f9f9, grey);
 }
 
 .sidenav a {
@@ -58,7 +59,7 @@ button {
   top: 0;
   right: 5px;
   font-size: 25px;
-  margin-left: 50px;    
+  margin-left: 50px;
   font-family: social-gothic;
   letter-spacing: 1px;
   margin-top: 0;
@@ -83,7 +84,7 @@ button {
 }
 
 .cost-text {
-  color: #F9F9F9;
+  color: #f9f9f9;
   margin-left: 15px;
 }
 
@@ -95,14 +96,17 @@ button {
   letter-spacing: 1px;
   border-width: 1px;
   border-style: outset;
-  border-color: -internal-light-dark(#F9F9F9, rgb(133, 133, 133));
+  border-color: -internal-light-dark(#f9f9f9, rgb(133, 133, 133));
   border-image: initial;
   border-radius: 5px;
   float: right;
 }
 
-
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }

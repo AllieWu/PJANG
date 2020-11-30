@@ -1,21 +1,21 @@
 html {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    background-color: #f9f9f9;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  background-color: #f9f9f9;
 }
 
 .child {
-    height: 100vh;
-    width: 100%;
-    scroll-snap-align: start;
-    display: inline-block;
-    position: relative;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: inline-block;
+  position: relative;
 }
 
 .center {
-    position: absolute;
-    left: 55%;
-    top: 60%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;	
+  position: absolute;
+  left: 55%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
