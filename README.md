@@ -1,3 +1,22 @@
+# General
+## Team
+Allison Wu: Project Manager, Scrum Master, Developer
+
+Nathan Whelden: Developer
+
+Parus Thakur: Developer
+
+Greg Bolling: Developer, Assistant Project Manager
+
+Jiayan Huang: Developer
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## Notes
+1. This website is deployed to https://pjang.herokuapp.com/ via. Heroku
+2. This repository was originally cloned off of https://github.com/UFWebApps/MERN-Template
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# For Developers
 ## Viewing tasks for the project, sprint, and by individual
 For each sprint, each developer has been assigned tasks that we assign during the sprint planning process. 
 To see the team's tasks for the current sprint, navigate to the Projects tab > Sprint #
