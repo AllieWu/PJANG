@@ -14,15 +14,15 @@
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: bold;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   border-width: 1px;
   border-style: outset;
-  border-color: -internal-light-dark(#F9F9F9, rgb(133, 133, 133));
+  border-color: -internal-light-dark(#f9f9f9, rgb(133, 133, 133));
   border-image: initial;
   border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.checkoutButton:hover{
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+.checkoutButton:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }

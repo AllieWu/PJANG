@@ -3,18 +3,14 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
-import laundrLogo from "./../../assets/laundrLogo.png"
+import laundrLogo from "./../../assets/laundrLogo.png";
 
 const Header = (props) => {
   return (
     <div className="topnav">
       {/* Logo */}
       <Link id="logo-link" to="/">
-        <img
-          className="topnav-logo"
-          src={laundrLogo}
-          alt="Laundr logo"
-        />
+        <img className="topnav-logo" src={laundrLogo} alt="Laundr logo" />
       </Link>
 
       {/* Page Links */}
@@ -23,13 +19,12 @@ const Header = (props) => {
           Sign in
         </Link>
         <ShoppingCartButton
-            style={{ top: "50", left: "0" }}
-            itemsInCart={props.itemsInCart}
-            onAddToCartClick={props.handleAddToCartClick}
-            onRemoveFromCartClick={props.handleRemoveFromCartClick}
-          />
+          style={{ top: "50", left: "0" }}
+          itemsInCart={props.itemsInCart}
+          onAddToCartClick={props.handleAddToCartClick}
+          onRemoveFromCartClick={props.handleRemoveFromCartClick}
+        />
       </div>
-
     </div>
   );
 };
