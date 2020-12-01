@@ -62,7 +62,6 @@ h1 {
   font-family: "calmer" !important;
   color: black;
   padding: 0.3em 0 0.3em 0;
-  margin-left: 1%;
 }
 
 h2,
@@ -71,12 +70,10 @@ h4 {
   font-family: "roboto" !important;
   color: #3a3a3a;
   padding: 0.3em 0 0.3em 0;
-  margin-left: 1%;
 }
 
 p,
 li,
 a {
   font-family: "roboto" !important;
-  margin-left: 1%;
 }

@@ -98,27 +98,30 @@ export default class Home extends React.Component {
     return (
       <div className="child">
         <div className={classPrePend + " homeHeader"}>
-          <h1 className="title">{name + " Laundr Bombs"}</h1>
-          <h2>{desc1}</h2>
-          <h2>{desc2}</h2>
-          <h3>This fragrance has hints of:</h3>
-          <ul style={{ marginLeft: "5%" }}>
-            <li>{scent1}</li>
-            <li>{scent2}</li>
-            <li>{scent3}</li>
-          </ul>
-          <p className="price">$18.99</p>
+          <div className="autoscale">
+            <h1 className="title">{name + " Laundr Bombs"}</h1>
+            <h2>{desc1}</h2>
+            <h2>{desc2}</h2>
+            <h3>This fragrance has hints of:</h3>
+            <ul style={{ marginLeft: "5%" }}>
+              <li>{scent1}</li>
+              <li>{scent2}</li>
+              <li>{scent3}</li>
+            </ul>
+            <p className="price">$18.99</p>
 
-          <AddToCartButton
-            quantity={
-              this.props.itemsInCart?.find(
-                (i) => i.price_data.product_data.name === name
-              )?.quantity ?? 0
-            } // try to find the existing count in our shopping cart before assuming count = 0
-            name={name}
-            onAddToCartClick={this.props.handleAddToCartClick}
-            onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
-          />
+            <AddToCartButton
+              quantity={
+                this.props.itemsInCart?.find(
+                  (i) => i.price_data.product_data.name === name
+                )?.quantity ?? 0
+              } // try to find the existing count in our shopping cart before assuming count = 0
+              name={name}
+              onAddToCartClick={this.props.handleAddToCartClick}
+              onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+            />
+          </div>
+
           <div className="productParent">
             <img
               src={img}
