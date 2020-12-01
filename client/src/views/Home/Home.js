@@ -109,14 +109,6 @@ export default class Home extends React.Component {
           </ul>
           <p className="price">$18.99</p>
 
-          <div className="center">
-            <NextPageButton
-              id={newpage}
-              id2={newpage2}
-              redirectpage={redirectpage}
-            />
-          </div>
-
           <AddToCartButton
             quantity={
               this.props.itemsInCart?.find(
@@ -127,11 +119,20 @@ export default class Home extends React.Component {
             onAddToCartClick={this.props.handleAddToCartClick}
             onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           />
-          <img
-            src={img}
-            alt={classPrePend + " Image"}
-            className="productImage"
-          />
+          <div className="productParent">
+            <img
+              src={img}
+              alt={classPrePend + " Image"}
+              className="productImage"
+            />
+            <div className="center">
+              <NextPageButton
+                id={newpage}
+                id2={newpage2}
+                redirectpage={redirectpage}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="backgroundContainer">

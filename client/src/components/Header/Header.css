@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 1.5em;
+  padding: 1.5em 1.5em 1.5em 1em;
 }
 
 .topnav-logo {
