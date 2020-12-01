@@ -9,6 +9,12 @@ body {
 }
 
 /* Home page product pages headers*/
+.autoscale {
+  margin-left: 1%;
+  position: absolute;
+  display: inline-block;
+  max-height: 50%;
+}
 .homeHeader {
   width: 100%;
   height: 50%;
@@ -95,7 +101,6 @@ body {
 .price {
   font-family: "Roboto-Regular", Times, serif;
   font-size: 2em;
-  margin-left: 1% !important;
 }
 .button {
   color: #fbfcfd;
@@ -107,18 +112,19 @@ body {
   outline: none;
   cursor: pointer;
   font-family: "Roboto-Regular", Times, serif;
-  font-size: 2em;
+  font-size: 2rem;
 }
 .productImage {
   width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .productParent {
-    width: 50em;
-    position: absolute;
-    left: 0px;
-    top: 25em;
-    z-index: 15;
-    right: 0px;
-    margin: auto;
+  width: 50em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  margin: auto;
 }

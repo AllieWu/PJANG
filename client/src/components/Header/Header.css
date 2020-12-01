@@ -8,6 +8,7 @@
 
 .topnav-logo {
   max-width: 17%;
+  margin-left: 1%;
 }
 
 .topnav-right {
@@ -123,7 +124,6 @@
 p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  margin-left: 1%;
   width: 80%;
 }
 
