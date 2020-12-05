@@ -1,15 +1,11 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import React from 'react'
 
-const History = () => {
-    const { user, isAuthenticated } = useAuth0();
-    console.log(isAuthenticated);
+const History = (props) => {
     return (
         <div>
-            <h>User Info</h>
-            {JSON.stringify(user, null, 2)}
+            <h1>Welcome to your dashboard!</h1>
         </div>
     )
-}
+};
 
 export default History;
