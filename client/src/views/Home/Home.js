@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./Home.css";
 import "./../../assets/style.css";
 
 import productInfo from "./../Product/productinfo.json";
+import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 
 import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
@@ -13,8 +16,6 @@ import freshImg from "./../../assets/detergentImages/freshairMockup.png";
 import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
 import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
 export default class Home extends React.Component {
@@ -25,49 +26,66 @@ export default class Home extends React.Component {
   getProductPage(name) {
     let classPrePend, img;
     let desc1, desc2, scent1, scent2, scent3;
+    let redirectpage, newpage, newpage2;
 
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
         img = eucalyptusImg;
+        newpage = "/newpage_1";
+        newpage2 = "/newpage_2";
+        redirectpage = "/product/eucalyptus-tea-tree";
         break;
       case "White Gardenia":
         classPrePend = "gardenia";
         img = gardeniaImg;
+        newpage = "/newpage_3";
+        newpage2 = "/newpage_4";
+        redirectpage = "/product/white-gardenia";
         break;
       case "Fresh Air":
         classPrePend = "freshair";
         img = freshImg;
+        newpage = "/newpage_5";
+        newpage2 = "/newpage_6";
+        redirectpage = "/product/fresh-air";
         break;
       case "Coffee Vanilla":
         classPrePend = "coffee";
         img = coffeeImg;
+        newpage = "/newpage_7";
+        newpage2 = "/newpage_8";
+        redirectpage = "/product/coffee-vanilla";
         break;
       case "Mahogany Teakwood":
         classPrePend = "mahogany";
         img = mahoganyImg;
+        newpage = "/newpage_9";
+        newpage2 = "/newpage_10";
+        redirectpage = "/product/mahogany-teakwood";
         break;
       case "Watermelon Cucumber":
       default:
         classPrePend = "watermelon";
         img = watermelonImg;
+        newpage = "/newpage_11";
+        newpage2 = "/newpage_12";
+        redirectpage = "/product/watermelon-cucumber";
         break;
     }
 
-    window.onload = function() {
-
+    window.onload = function () {
       const query = new URLSearchParams(window.location.search);
+      if (query.get("success"))
+        toast("Success! You will be emailed your receipt shortly", {
+          type: "success",
+        });
+      else if (query.get("error"))
+        toast("Could not connect to Checkout. Please try again later", {
+          type: "error",
+        });
+    };
 
-      if (query.get("success")) {
-        //"Order placed! You will receive an email confirmation."
-        toast("Success! You will be emailed your receipt shortly", { type: "success" });
-      }
-      else if (query.get("error")) {
-        //"Order canceled -- continue to shop around and checkout when you're ready."
-        toast("Could not connect to Checkout. Please try again later", { type: "error" });
-      }
-
-    }
     const matching = productInfo.find((ele) => ele.name === name);
     [desc1, desc2, scent1, scent2, scent3] = [
       matching.desc1,
@@ -90,12 +108,16 @@ export default class Home extends React.Component {
             <li>{scent3}</li>
           </ul>
           <p className="price">$18.99</p>
+
+          <div class="center">
+            <NextPageButton
+              id={newpage}
+              id2={newpage2}
+              redirectpage={redirectpage}
+            />
+          </div>
+
           <AddToCartButton
-            style={{
-              width: "200px",
-              bottom: "0",
-              left: "0",
-            }}
             quantity={
               this.props.itemsInCart?.find(
                 (i) => i.price_data.product_data.name === name
@@ -105,21 +127,15 @@ export default class Home extends React.Component {
             onAddToCartClick={this.props.handleAddToCartClick}
             onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           />
-          <Link
-            id="logo-link"
-            to="/Product/watermelon-cucumber"
-            style={{ width: "50px", height: "50px", color: "black" }}
-          >
-            <img
-              src={img}
-              alt={classPrePend + " Image"}
-              className="productImage"
-            />
-          </Link>
+          <img
+            src={img}
+            alt={classPrePend + " Image"}
+            className="productImage"
+          />
         </div>
 
         <div className="backgroundContainer">
-          <div className={classPrePend + "Background"}></div>
+          <div className={classPrePend + "BG background"}></div>
         </div>
       </div>
     );
@@ -137,42 +153,8 @@ export default class Home extends React.Component {
 
     return (
       <div className="App">
-        <div className="container">
-          {productNames.map((name) => this.getProductPage(name))}
-        </div>
+        {productNames.map((name) => this.getProductPage(name))}
       </div>
     );
   }
 }
-/* render() {return (
-                <div className="App">
-                    <Link to="/Product/watermelon-cucumber">Watermelon Cucumber</Link>
-                    <header className="App-header">
-                        {items.map((item) => (
-                            <div
-                                id="example-product"
-                                style={{
-                                display: "inline-block",
-                                width: "450px"
-                            }}>
-                                <p
-                                    style={{
-                                    fontSize: "12px",
-                                    height: "auto",
-                                    width: "250px"
-                                }}>
-                                    Purchase {item.name}
-                                </p>
-                                <AddToCartButton style={{
-                                    width: "200px"
-                                }} quantity={this
-                                    .props
-                                    .itemsInCart
-                                    .find((i) => i.name === item.name)
-                                    ?.quantity ?? 0} // try to find the existing count in our shopping cart before assuming count = 0
-                                    name={item.name} onAddToCartClick={this.props.handleAddToCartClick} onRemoveFromCartClick={this.props.handleRemoveFromCartClick}/>
-                            </div>
-                        ))}
-                    </header} < /div>
-    );
-  }*/

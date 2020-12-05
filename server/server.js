@@ -13,6 +13,7 @@ const app = express.init()
 app.post('/create-session', async (req, res) => {
 
     console.log(config.REACT_APP_BKEY);
+    console.log(`${process.env.REACT_APP_BKEY}`);
 
     console.log(req.body);
     console.log(req.body[0]);

@@ -1,148 +1,127 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family:sans-serif;
+/* General Stuff */
+* {
+  margin: 0;
+  padding: 0;
 }
 h1 {
-    margin: 0px;
-    font-family: "Calmer Regular", Times, serif;
-    color:#fff;
+  margin: 0px;
+  color: #fff;
 }
 bodytext {
-    margin: 0px;
-    font-family: Roboto, Times, serif;
+  margin: 0px;
 }
-p{
-    margin: 0px;
-    font-family: Roboto, Times, serif;
+p {
+  margin: 0px;
 }
-.backgroundContainer{
-    width: 100%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    overflow: hidden;
-    bottom: 0;
-    z-index: -1;
-}
-.homeHeader{
-    width: 100%;
-    height:50%;
-    display: inline-block;
-    position:static;
-    z-index: 10;
-    padding-left: 1%;
+
+/* Home page product pages headers*/
+.homeHeader {
+  width: 100%;
+  height: 50%;
+  display: inline-block;
+  position: static;
+  z-index: 10;
+  padding-left: 1%;
 }
 .watermelon {
-    background-color: #ff5656;
+  background-color: #ff5656;
 }
 .mahogany {
-    background-color: #6b6b6b;
+  background-color: #6b6b6b;
 }
 .gardenia {
-    background-color: rgb(221, 205, 84)
+  background-color: rgb(221, 205, 84);
 }
 .eucalyptus {
-    background-color: #48c47e;
+  background-color: #48c47e;
 }
 .coffee {
-    background-color: #e2cea3;
+  background-color: #e2cea3;
 }
 .freshair {
-    background-color: #8dcfdd;
+  background-color: #8dcfdd;
 }
-.freshairBackground{
-    position: absolute;
-    background: url(backgroundPatterns/freshair_pattern.png);
-    background-size: 650px;
-    background-position-x: 0px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
+
+/* Home page product pages backgrounds */
+.backgroundContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  bottom: 0;
+  z-index: -1;
 }
-.coffeeBackground{
-    position: absolute;
-    background: url(backgroundPatterns/vanilla_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.eucalyptusBackground{
-    position: absolute;
-    background: url(backgroundPatterns/eucalyptus_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.gardeniaBackground{
-    position: absolute;
-    background: url(backgroundPatterns/gardenia_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.mahoganyBackground{
-    position: absolute;
-    background: url(backgroundPatterns/mahogany_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
-}
-.watermelonBackground{
-    position: absolute;
-    background: url(backgroundPatterns/watermelon_pattern.png);
-    background-size: 650px;
-    background-position-x: -100px;
-    width:100%;
-    height:250%;
-    animation: animatedBackground 15s linear infinite;
+.background {
+  position: absolute;
+  background-repeat: repeat;
+  background-size: 650px !important;
+  background-position-x: -100px;
+  width: 100%;
+  height: 250%;
+  animation: animatedBackground 15s infinite linear;
 }
 @keyframes animatedBackground {
-	from { background-position: 0 100%; }
-	to { background-position: 0 0; }
+  from {
+    background-position: 0 100%;
+  }
+  to {
+    background-position: 0 0;
+  }
 }
-.logoImage{
-    height:50px;
+.watermelonBG {
+  background: url(backgroundPatterns/watermelon_pattern.png);
 }
-.title{
-    font-size: 40px;
-    margin-top: 7%;
+.freshairBG {
+  background: url(backgroundPatterns/freshair_pattern.png);
+  background-position-x: 0 !important;
 }
-.price{
-    color:F9F9F9;
-    font-family: "Roboto-Regular",Times,serif;
-    font-size:20px;
-    
+.coffeeBG {
+  background: url(backgroundPatterns/vanilla_pattern.png);
 }
-.button{
-    color: #fbfcfd;
-    padding: 10px;
-    text-align: center;
-    display: inline-block;
-    background: transparent;
-    border: 1px solid #fff;
-    outline: none;
-    cursor: pointer;
-    font-family: "Roboto-Regular",Times,serif;
-    font-size: 20px;
-   
+.eucalyptusBG {
+  background: url(backgroundPatterns/eucalyptus_pattern.png);
 }
-.productImage{
-    width: 650px;
-    position: absolute;
-    left:0; 
-    top: 300px;
-    z-index: 15;
-    right:0;
-    margin:auto; 
+.gardeniaBG {
+  background: url(backgroundPatterns/gardenia_pattern.png);
+}
+.mahoganyBG {
+  background: url(backgroundPatterns/mahogany_pattern.png);
+}
+
+/* Other */
+.logoImage {
+  height: 50px;
+}
+.title {
+  font-size: 40px;
+  margin-top: 7%;
+}
+.price {
+  color: F9F9F9;
+  font-family: "Roboto-Regular", Times, serif;
+  font-size: 20px;
+}
+.button {
+  color: #fbfcfd;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+  font-family: "Roboto-Regular", Times, serif;
+  font-size: 20px;
+}
+.productImage {
+  width: 650px;
+  position: absolute;
+  left: 0;
+  top: 300px;
+  z-index: 15;
+  right: 0;
+  margin: auto;
 }
