@@ -1,5 +1,6 @@
 require('dotenv').config()
-const stripe = require('stripe')(`${process.env.REACT_APP_BKEY}`)
+const config = require('./config/config.js')
+const stripe = require('stripe')(process.env.REACT_APP_BKEY)
 const express = require('./config/express.js')
 
 //initialize app, pass in any middleware
@@ -11,6 +12,7 @@ const app = express.init()
 //?? why async callback?
 app.post('/create-session', async (req, res) => {
 
+    console.log(config.REACT_APP_BKEY);
     console.log(`${process.env.REACT_APP_BKEY}`);
 
     console.log(req.body);
