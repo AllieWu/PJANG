@@ -3,33 +3,36 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
-import laundrLogo from "./../../assets/laundrLogo.png"
+import laundrLogo from "./../../assets/laundrLogo.png";
 
 const Header = (props) => {
   return (
     <div className="topnav">
-      {/* Logo */}
       <Link id="logo-link" to="/">
-        <img
-          className="topnav-logo"
-          src={laundrLogo}
-          alt="Laundr logo"
-        />
+        <img className="topnav-logo" src={laundrLogo} alt="Laundr logo" />
       </Link>
-
-      {/* Page Links */}
       <div className="topnav-right align">
-        <Link className="topnav-link" to="/Register">
-          Sign in
-        </Link>
         <ShoppingCartButton
             style={{ top: "50", left: "0" }}
             itemsInCart={props.itemsInCart}
             onAddToCartClick={props.handleAddToCartClick}
             onRemoveFromCartClick={props.handleRemoveFromCartClick}
           />
+        {props.currentUser ?
+          (
+              <span>
+                  <Link className ="topnav-link" to='/History'>History</Link>
+                  <Link className ="topnav-link" to='/Logout'>Log Out</Link>
+              </span>
+          ) :
+          (
+          <span>
+              <Link className ="topnav-link" to="/Login">Log In</Link>
+              <Link className ="topnav-link" to="/Signup">Sign Up</Link>
+          </span>
+          )
+        }
       </div>
-      
     </div>
   );
 };
