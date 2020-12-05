@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-import LoginButton from "./../../components/Authentication/LoginButton.js";
-import LogoutButton from "./../../components/Authentication/LogoutButton.js";
 import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
 import laundrLogo from "./../../assets/laundrLogo.png"
 
@@ -21,20 +19,26 @@ const Header = (props) => {
 
       {/* Page Links */}
       <div className="topnav-right align">
-        <Link className="topnav-link" to="/Register">
-          Sign in
-        </Link>
-        <Link to="/History">
-          History
-        </Link>
-        <LoginButton />
-        <LogoutButton />
         <ShoppingCartButton
             style={{ top: "50", left: "0" }}
             itemsInCart={props.itemsInCart}
             onAddToCartClick={props.handleAddToCartClick}
             onRemoveFromCartClick={props.handleRemoveFromCartClick}
           />
+        {props.currentUser ?
+          (
+              <span>
+                  <Link className ="topnav-link" to='/History'>History</Link>
+                  <Link className ="topnav-link" to='/Logout'>Log Out</Link>
+              </span>
+          ) :
+          (
+          <span>
+              <Link className ="topnav-link" to="/Login">Log In</Link>
+              <Link className ="topnav-link" to="/Signup">Sign Up</Link>
+          </span>
+          )
+        }
       </div>
       
     </div>

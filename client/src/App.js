@@ -6,9 +6,26 @@ import History from "./views/History/History";
 import NotFound from "./views/NotFound";
 import Header from "./components/Header/Header.js"
 import items from "./views/Product/productinfo.json";
+import LogIn from "./views/Authentication/LogIn.js";
+import SignUp from "./views/Authentication/SignUp";
+import LogOut from "./views/Authentication/LogOut";
+import httpUser from './httpUser';
+
 import "./App.css";
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(httpUser.getCurrentUser());
+  console.log(currentUser);
+
+  const onLoginSuccess = () => {
+      setCurrentUser(httpUser.getCurrentUser());
+  };
+
+  const logOut = () => {
+      httpUser.logOut();
+      setCurrentUser(null);
+  };
+
   const [itemsInCart, setItemsInCart] = useState([]);
   const [page, setPage] = useState([{}]);
 
@@ -94,9 +111,7 @@ const App = () => {
         handleRemoveFromCartClick={handleRemoveFromCartClick}/>
       <Switch>
         <Route
-          exact
-          path="/Home"
-          render={() => {
+          exact path="/Home" render={() => {
             return (
               <Home
                 itemsInCart={itemsInCart}
@@ -110,8 +125,7 @@ const App = () => {
           <Redirect to="/Home" />
         </Route>
         <Route
-          path="/Product/:pageNumber"
-          render={(props) => {
+          path="/Product/:pageNumber" render={(props) => {
             return (
               <Product
                 {...props}
@@ -124,12 +138,27 @@ const App = () => {
             );
           }}
         />
-        <Route 
-          path="/History"
-          render={() => {
+        <Route path="/History" render={() => {
             return (
-              <History 
-              />
+              currentUser ? <History /> : <History to="/login" />
+            );
+          }}
+        />
+        <Route path="/Login" render={(props) => {
+            return (
+              <LogIn {...props} onLoginSuccess={onLoginSuccess} />
+            );
+          }} 
+        />
+        <Route path="/Signup" render={(props) => {
+            return (
+              <SignUp {...props} onSignUpSuccess={onLoginSuccess} />
+            );
+          }} 
+        />
+        <Route path="/Logout" render={(props) => {
+            return (
+              <LogOut onLogOut={logOut} />
             );
           }}
         />
