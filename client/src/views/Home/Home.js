@@ -87,7 +87,7 @@ export default class Home extends React.Component {
           />
             <Link
             id="logo-link"
-            to="/Product/watermelon-cucumber"
+            to={"/Product/" + path}
             style={{ width: "50px", height: "50px", color: "black" }}
           >
             <img
