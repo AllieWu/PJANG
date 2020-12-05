@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import pages from "./productinfo.json";
 import "./../../assets/style.css";
 
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
-import ShoppingCartButton from "./../../components/ShoppingCartButton/ShoppingCartButton.js";
 
 import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
 import coffeeImg from "./../../assets/detergentImages/coffeeMockup.png";
@@ -88,8 +87,9 @@ const Product = (props) => {
       <AddToCartButton
         style={{ width: "200px" }}
         quantity={
-          props.itemsInCart?.find((i) => i.price_data.product_data.name === props.page.name)?.quantity ??
-          0
+          props.itemsInCart?.find(
+            (i) => i.price_data.product_data.name === props.page.name
+          )?.quantity ?? 0
         } // try to find the existing count in our shopping cart before assuming count = 0
         name={props.page.name}
         onAddToCartClick={props.handleAddToCartClick}
