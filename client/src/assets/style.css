@@ -4,8 +4,9 @@
   padding: 0;
 }
 h1 {
-  margin: 0px;
-  color: #fff;
+    margin: 0px;
+    color: #ff5656;
+    font-size: 200px;
 }
 bodytext {
   margin: 0px;
@@ -39,89 +40,556 @@ p {
   background-color: #e2cea3;
 }
 .freshair {
-  background-color: #8dcfdd;
+    background-color: #8dcfdd;
+}
+.watermelonTitle {
+    color: #ff5656;
+    position: relative;
+}
+.mahoganyTitle {
+    color: #6b6b6b;
+    position: relative;
+}
+.gardeniaTitle {
+    color: rgb(221, 205, 84);
+    position: relative;
+}
+.eucalyptusTitle {
+    color: #48c47e;
+    position: relative;
+}
+.coffeeTitle {
+    color: #e2cea3;
+    position: relative;
+}
+.freshairTitle {
+    color: #8dcfdd;
+    position: relative;
+}
+.freshairBackground{
+    position: absolute;
+    background: url(backgroundPatterns/freshair_pattern.png);
+    background-size: 650px;
+    background-position-x: 0px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
+}
+.coffeeBackground{
+    position: absolute;
+    background: url(backgroundPatterns/vanilla_pattern.png);
+    background-size: 650px;
+    background-position-x: -100px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
+}
+.eucalyptusBackground{
+    position: absolute;
+    background: url(backgroundPatterns/eucalyptus_pattern.png);
+    background-size: 650px;
+    background-position-x: -100px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
+}
+.gardeniaBackground{
+    position: absolute;
+    background: url(backgroundPatterns/gardenia_pattern.png);
+    background-size: 650px;
+    background-position-x: -100px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
+}
+.mahoganyBackground{
+    position: absolute;
+    background: url(backgroundPatterns/mahogany_pattern.png);
+    background-size: 650px;
+    background-position-x: -100px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
+}
+.watermelonBackground{
+    position: absolute;
+    background: url(backgroundPatterns/watermelon_pattern.png);
+    background-size: 650px;
+    background-position-x: -100px;
+    width:100%;
+    height:250%;
+    animation: animatedBackground 15s linear infinite;
 }
 
-/* Home page product pages backgrounds */
-.backgroundContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-  overflow: hidden;
-  bottom: 0;
-  z-index: -1;
+.pfreshairBackground{
+    position: absolute;
+    background: url(backgroundPatterns/freshair_pattern.png);
+    background-size: 650px;
+    width:100%;
+    height:250%;
 }
-.background {
-  position: absolute;
-  background-repeat: repeat;
-  background-size: 650px !important;
-  background-position-x: -100px;
-  width: 100%;
-  height: 250%;
-  animation: animatedBackground 15s infinite linear;
+.pcoffeeBackground{
+    position: absolute;
+    background: url(backgroundPatterns/vanilla_pattern.png);
+    background-size: 650px;
+    width:100%;
+    height:250%;
 }
+.peucalyptusBackground{
+    position: absolute;
+    background: url(backgroundPatterns/eucalyptus_pattern.png);
+    background-size: 650px;
+    width:100%;
+    height:250%;
+}
+.pgardeniaBackground{
+    position: absolute;
+    background: url(backgroundPatterns/gardenia_pattern.png);
+    background-size: 650px;
+    width:100%;
+    height:250%;
+}
+.pmahoganyBackground{
+    position: absolute;
+    background: url(backgroundPatterns/mahogany_pattern.png);
+    background-size: 650px;
+    width:20%;
+    height:20%;
+    bottom: 700px;
+    left: 1500px;
+}
+.pwatermelonBackground{
+    position: absolute;
+    background: url(backgroundPatterns/watermelon_pattern.png);
+    background-size: 650px;
+    width:20%;
+    height:20%;
+    bottom: 700px;
+    left: 1500px;
+}
+
+.freshairBackground1 {
+    position: absolute;
+    background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 600px;
+    top: 1000px;
+    width:100%;
+    height:100%;
+}
+
+.freshairBackground2 {
+    position: absolute;
+    background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern2.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 200px;
+    bottom: 0px;
+    width:100%;
+    height:100%;
+}
+
+.freshairBackground3 {
+    position: absolute;
+    background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern3.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1300px;
+    bottom: 70px;
+    width:100%;
+    height:100%;
+}
+
+.freshairBackground4 {
+    position: absolute;
+    background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern4.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1500px;
+    top: 300px;
+    width:100%;
+    height:100%;
+}
+
+.freshairBackground5 {
+    position: absolute;
+    background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern5.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1200px;
+    top: 900px;
+    width:100%;
+    height:100%;
+}
+
+
+.eucalyptusBackground1 {
+    position: absolute;
+    background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 600px;
+    top: 1000px;
+    width:100%;
+    height:100%;
+}
+
+.eucalyptusBackground2 {
+    position: absolute;
+    background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern2.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 200px;
+    bottom: 0px;
+    width:100%;
+    height:100%;
+}
+
+.eucalyptusBackground3 {
+    position: absolute;
+    background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern3.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1300px;
+    bottom: 70px;
+    width:100%;
+    height:100%;
+}
+
+.eucalyptusBackground4 {
+    position: absolute;
+    background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern4.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1500px;
+    top: 300px;
+    width:100%;
+    height:100%;
+}
+
+.eucalyptusBackground5 {
+    position: absolute;
+    background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern5.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1200px;
+    top: 900px;
+    width:100%;
+    height:100%;
+}
+
+
+.gardeniaBackground1 {
+    position: absolute;
+    background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 600px;
+    top: 1000px;
+    width:100%;
+    height:100%;
+}
+
+.gardeniaBackground2 {
+    position: absolute;
+    background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern6.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 200px;
+    bottom: 0px;
+    width:100%;
+    height:100%;
+}
+
+.gardeniaBackground3 {
+    position: absolute;
+    background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1300px;
+    bottom: 70px;
+    width:100%;
+    height:100%;
+}
+
+.gardeniaBackground4 {
+    position: absolute;
+    background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern4.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1500px;
+    top: 300px;
+    width:100%;
+    height:100%;
+}
+
+.gardeniaBackground5 {
+    position: absolute;
+    background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern5.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1200px;
+    top: 900px;
+    width:100%;
+    height:100%;
+}
+
+.mahoganyBackground1 {
+    position: absolute;
+    background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern1.png) ;
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 600px;
+    top: 1000px;
+    width:100%;
+    height:100%;
+}
+
+.mahoganyBackground2 {
+    position: absolute;
+    background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern4.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 200px;
+    bottom: 0px;
+    width:100%;
+    height:100%;
+}
+
+.mahoganyBackground3 {
+    position: absolute;
+    background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1300px;
+    bottom: 70px;
+    width:100%;
+    height:100%;
+}
+
+.mahoganyBackground4 {
+    position: absolute;
+    background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1500px;
+    top: 300px;
+    width:100%;
+    height:100%;
+}
+
+.mahoganyBackground5 {
+    position: absolute;
+    background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern3.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1200px;
+    top: 900px;
+    width:100%;
+    height:100%;
+}
+
+
+.coffeeBackground1 {
+    position: absolute;
+    background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern2.png) ;
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 600px;
+    top: 1000px;
+    width:100%;
+    height:100%;
+}
+
+.coffeeBackground2 {
+    position: absolute;
+    background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern4.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 200px;
+    bottom: 0px;
+    width:100%;
+    height:100%;
+}
+
+.coffeeBackground3 {
+    position: absolute;
+    background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1300px;
+    bottom: 70px;
+    width:100%;
+    height:100%;
+}
+
+.coffeeBackground4 {
+    position: absolute;
+    background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern2.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1500px;
+    top: 300px;
+    width:100%;
+    height:100%;
+}
+
+.coffeeBackground5 {
+    position: absolute;
+    background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern3.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1200px;
+    top: 900px;
+    width:100%;
+    height:100%;
+}
+
+
+.watermelonBackground1 {
+    position: absolute;
+    background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern5.png) ;
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 600px;
+    top: 1000px;
+    width:100%;
+    height:100%;
+}
+
+.watermelonBackground2 {
+    position: absolute;
+    background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern3.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 200px;
+    bottom: 0px;
+    width:100%;
+    height:100%;
+}
+
+.watermelonBackground3 {
+    position: absolute;
+    background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern1.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1300px;
+    bottom: 70px;
+    width:100%;
+    height:100%;
+}
+
+.watermelonBackground4 {
+    position: absolute;
+    background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern2.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1500px;
+    top: 300px;
+    width:100%;
+    height:100%;
+}
+
+.watermelonBackground5 {
+    position: absolute;
+    background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern4.png);
+    background-size: 250px;
+    background-repeat: no-repeat;
+    left: 1200px;
+    top: 900px;
+    width:100%;
+    height:100%;
+}
+
+.text1 {
+    position: relative;
+    font-size: 120%;
+    top: 0px;
+    left: 450px;
+    width: 500px;
+    height: 200px;
+}
+
+.text2 {
+    position: relative;
+    font-size: 120%;
+    bottom: 210px;
+    left: 1000px;
+    width: 500px;
+    height: 200px;
+}
+.text3 {
+    position: relative;
+    font-size: 120%;
+    bottom: 100px;
+    left: 450px;
+    width: 500px;
+    height: 200px;
+}
+.text4 {
+    position: relative;
+    font-size: 120%;
+    bottom: 310px;
+    left: 1000px;
+    width: 500px;
+    height: 200px;
+}
+
+
+
+
+
+
 @keyframes animatedBackground {
-  from {
-    background-position: 0 100%;
-  }
-  to {
-    background-position: 0 0;
-  }
+	from { background-position: 0 100%; }
+	to { background-position: 0 0; }
 }
-.watermelonBG {
-  background: url(backgroundPatterns/watermelon_pattern.png);
+.logoImage{
+    height:50px;
 }
-.freshairBG {
-  background: url(backgroundPatterns/freshair_pattern.png);
-  background-position-x: 0 !important;
+.title{
+    font-size: 40px;
+    margin-top: 7%;
 }
-.coffeeBG {
-  background: url(backgroundPatterns/vanilla_pattern.png);
+.price{
+    color:F9F9F9;
+    font-family: "Roboto-Regular",Times,serif;
+    font-size:20px;
 }
-.eucalyptusBG {
-  background: url(backgroundPatterns/eucalyptus_pattern.png);
+.bottomTitle{
+    bottom: 525px;
+    position: relative;
 }
-.gardeniaBG {
-  background: url(backgroundPatterns/gardenia_pattern.png);
+.button{
+    color: #fbfcfd;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #fff;
+    outline: none;
+    cursor: pointer;
+    font-family: "Roboto-Regular",Times,serif;
+    font-size: 20px;
+   
 }
-.mahoganyBG {
-  background: url(backgroundPatterns/mahogany_pattern.png);
+.productImage{
+    width: 650px;
+    position: absolute;
+    left:0; 
+    top: 300px;
+    z-index: 15;
+    right:0;
+    margin:auto; 
 }
 
-/* Other */
-.logoImage {
-  height: 50px;
-}
-.title {
-  font-size: 40px;
-  margin-top: 7%;
-}
-.price {
-  color: F9F9F9;
-  font-family: "Roboto-Regular", Times, serif;
-  font-size: 20px;
-}
-.button {
-  color: #fbfcfd;
-  padding: 10px;
-  text-align: center;
-  display: inline-block;
-  background: transparent;
-  border: 1px solid #fff;
-  outline: none;
-  cursor: pointer;
-  font-family: "Roboto-Regular", Times, serif;
-  font-size: 20px;
-}
-.productImage {
-  width: 650px;
-  position: absolute;
-  left: 0;
-  top: 300px;
-  z-index: 15;
-  right: 0;
-  margin: auto;
+.productpImage{
+    width: 1200px;
+    position: relative;
+    right: 300px; 
+    bottom: 265px;
+    transform:rotate(90deg);
+    z-index: 15;
+    margin:auto; 
 }
