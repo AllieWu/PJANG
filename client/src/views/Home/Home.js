@@ -8,6 +8,7 @@ import "./../../assets/style.css";
 import productInfo from "./../Product/productinfo.json";
 import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
+import Header from "./../../components/Header/Header.js";
 
 import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
 import coffeeImg from "./../../assets/detergentImages/coffeeMockup.png";
@@ -153,6 +154,12 @@ export default class Home extends React.Component {
 
     return (
       <div className="App">
+        <Header
+          itemsInCart={this.props.itemsInCart}
+          handleAddToCartClick={this.props.handleAddToCartClick}
+          handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+          page={"home"}
+        />
         {productNames.map((name) => this.getProductPage(name))}
       </div>
     );
