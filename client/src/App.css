@@ -1,75 +1,82 @@
 /* Calmer font definitions */
 @font-face {
-    font-family: 'calmer';
-    src: url("./assets/fonts/calmer-font/Calmer\ Regular.ttf");
+  font-family: "calmer";
+  src: url("./assets/fonts/calmer-font/Calmer\ Regular.ttf");
 }
 @font-face {
-    font-family: 'calmer-bold';
-    src: url("./assets/fonts/calmer-font/calmer\ Bold.ttf");
+  font-family: "calmer-bold";
+  src: url("./assets/fonts/calmer-font/calmer\ Bold.ttf");
 }
 @font-face {
-    font-family: 'calmer-light';
-    src: url("./assets/fonts/calmer-font/calmer\ Light.ttf");
+  font-family: "calmer-light";
+  src: url("./assets/fonts/calmer-font/calmer\ Light.ttf");
 }
 @font-face {
-    font-family: 'calmer-italic';
-    src: url("./assets/fonts/calmer-font/calmer\ Regular\ Italic.ttf");
+  font-family: "calmer-italic";
+  src: url("./assets/fonts/calmer-font/calmer\ Regular\ Italic.ttf");
 }
 @font-face {
-    font-family: 'calmer-bold-italic';
-    src: url("./assets/fonts/calmer-font/calmer\ Bold\ Italic.ttf");
+  font-family: "calmer-bold-italic";
+  src: url("./assets/fonts/calmer-font/calmer\ Bold\ Italic.ttf");
 }
 @font-face {
-    font-family: 'calmer-light-italic';
-    src: url("./assets/fonts/calmer-font/calmer\ Light\ Italic.ttf");
+  font-family: "calmer-light-italic";
+  src: url("./assets/fonts/calmer-font/calmer\ Light\ Italic.ttf");
 }
 
 /* Roboto font definitions */
 @font-face {
-    font-family: 'roboto';
-    src: url("./assets/fonts/Roboto/Roboto-Regular.ttf");
+  font-family: "roboto";
+  src: url("./assets/fonts/Roboto/Roboto-Regular.ttf");
 }
 @font-face {
-    font-family: 'roboto-bold';
-    src: url("./assets/fonts/Roboto/Roboto-Bold.ttf");
+  font-family: "roboto-bold";
+  src: url("./assets/fonts/Roboto/Roboto-Bold.ttf");
 }
 @font-face {
-    font-family: 'roboto-light';
-    src: url("./assets/fonts/Roboto/Roboto-Light.ttf");
+  font-family: "roboto-light";
+  src: url("./assets/fonts/Roboto/Roboto-Light.ttf");
 }
 @font-face {
-    font-family: 'roboto-thin';
-    src: url("./assets/fonts/Roboto/Roboto-Thin.ttf");
+  font-family: "roboto-thin";
+  src: url("./assets/fonts/Roboto/Roboto-Thin.ttf");
 }
 @font-face {
-    font-family: 'roboto-bold-italic';
-    src: url("./assets/fonts/Roboto/Roboto-BoldItalic.ttf");
+  font-family: "roboto-bold-italic";
+  src: url("./assets/fonts/Roboto/Roboto-BoldItalic.ttf");
 }
 @font-face {
-    font-family: 'roboto-italic';
-    src: url("./assets/fonts/Roboto/Roboto-Italic.ttf");
+  font-family: "roboto-italic";
+  src: url("./assets/fonts/Roboto/Roboto-Italic.ttf");
 }
 @font-face {
-    font-family: 'roboto-light-italic';
-    src: url("./assets/fonts/Roboto/Roboto-LightItalic.ttf");
+  font-family: "roboto-light-italic";
+  src: url("./assets/fonts/Roboto/Roboto-LightItalic.ttf");
 }
 @font-face {
-    font-family: 'roboto-thin-italic';
-    src: url("./assets/fonts/Roboto/Roboto-ThinItalic.ttf");
+  font-family: "roboto-thin-italic";
+  src: url("./assets/fonts/Roboto/Roboto-ThinItalic.ttf");
 }
 
 h1 {
-    font-family: 'calmer' !important;
-    color: black;
-    padding: 3px 0 3px 0;
+  font-family: "calmer" !important;
+  color: black;
+  padding: 3px 0 3px 0;
+  margin-left: 1%;
 }
 
-h2, h3, h4 {
-    font-family: 'roboto' !important;
-    color: #3a3a3a;
-    padding: 3px 0 3px 0;
+h2,
+h3,
+h4 {
+  font-family: "roboto" !important;
+  color: #3a3a3a;
+  padding: 3px 0 3px 0;
+  margin-left: 1%;
 }
 
-p, li, a {
-    font-family: 'roboto' !important;
+p,
+li,
+a {
+  font-family: "roboto" !important;
+  margin-left: 1%;
 }

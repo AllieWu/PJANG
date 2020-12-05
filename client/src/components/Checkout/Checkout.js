@@ -1,25 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
+<<<<<<< HEAD
 //import config from "../../config.js";
 
 console.log(process.env.REACT_APP_FKEY);
 console.log(process.env.REACT_APP_AUTH0_DOMAIN);
+=======
+import "react-toastify/dist/ReactToastify.css";
+import "./Checkout.css";
+>>>>>>> 55bb31faa40e3a69db0869b5317ad9c0b6d86615
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
-const stripePromise = loadStripe(process.env.REACT_APP_FKEY);
+const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
 
 const Checkout = (props) => {
-
   // When the customer clicks on the button, redirect them to Checkout.
   const handleClick = async (event) => {
-
     const stripe = await stripePromise;
 
     //creates checkout session
     const response = await fetch("/create-session", {
       method: "POST",
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(props.itemsInCart.filter(e => e.quantity > 0))
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(props.itemsInCart.filter((e) => e.quantity > 0)),
     });
     console.log("request made");
 
@@ -35,24 +38,24 @@ const Checkout = (props) => {
       // error, display the localized error message to your customer
       // using `result.error.message`.
       console.log(result.error.message);
-      window.location.href = '/Home/?error=true';
-
+      window.location.href = "/Home/?error=true";
     }
-    else {
-
-      //if checkout session was successful and the user made a payment,
-      //append to the user's payment history 
-
-    }
- 
+    // else, checkout session was successful and the user made a payment,
+    //append to the user's payment history
   };
 
-  return(
-    <button id="checkout-button" role="link" onClick={handleClick}>
-      Checkout
-    </button>
-  )
-
-}
+  return (
+    <div className="checkoutButtonParent">
+      <button
+        className="checkoutButton"
+        id="checkout-button"
+        role="link"
+        onClick={handleClick}
+      >
+        CHECKOUT
+      </button>
+    </div>
+  );
+};
 
 export default Checkout;
