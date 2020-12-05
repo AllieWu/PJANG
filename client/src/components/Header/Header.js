@@ -43,10 +43,16 @@ export default class Header extends React.Component {
             </div>
           ) : (
             <div>
-              <button onMouseDown={this.routeChange.bind(this, "/Login")}>
+              <button
+                style={{ height: "100%" }}
+                onMouseDown={this.routeChange.bind(this, "/Login")}
+              >
                 Log In
               </button>
-              <button onMouseDown={this.routeChange.bind(this, "/Signup")}>
+              <button
+                style={{ height: "100%" }}
+                onMouseDown={this.routeChange.bind(this, "/Signup")}
+              >
                 Sign Up
               </button>
               <ShoppingCartButton
