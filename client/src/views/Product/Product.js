@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import pages from "./productinfo.json";
 
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
+import Header from "./../../components/Header/Header.js";
 
 const Product = (props) => {
   useEffect(() => {
@@ -31,6 +32,12 @@ const Product = (props) => {
 
   return (
     <div>
+      <Header
+        itemsInCart={props.itemsInCart}
+        handleAddToCartClick={props.handleAddToCartClick}
+        handleRemoveFromCartClick={props.handleRemoveFromCartClick}
+        page={"product"}
+      />
       <div style={{ top: "15%" }}>
         <h1>{props.page.name}</h1>
         <h3>{props.page.desc1}</h3>
