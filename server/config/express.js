@@ -4,7 +4,8 @@ const path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/examples.server.routes'),
-    userRouter = require('../routes/user.js');
+    userRouter = require('../routes/user.js'),
+    stripeRouter = require('../routes/stripe.js');
 
 module.exports.init = () => {
   /* 
@@ -33,6 +34,7 @@ module.exports.init = () => {
   app.use('/api/users', userRouter);
 
   //stripe router for payment processing
+  app.use('/api/stripe', stripeRouter);
 
   //product router for retrieving product info
 
