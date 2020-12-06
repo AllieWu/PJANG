@@ -37,17 +37,20 @@ httpUser.logIn = async function(credentials) {
 };
 
 httpUser.signUp = async function(userInfo) {
+
+    //create a customer with Stripe using the userInfo
     console.log("Signing up...");
-    const response = await axios.post('/api/users/getID', userInfo);
-    const userID = response.data.customerID;
+    const response = await axios.post('/api/users/generateID', userInfo);
+    const userID = response.data.customer.id;
+    var userInfo2 = userInfo;
     if(response) {
-        userInfo.id = userID;
+        userInfo2.id = userID;
     } else {
         return false;
     }
 
-    console.log("Test");
-    response = await axios.post('/api/users', userInfo);
+    //create a collection with User model, and store in database
+    const response2 = await axios.post('/api/users', userInfo2);
     console.log("Sign up complete");
 
     const token = response.data.token;
