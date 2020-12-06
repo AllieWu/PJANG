@@ -4,11 +4,33 @@ import "./App.css";
 
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
+import History from "./views/History/History";
 import NotFound from "./views/NotFound";
 import Header from "./components/Header/Header.js";
 import items from "./views/Product/productinfo.json";
+<<<<<<< HEAD
+=======
+import LogIn from "./views/Authentication/LogIn.js";
+import SignUp from "./views/Authentication/SignUp";
+import LogOut from "./views/Authentication/LogOut";
+import httpUser from "./httpUser";
+
+import "./App.css";
+>>>>>>> master
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(httpUser.getCurrentUser());
+  console.log(currentUser);
+
+  const onLoginSuccess = () => {
+    setCurrentUser(httpUser.getCurrentUser());
+  };
+
+  const logOut = () => {
+    httpUser.logOut();
+    setCurrentUser(null);
+  };
+
   const [itemsInCart, setItemsInCart] = useState([]);
   const [page, setPage] = useState([{}]);
 
@@ -87,11 +109,6 @@ const App = () => {
 
   return (
     <div>
-      <Header
-        itemsInCart={itemsInCart}
-        handleAddToCartClick={handleAddToCartClick}
-        handleRemoveFromCartClick={handleRemoveFromCartClick}
-      />
       <Switch>
         <Route
           exact
@@ -110,7 +127,7 @@ const App = () => {
           <Redirect to="/Home" />
         </Route>
         <Route
-          path="/product/:pageNumber"
+          path="/Product/:pageNumber"
           render={(props) => {
             return (
               <Product
@@ -122,6 +139,30 @@ const App = () => {
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
               />
             );
+          }}
+        />
+        <Route
+          path="/History"
+          render={() => {
+            return currentUser ? <History /> : <History to="/login" />;
+          }}
+        />
+        <Route
+          path="/Login"
+          render={(props) => {
+            return <LogIn {...props} onLoginSuccess={onLoginSuccess} />;
+          }}
+        />
+        <Route
+          path="/Signup"
+          render={(props) => {
+            return <SignUp {...props} onSignUpSuccess={onLoginSuccess} />;
+          }}
+        />
+        <Route
+          path="/Logout"
+          render={(props) => {
+            return <LogOut onLogOut={logOut} />;
           }}
         />
         <Route component={NotFound} />
