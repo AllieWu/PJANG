@@ -575,14 +575,95 @@ p {
    
 }
 .productImage{
-    width: 650px;
-    position: absolute;
-    left:0; 
-    top: 300px;
-    z-index: 15;
-    right:0;
-    margin:auto; 
+    height: 412.5px;
+    width: 550px;
+    z-index:15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.wrapper{
+    height: 412.5px;
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.zipper{
+    width: 550px;
+    position: absolute;
+    z-index: 3;
+    top: 0px;
+    transform-origin: 74% bottom;
+    animation-name: closingAnimation;
+    animation-duration: 1s;
+}
+
+.wrapper:hover .zipper{
+    animation-name: openingAnimation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;  
+}
+
+@keyframes openingAnimation { 
+    from { 
+        transform: rotate(0deg); 
+    } 
+    to {  
+        transform: rotate(10deg); 
+    } 
+} 
+  
+@keyframes closingAnimation { 
+    from { 
+        transform: rotate(10deg); 
+    } 
+    to { 
+        transform: rotate(0deg); 
+    } 
+} 
+
+.bottomBag{
+    width: 550px;
+    z-index: 5;
+    position: absolute;
+    bottom:0px;
+}
+
+.laundrBombs{
+    width:180px;
+    top:20%;
+    left:33%;
+    z-index: 4;
+    position:absolute;
+    animation-name: submergeAnimation;
+    animation-duration: 1s;
+}
+.wrapper:hover .laundrBombs{
+    animation-name: emergeAnimation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes emergeAnimation { 
+    from { 
+        transform: translate(0,0px); 
+    } 
+    to {  
+        transform: translate(0,-100px); 
+    } 
+} 
+  
+@keyframes submergeAnimation { 
+    from { 
+        transform: translate(0,-100px); 
+    } 
+    to { 
+        transform: translate(0,0px); 
+    } 
+} 
 
 .productpImage{
     width: 1200px;
