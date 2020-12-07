@@ -1,27 +1,22 @@
-html,
-body {
-  height: 100%;
-}
-
 h4 {
   color: #f9f9f9;
-  margin-left: 15px;
+  margin-left: 1.5em;
 }
 
 button {
   background-color: #f9f9f9;
   color: #3a3a3a;
-  width: 80px;
-  height: 20px;
-  line-height: 19.5px !important;
+  width: 8em;
+  height: 2em;
+  line-height: 1.95em !important;
   border-width: 0px;
 }
 
 .shopping-cart-parent {
   height: auto;
-  width: 80px;
+  width: 8em;
   padding: 0px;
-  margin: 5px;
+  margin: 0.5em;
   background-color: #f9f9f9;
   color: #3a3a3a;
 }
@@ -37,15 +32,15 @@ button {
   overflow-x: hidden;
   transition: 0.5s;
   padding: 1.3% 0.5% 1% 0.5%;
-  border-width: 5px;
+  border-width: 0.5em;
   border-style: outset;
   border-color: -internal-light-dark(#f9f9f9, grey);
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 8px;
+  padding: 0.8em 0.8em 0.8em 0.8em;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 2em;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -57,14 +52,14 @@ button {
 
 .sidenav .closebtn {
   top: 0;
-  right: 5px;
-  font-size: 25px;
-  margin-left: 50px;
+  right: 0.5em;
+  font-size: 2.5em;
+  margin-left: 5em;
   font-family: social-gothic;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
   margin-top: 0;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 1.6em;
   line-height: 1em;
   cursor: pointer;
   float: right;
@@ -77,36 +72,35 @@ button {
 }
 
 .cart-item-name {
-  font-size: 16px;
+  font-size: 1.6em;
   color: black;
   margin-left: 1%;
-  padding: 3px 0px 3px 15px;
+  padding: 0.3em 0px 0.3em 1.5em;
 }
 
 .cost-text {
   color: #f9f9f9;
-  margin-left: 15px;
+  margin-left: 1.5em;
 }
 
 .cart-text {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.4em;
   height: 8%;
   color: black;
-  letter-spacing: 1px;
-  border-width: 1px;
-  border-style: outset;
-  border-color: -internal-light-dark(#f9f9f9, rgb(133, 133, 133));
-  border-image: initial;
-  border-radius: 5px;
-  float: right;
+  letter-spacing: 0.1em;
+  border-radius: 0.5em;
+  width: auto;
+  padding: 5px;
+  margin-right: 5px;
+  display: table-cell;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 45em) {
   .sidenav {
-    padding-top: 15px;
+    padding-top: 1.5em;
   }
   .sidenav a {
-    font-size: 18px;
+    font-size: 1.8em;
   }
 }

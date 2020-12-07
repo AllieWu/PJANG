@@ -1,6 +1,6 @@
 import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
-//import config from "../../config.js";
+import "./Checkout.css";
 
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
