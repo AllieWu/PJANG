@@ -2,9 +2,6 @@ import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 //import config from "../../config.js";
 
-console.log(process.env.REACT_APP_FKEY);
-console.log(process.env.REACT_APP_AUTH0_DOMAIN);
-
 //returns a promise that resolves with the stripe object as soon as Stripe.js loads
 const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
 
@@ -14,7 +11,7 @@ const Checkout = (props) => {
     const stripe = await stripePromise;
 
     //creates checkout session
-    const response = await fetch("/create-session", {
+    const response = await fetch("/api/stripe/create-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(props.itemsInCart.filter((e) => e.quantity > 0)),
