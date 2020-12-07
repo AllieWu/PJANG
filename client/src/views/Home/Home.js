@@ -168,7 +168,7 @@ export default class Home extends React.Component {
         </div>
 
         <div className="backgroundContainer">
-          <div className={classPrePend + "BG background"}></div>
+          <div className={classPrePend + "Background"}></div>
         </div>
       </div>
     );
