@@ -17,6 +17,20 @@ import freshImg from "./../../assets/detergentImages/freshairMockup.png";
 import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
 import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
 
+import watermelonTop from "./../../assets/detergentImages/watermelon_top.png";
+import coffeeTop from "./../../assets/detergentImages/coffee_top.png";
+import eucalyptusTop from "./../../assets/detergentImages/eucalyptus_top.png";
+import freshTop from "./../../assets/detergentImages/freshair_top.png";
+import gardeniaTop from "./../../assets/detergentImages/gardenia_top.png";
+import mahoganyTop from "./../../assets/detergentImages/mahogany_top.png";
+import watermelonBottom from "./../../assets/detergentImages/watermelon_bottom.png";
+import coffeeBottom from "./../../assets/detergentImages/coffee_bottom.png";
+import eucalyptusBottom from "./../../assets/detergentImages/eucalyptus_bottom.png";
+import freshBottom from "./../../assets/detergentImages/freshair_bottom.png";
+import gardeniaBottom from "./../../assets/detergentImages/gardenia_bottom.png";
+import mahoganyBottom from "./../../assets/detergentImages/mahogany_bottom.png";
+import groupedBombs from "./../../assets/bombs/groupedBombs.png";
+
 toast.configure();
 
 export default class Home extends React.Component {
@@ -25,42 +39,47 @@ export default class Home extends React.Component {
   }
 
   getProductPage(name) {
-    let classPrePend, img;
+    let classPrePend, imgTop, imgBot;
     let desc1, desc2, scent1, scent2, scent3;
     let redirectpage, newpage, newpage2;
 
     switch (name) {
       case "Eucalyptus Tea Tree":
         classPrePend = "eucalyptus";
-        img = eucalyptusImg;
+        imgTop = eucalyptusTop;
+        imgBot = eucalyptusBottom;
         newpage = "/newpage_1";
         newpage2 = "/newpage_2";
         redirectpage = "/product/eucalyptus-tea-tree";
         break;
       case "White Gardenia":
         classPrePend = "gardenia";
-        img = gardeniaImg;
+        imgTop = gardeniaTop;
+        imgBot = gardeniaBottom;
         newpage = "/newpage_3";
         newpage2 = "/newpage_4";
         redirectpage = "/product/white-gardenia";
         break;
       case "Fresh Air":
         classPrePend = "freshair";
-        img = freshImg;
+        imgTop = freshTop;
+        imgBot = freshBottom;
         newpage = "/newpage_5";
         newpage2 = "/newpage_6";
         redirectpage = "/product/fresh-air";
         break;
       case "Coffee Vanilla":
         classPrePend = "coffee";
-        img = coffeeImg;
+        imgTop = coffeeTop;
+        imgBot = coffeeBottom;
         newpage = "/newpage_7";
         newpage2 = "/newpage_8";
         redirectpage = "/product/coffee-vanilla";
         break;
       case "Mahogany Teakwood":
         classPrePend = "mahogany";
-        img = mahoganyImg;
+        imgTop = mahoganyTop;
+        imgBot = mahoganyBottom;
         newpage = "/newpage_9";
         newpage2 = "/newpage_10";
         redirectpage = "/product/mahogany-teakwood";
@@ -68,7 +87,8 @@ export default class Home extends React.Component {
       case "Watermelon Cucumber":
       default:
         classPrePend = "watermelon";
-        img = watermelonImg;
+        imgTop = watermelonTop;
+        imgBot = watermelonBottom;
         newpage = "/newpage_11";
         newpage2 = "/newpage_12";
         redirectpage = "/product/watermelon-cucumber";
@@ -124,17 +144,17 @@ export default class Home extends React.Component {
           </div>
 
           <div className="productParent">
-            <img
-              src={img}
-              alt={classPrePend + " Image"}
-              className="productImage"
-            />
             <div className="center">
               <NextPageButton
                 id={newpage}
                 id2={newpage2}
                 redirectpage={redirectpage}
               />
+            </div>
+            <div class="wrapper">
+              <img src={imgTop} alt={"Product"} class="zipper" />
+              <img src={imgBot} alt={"Product"} class="bottomBag" />
+              <img src={groupedBombs} alt="groupedBombs" class="laundrBombs" />
             </div>
           </div>
         </div>
@@ -145,7 +165,6 @@ export default class Home extends React.Component {
       </div>
     );
   }
-
   render() {
     let productNames = [
       "Watermelon Cucumber",
