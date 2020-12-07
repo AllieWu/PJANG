@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@stripe/stripe-js": "^1.11.0",
-    "axios": "^0.21.0",
+    "axios": "^5.3.6",
     "jwt-decode": "^3.1.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",

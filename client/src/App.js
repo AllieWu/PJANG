@@ -136,10 +136,15 @@ const App = () => {
             );
           }}
         />
+
         <Route
           path="/History"
-          render={() => {
-            return currentUser ? <History /> : <History to="/login" />;
+          render={(props) => {
+            return currentUser ? (
+              <History {...props} currentUser={currentUser} />
+            ) : (
+              <History to="/login" />
+            );
           }}
         />
         <Route

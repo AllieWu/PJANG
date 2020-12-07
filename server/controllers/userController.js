@@ -1,5 +1,7 @@
 const User = require('../models/userModel.js'),
-    stripe = require('stripe')(process.env.REACT_APP_BKEY),
+    config = require('../config/config.js'),
+    stripeKey = process.env.REACT_APP_BKEY || config.REACT_APP_BKEY,
+    stripe = require('stripe')(stripeKey),
     signToken = require('../authHelperFunctions').signToken;
 
 module.exports = {
@@ -94,14 +96,34 @@ module.exports = {
     },
 
     createCustomer: async (req, res) => {
+        console.log(req);
+        console.log(req.body);
+        console.log(req.body.name);
+        console.log(config.REACT_APP_BKEY);
         try {
-            const customerID = await stripe.customers.create({
+            const customer = await stripe.customers.create({
                 name: req.body.name,
                 email: req.body.email
             });
-            res.json({success: true, customerID})
+            res.json({success: true, customer})
         } catch(err) {
             res.json({success: false, code: err.code})
         }
     }
+
+    /*
+        const customer = await stripe.customers.create({
+            name: req.body.name,
+            email: req.body.email,
+        })
+        .then(() => {
+            console.log("WORKED!");
+            res.json({success: true, customer})
+        })
+        .catch((err) => {
+            console.log("BROKEN AS SHIT!");
+            console.log(err);
+            res.json({success: false, code: err.code})
+        });
+    */
 };
