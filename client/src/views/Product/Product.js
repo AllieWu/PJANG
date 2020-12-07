@@ -101,7 +101,10 @@ const Product = (props) => {
         ></img>
         <h1 className={alt + "Title bottomTitle"}>{props.page.name3}</h1>
 
-        <div className="autoscale" style={{ top: "15em", left: "70em" }}>
+        <div
+          className="autoscale"
+          style={{ marginLeft: "250px", top: "-600px", position: "relative" }}
+        >
           <h1 className="title">{props.page.name + " Laundr Bombs"}</h1>
           <h2>{props.page.desc1}</h2>
           <h2>{props.page.desc2}</h2>
@@ -128,8 +131,8 @@ const Product = (props) => {
           style={{
             display: "table",
             marginLeft: "250px",
-            top: "115em",
-            position: "absolute",
+            top: "-550px",
+            position: "relative",
           }}
         >
           <div style={{ display: "table-row" }}>

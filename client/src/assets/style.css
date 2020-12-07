@@ -610,3 +610,94 @@ p {
   z-index: 15;
   margin: auto;
 }
+.button {
+  color: #fbfcfd;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+  font-family: "Roboto-Regular", Times, serif;
+  font-size: 20px;
+}
+.wrapper {
+  height: 412.5px;
+  width: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.zipper {
+  width: 550px;
+  position: absolute;
+  z-index: 3;
+  top: 0px;
+  transform-origin: 26% bottom;
+  animation-name: closingAnimation;
+  animation-duration: 1s;
+  transform: translate(-50%, -50%);
+}
+.wrapper:hover .zipper {
+  animation-name: openingAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes openingAnimation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+}
+@keyframes closingAnimation {
+  from {
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+.bottomBag {
+  width: 550px;
+  z-index: 5;
+  position: absolute;
+  bottom: 0px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.laundrBombs {
+  width: 180px;
+  z-index: 4;
+  position: relative;
+  animation-name: submergeAnimation;
+  animation-duration: 1s;
+  top: 5%;
+  left: -15%;
+}
+.wrapper:hover .laundrBombs {
+  animation-name: emergeAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes emergeAnimation {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(0px, -100px);
+  }
+}
+
+@keyframes submergeAnimation {
+  from {
+    transform: translate(0px, -100px);
+  }
+  to {
+    transform: translate(0px, 0px);
+  }
+}
