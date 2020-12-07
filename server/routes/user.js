@@ -13,7 +13,7 @@ userRouter.route('/').get(userController.index).post(userController.create);
 
 userRouter.post('/authenticate', userController.authenticate);
 
-userRouter.post('/getID', userController.createCustomer);
+userRouter.post('/generateID', userController.createCustomer);
 
 userRouter.use(verifyToken);
 userRouter.route('/id').get(userController.show).patch(userController.update).delete(userController.destroy);

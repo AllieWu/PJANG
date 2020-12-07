@@ -143,9 +143,9 @@ const App = () => {
             );
           }}
         />
-        <Route path="/History" render={() => {
+        <Route path="/History" render={(props) => {
             return (
-              currentUser ? <History /> : <History to="/login" />
+              currentUser ? <History {...props} currentUser={currentUser} /> : <History to="/login" />
             );
           }}
         />
