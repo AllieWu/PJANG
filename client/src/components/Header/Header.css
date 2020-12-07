@@ -14,7 +14,21 @@
 .topnav-right {
   float: right;
   width: auto;
-  position: relative;
+  display: table;
+}
+
+.topnav-button {
+  font-weight: 600;
+  font-size: 1.4em;
+  height: 8%;
+  color: black;
+  letter-spacing: 0.1em;
+  border-width: 0.05em;
+  border-radius: 0.5em;
+  width: auto;
+  padding: 5px;
+  margin-right: 5px;
+  display: table-cell;
 }
 
 .topnav-link {

@@ -26,7 +26,7 @@ const LogIn = (props) => {
 
   return (
     <div style={{ marginLeft: "1%" }}>
-      <div className="topnav" style={{ padding: "0" }}>
+      <div className="topnav" style={{ paddingBottom: "0" }}>
         <Link id="logo-link" to="/">
           <img
             className="topnav-logo"

@@ -1,6 +1,6 @@
 import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
-//import config from "../../config.js";
+import "./Checkout.css";
 
 console.log(process.env.REACT_APP_FKEY);
 console.log(process.env.REACT_APP_AUTH0_DOMAIN);
