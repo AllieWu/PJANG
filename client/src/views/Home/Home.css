@@ -15,9 +15,6 @@ html {
 
 .center {
   position: absolute;
-  left: 12%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(65%, -838%);
   z-index: 1000;
 }
