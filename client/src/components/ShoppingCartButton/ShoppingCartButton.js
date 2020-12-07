@@ -94,7 +94,7 @@ export default class ShoppingCartButton extends React.Component {
     );
 
     return (
-      <div>
+      <div style={{ display: "table-cell" }}>
         <button onMouseDown={this.ShowSidebar} className="cart-text">
           CART
         </button>

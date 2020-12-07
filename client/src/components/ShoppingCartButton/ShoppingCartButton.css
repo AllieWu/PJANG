@@ -85,16 +85,15 @@ button {
 
 .cart-text {
   font-weight: 600;
-  font-size: 1.6em;
+  font-size: 1.4em;
   height: 8%;
   color: black;
   letter-spacing: 0.1em;
-  border-width: 0.1em;
-  border-style: outset;
-  border-color: -internal-light-dark(#f9f9f9, rgb(133, 133, 133));
-  border-image: initial;
-  border-radius: 0.5em;
-  float: right;
+  width: auto;
+  padding: 5px;
+  display: inline-block;
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 @media screen and (max-height: 45em) {

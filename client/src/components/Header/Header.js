@@ -27,36 +27,49 @@ export default class Header extends React.Component {
         </Link>
         <div className="topnav-right align">
           {this.props.currentUser ? (
-            <div>
-              <button onMouseDown={this.routeChange.bind(this, "/History")}>
-                History
+            <div
+              style={{
+                display: "table-row",
+              }}
+            >
+              <button
+                className="topnav-button"
+                onMouseDown={this.routeChange.bind(this, "/History")}
+              >
+                HISTORY
               </button>
-              <button onMouseDown={this.routeChange.bind(this, "/Logout")}>
-                Log Out
+              <button
+                className="topnav-button"
+                onMouseDown={this.routeChange.bind(this, "/Logout")}
+              >
+                LOG OUT
               </button>
               <ShoppingCartButton
-                style={{ top: "50", left: "0" }}
                 itemsInCart={this.props.itemsInCart}
                 onAddToCartClick={this.props.handleAddToCartClick}
                 onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
               />
             </div>
           ) : (
-            <div>
+            <div
+              style={{
+                display: "table-row",
+              }}
+            >
               <button
-                style={{ height: "100%" }}
+                className="topnav-button"
+                style={{ border: "none" }}
                 onMouseDown={this.routeChange.bind(this, "/Login")}
               >
-                Log In
+                LOG IN
               </button>
               <button
-                style={{ height: "100%" }}
+                className="topnav-button"
                 onMouseDown={this.routeChange.bind(this, "/Signup")}
               >
-                Sign Up
+                SIGN UP
               </button>
               <ShoppingCartButton
-                style={{ top: "50", left: "0" }}
                 itemsInCart={this.props.itemsInCart}
                 onAddToCartClick={this.props.handleAddToCartClick}
                 onRemoveFromCartClick={this.props.handleRemoveFromCartClick}

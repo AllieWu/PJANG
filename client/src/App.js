@@ -6,17 +6,12 @@ import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import History from "./views/History/History";
 import NotFound from "./views/NotFound";
-import Header from "./components/Header/Header.js";
 import items from "./views/Product/productinfo.json";
-<<<<<<< HEAD
-=======
+
 import LogIn from "./views/Authentication/LogIn.js";
 import SignUp from "./views/Authentication/SignUp";
 import LogOut from "./views/Authentication/LogOut";
 import httpUser from "./httpUser";
-
-import "./App.css";
->>>>>>> master
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(httpUser.getCurrentUser());
