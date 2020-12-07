@@ -89,11 +89,11 @@ button {
   height: 8%;
   color: black;
   letter-spacing: 0.1em;
+  border-radius: 0.5em;
   width: auto;
   padding: 5px;
-  display: inline-block;
-  background-color: transparent;
-  text-decoration: underline;
+  margin-right: 5px;
+  display: table-cell;
 }
 
 @media screen and (max-height: 45em) {
