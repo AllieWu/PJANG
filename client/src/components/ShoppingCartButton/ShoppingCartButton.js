@@ -15,13 +15,11 @@ export default class ShoppingCartButton extends React.Component {
   }
 
   ShowSidebar() {
-    //document.getElementById("cartSideNavID").style.width = "20%";
     this.setState({ showCart: true });
     this.forceUpdate();
   }
 
   ShowNoSidebar() {
-    //document.getElementById("cartSideNavID").style.width = "0px";
     this.setState({ showCart: false });
     this.forceUpdate();
   }
@@ -44,7 +42,7 @@ export default class ShoppingCartButton extends React.Component {
                   {ele.price_data.product_data.name}
                 </p>
                 <AddToCartButton
-                  quantity={ele.quantity} // try to find the existing count in our shopping cart before assuming count = -
+                  quantity={ele.quantity}
                   name={ele.price_data.product_data.name}
                   onAddToCartClick={() =>
                     this.props.onAddToCartClick(
@@ -70,23 +68,23 @@ export default class ShoppingCartButton extends React.Component {
         <div id="cartSideNavID" class="sidenav">
           <a
             href="javascript:void(0)"
-            class="closebtn"
+            className="closebtn"
             onMouseDown={this.ShowNoSidebar}
           >
             Close
           </a>
           <h2
             style={{
-              paddingLeft: "15px",
-              marginBottom: "10px",
-              letterSpacing: "1px",
+              paddingLeft: "1.5em",
+              marginBottom: "1em",
+              letterSpacing: ".1em",
             }}
           >
             YOUR BOX
           </h2>
           {shoppingCartItems}
           <p
-            style={{ paddingLeft: "15px", marginTop: "10%", fontSize: "20px" }}
+            style={{ paddingLeft: "1em", marginTop: "1.8em", fontSize: "2em" }}
           >
             Total Cost: {totalCost.toFixed(2)}
           </p>
@@ -96,7 +94,7 @@ export default class ShoppingCartButton extends React.Component {
     );
 
     return (
-      <div>
+      <div style={{ display: "table-cell" }}>
         <button onMouseDown={this.ShowSidebar} className="cart-text">
           CART
         </button>

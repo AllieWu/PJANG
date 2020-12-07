@@ -3,11 +3,14 @@
   background-repeat: no-repeat;
   border: none;
   overflow: hidden;
-  height: 120px;
-  width: 120px;
+  height: 12em;
+  width: 12em;
   cursor: pointer, auto;
   transition-duration: 2s;
   outline: none;
+    position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .nextPageButton {
   background-color: transparent;
@@ -15,4 +18,5 @@
   outline: none transparent;
   vertical-align: bottom;
   text-align: center;
+  
 }

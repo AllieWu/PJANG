@@ -8,6 +8,7 @@ import "./../../assets/style.css";
 import productInfo from "./../Product/productinfo.json";
 import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
+import Header from "./../../components/Header/Header.js";
 
 import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
 import coffeeImg from "./../../assets/detergentImages/coffeeMockup.png";
@@ -118,62 +119,52 @@ export default class Home extends React.Component {
     return (
       <div className="child">
         <div className={classPrePend + " homeHeader"}>
-          <h1 className="title">{name + " Laundr Bombs"}</h1>
-          <h2>{desc1}</h2>
-          <h2>{desc2}</h2>
-          <h3>This fragrance has hints of:</h3>
-          <ul style={{ marginLeft: "5%" }}>
-            <li>{scent1}</li>
-            <li>{scent2}</li>
-            <li>{scent3}</li>
-          </ul>
-          <p className="price">$18.99</p>
+          <div className="autoscale">
+            <h1 className="title">{name + " Laundr Bombs"}</h1>
+            <h2>{desc1}</h2>
+            <h2>{desc2}</h2>
+            <h3>This fragrance has hints of:</h3>
+            <ul style={{ marginLeft: "5%" }}>
+              <li>{scent1}</li>
+              <li>{scent2}</li>
+              <li>{scent3}</li>
+            </ul>
+            <p className="price">$18.99</p>
 
-          <div class="center">
-            <NextPageButton
-              id={newpage}
-              id2={newpage2}
-              redirectpage={redirectpage}
+            <AddToCartButton
+              quantity={
+                this.props.itemsInCart?.find(
+                  (i) => i.price_data.product_data.name === name
+                )?.quantity ?? 0
+              } // try to find the existing count in our shopping cart before assuming count = 0
+              name={name}
+              onAddToCartClick={this.props.handleAddToCartClick}
+              onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
             />
           </div>
 
-          <AddToCartButton
-            quantity={
-              this.props.itemsInCart?.find(
-                (i) => i.price_data.product_data.name === name
-              )?.quantity ?? 0
-            } // try to find the existing count in our shopping cart before assuming count = 0
-            name={name}
-            onAddToCartClick={this.props.handleAddToCartClick}
-            onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
-          />
-          
-          <div class="wrapper">
-            <img
-              src={imgTop} 
-              alt={"Product"}
-              class="zipper"
-            />     
-            <img
-              src={imgBot}
-              alt={"Product"}
-              class="bottomBag"
-            />
-            <img 
-              src={groupedBombs}
-              alt="groupedBombs" 
-              class="laundrBombs"
-            />
+          <div className="productParent">
+            <div className="center">
+              <NextPageButton
+                id={newpage}
+                id2={newpage2}
+                redirectpage={redirectpage}
+              />
+            </div>
+            <div class="wrapper">
+              <img src={imgTop} alt={"Product"} class="zipper" />
+              <img src={imgBot} alt={"Product"} class="bottomBag" />
+              <img src={groupedBombs} alt="groupedBombs" class="laundrBombs" />
+            </div>
           </div>
         </div>
 
         <div className="backgroundContainer">
-          <div className={classPrePend + "Background"}></div>
+          <div className={classPrePend + "Background background"}></div>
         </div>
       </div>
     );
   }
-
   render() {
     let productNames = [
       "Watermelon Cucumber",
@@ -186,6 +177,12 @@ export default class Home extends React.Component {
 
     return (
       <div className="App">
+        <Header
+          itemsInCart={this.props.itemsInCart}
+          handleAddToCartClick={this.props.handleAddToCartClick}
+          handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+          page={"home"}
+        />
         {productNames.map((name) => this.getProductPage(name))}
       </div>
     );
