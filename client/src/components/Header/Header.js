@@ -58,7 +58,6 @@ export default class Header extends React.Component {
             >
               <button
                 className="topnav-button"
-                style={{ border: "none" }}
                 onMouseDown={this.routeChange.bind(this, "/Login")}
               >
                 LOG IN

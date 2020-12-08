@@ -10,19 +10,13 @@ import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 import Header from "./../../components/Header/Header.js";
 
-import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
-import coffeeImg from "./../../assets/detergentImages/coffeeMockup.png";
-import eucalyptusImg from "./../../assets/detergentImages/eucalyptusMockup.png";
-import freshImg from "./../../assets/detergentImages/freshairMockup.png";
-import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
-import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
-
 import watermelonTop from "./../../assets/detergentImages/watermelon_top.png";
 import coffeeTop from "./../../assets/detergentImages/coffee_top.png";
 import eucalyptusTop from "./../../assets/detergentImages/eucalyptus_top.png";
 import freshTop from "./../../assets/detergentImages/freshair_top.png";
 import gardeniaTop from "./../../assets/detergentImages/gardenia_top.png";
 import mahoganyTop from "./../../assets/detergentImages/mahogany_top.png";
+
 import watermelonBottom from "./../../assets/detergentImages/watermelon_bottom.png";
 import coffeeBottom from "./../../assets/detergentImages/coffee_bottom.png";
 import eucalyptusBottom from "./../../assets/detergentImages/eucalyptus_bottom.png";
@@ -144,17 +138,21 @@ export default class Home extends React.Component {
           </div>
 
           <div className="productParent">
-            <div className="center">
+            <div class="wrapper" id="wrapper">
+              <img src={imgTop} alt={"Product"} className="zipper" />
+              <img src={imgBot} alt={"Product"} className="bottomBag" />
+              <img
+                src={groupedBombs}
+                alt="groupedBombs"
+                className="laundrBombs"
+              />
+            </div>
+            <div className="center" id="openButton">
               <NextPageButton
                 id={newpage}
                 id2={newpage2}
                 redirectpage={redirectpage}
               />
-            </div>
-            <div class="wrapper">
-              <img src={imgTop} alt={"Product"} class="zipper" />
-              <img src={imgBot} alt={"Product"} class="bottomBag" />
-              <img src={groupedBombs} alt="groupedBombs" class="laundrBombs" />
             </div>
           </div>
         </div>
@@ -182,6 +180,7 @@ export default class Home extends React.Component {
           handleAddToCartClick={this.props.handleAddToCartClick}
           handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           page={"home"}
+          currentUser={this.props.currentUser}
         />
         {productNames.map((name) => this.getProductPage(name))}
       </div>

@@ -55,6 +55,7 @@ const App = () => {
       }
 
       // otherwise, add new item to cart
+      console.log("Adding a new product named ", name);
       const item = items.find((item) => item.name === name);
       return [
         ...itemsInCart,
@@ -114,6 +115,7 @@ const App = () => {
                 itemsInCart={itemsInCart}
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
+                currentUser={currentUser}
               />
             );
           }}
@@ -132,6 +134,7 @@ const App = () => {
                 itemsInCart={itemsInCart}
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
+                currentUser={currentUser}
               />
             );
           }}

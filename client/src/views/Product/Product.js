@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import pages from "./productinfo.json";
 import "./../../assets/style.css";
 
@@ -78,7 +77,6 @@ const Product = (props) => {
       </h4>
     </div>
   );
-
   return (
     <div>
       <Header
@@ -86,6 +84,7 @@ const Product = (props) => {
         handleAddToCartClick={props.handleAddToCartClick}
         handleRemoveFromCartClick={props.handleRemoveFromCartClick}
         page={"product"}
+        currentUser={props.currentUser}
       />
       <div style={{ top: "15%" }}>
         <div className={alt + "Background1"}></div>
@@ -119,10 +118,10 @@ const Product = (props) => {
           <AddToCartButton
             quantity={
               props.itemsInCart?.find(
-                (i) => i.price_data.product_data.name === props.name
+                (i) => i.price_data.product_data.name === props.page.name
               )?.quantity ?? 0
             } // try to find the existing count in our shopping cart before assuming count = 0
-            name={props.name}
+            name={props.page.name}
             onAddToCartClick={props.handleAddToCartClick}
             onRemoveFromCartClick={props.handleRemoveFromCartClick}
           />

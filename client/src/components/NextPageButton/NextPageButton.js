@@ -49,7 +49,12 @@ export default class NextPageButton extends React.Component {
           onMouseLeave={this.PutBackToNormal}
           onMouseDown={this.routeChange}
         >
-          <svg viewBox="0 0 120 120" height="120" width="120">
+          <svg
+            viewBox="0 0 120 120"
+            height="120"
+            width="120"
+            className="circle"
+          >
             <circle
               id={this.props.id}
               z-index="1"
@@ -57,7 +62,7 @@ export default class NextPageButton extends React.Component {
               cx="60"
               cy="60"
               r="25"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
             />
             <text
