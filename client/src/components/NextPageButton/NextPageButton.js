@@ -61,11 +61,11 @@ export default class NextPageButton extends React.Component {
               fill="none"
             />
             <text
-              style={({ fontWeight: "bold" }, { fontSize: 16 })}
-              x="57"
-              y="64"
+              style={({ fontWeight: "bolder" }, { fontSize: 16 })}
+              x="55"
+              y="66"
             >
-              v
+              {"<"}
             </text>
           </svg>
         </button>

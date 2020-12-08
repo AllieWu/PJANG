@@ -1,28 +1,23 @@
-html,
-body {
-  height: 100%;
-}
-
 button {
   background-color: white;
-  width: 80px;
-  height: 20px;
+  width: 8em;
+  height: 2em;
   color: black;
-  line-height: 19.5px !important;
-  border-width: 2px;
+  line-height: 1.95em !important;
+  border-width: 0.2em;
 }
 
 .navbarbutton-parent {
   height: 0px;
   width: 100%;
   padding: 0px;
-  margin: 5px;
+  margin: 0.5em;
   background-color: white;
-  border-width: 2px;
+  border-width: 0.2em;
   border-style: outset;
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
   border-image: initial;
-  border-radius: 5px;
+  border-radius: 0.5em;
 }
 /* Add a black background color to the top navigation */
 .NavBarButtonID {
@@ -37,10 +32,10 @@ button {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 8px 8px 8px 8px;
+  padding: 0.8em 0.8em 0.8em 0.8em;
   text-decoration: none;
   transition: 0.3s;
-  font-size: 20px;
+  font-size: 2em;
 }
 
 /* Change the color of links on hover */
@@ -59,11 +54,11 @@ button {
 .NavBarButtonID .icon {
   display: none;
 }
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 45em) {
   .NavBarButtonID {
-    padding-top: 15px;
+    padding-top: 1.5em;
   }
   .NavBarButtonID a {
-    font-size: 18px;
+    font-size: 1.8em;
   }
 }

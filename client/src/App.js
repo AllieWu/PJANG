@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import "./App.css";
+
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import History from "./views/History/History";
 import NotFound from "./views/NotFound";
-import Header from "./components/Header/Header.js";
 import items from "./views/Product/productinfo.json";
+
 import LogIn from "./views/Authentication/LogIn.js";
 import SignUp from "./views/Authentication/SignUp";
 import LogOut from "./views/Authentication/LogOut";
@@ -34,12 +36,12 @@ const App = () => {
   },[])
 
   const onLoginSuccess = () => {
-      setCurrentUser(httpUser.getCurrentUser());
+    setCurrentUser(httpUser.getCurrentUser());
   };
 
   const logOut = () => {
-      httpUser.logOut();
-      setCurrentUser(null);
+    httpUser.logOut();
+    setCurrentUser(null);
   };
 
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -53,8 +55,6 @@ const App = () => {
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
-        console.log("updating item with name " + name);
-
         return itemsInCart.map((item) => {
           if (item.price_data.product_data.name !== name) return item;
 
@@ -69,12 +69,10 @@ const App = () => {
             },
             quantity: item.quantity + 1,
           };
-          //return { ...itemInCart, quantity: item.price_data.quantity + 1 };
         });
       }
 
       // otherwise, add new item to cart
-      console.log("adding new item with name " + name);
       const item = items.find((item) => item.name === name);
       return [
         ...itemsInCart,
@@ -90,7 +88,6 @@ const App = () => {
           quantity: 1,
         },
       ];
-      //return [...itemsInCart, { ...item, quantity: 1 }];
     });
 
     itemsInCart.forEach((e) => console.log(e));
@@ -125,14 +122,11 @@ const App = () => {
 
   return (
     <div>
-      <Header
-        itemsInCart={itemsInCart}
-        handleAddToCartClick={handleAddToCartClick}
-        handleRemoveFromCartClick={handleRemoveFromCartClick}
-      />
       <Switch>
         <Route
-          exact path="/Home" render={() => {
+          exact
+          path="/Home"
+          render={() => {
             return (
               <Home
                 itemsInCart={itemsInCart}
@@ -146,7 +140,8 @@ const App = () => {
           <Redirect to="/Home" />
         </Route>
         <Route
-          path="/Product/:pageNumber" render={(props) => {
+          path="/Product/:pageNumber"
+          render={(props) => {
             return (
               <Product
                 {...props}
@@ -159,28 +154,33 @@ const App = () => {
             );
           }}
         />
-        <Route path="/History" render={(props) => {
-            return (
-              currentUser ? <History {...props} currentUser={currentUser} /> : <History to="/login" />
+
+        <Route
+          path="/History"
+          render={(props) => {
+            return currentUser ? (
+              <History {...props} currentUser={currentUser} />
+            ) : (
+              <History to="/login" />
             );
           }}
         />
-        <Route path="/Login" render={(props) => {
-            return (
-              <LogIn {...props} onLoginSuccess={onLoginSuccess} />
-            );
-          }} 
+        <Route
+          path="/Login"
+          render={(props) => {
+            return <LogIn {...props} onLoginSuccess={onLoginSuccess} />;
+          }}
         />
-        <Route path="/Signup" render={(props) => {
-            return (
-              <SignUp {...props} onSignUpSuccess={onLoginSuccess} />
-            );
-          }} 
+        <Route
+          path="/Signup"
+          render={(props) => {
+            return <SignUp {...props} onSignUpSuccess={onLoginSuccess} />;
+          }}
         />
-        <Route path="/Logout" render={(props) => {
-            return (
-              <LogOut onLogOut={logOut} />
-            );
+        <Route
+          path="/Logout"
+          render={(props) => {
+            return <LogOut onLogOut={logOut} />;
           }}
         />
         <Route component={NotFound} />
