@@ -132,6 +132,7 @@ const App = () => {
                 itemsInCart={itemsInCart}
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
+                currentUser={currentUser}
               />
             );
           }}
@@ -150,6 +151,7 @@ const App = () => {
                 itemsInCart={itemsInCart}
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
+                currentUser={currentUser}
               />
             );
           }}
