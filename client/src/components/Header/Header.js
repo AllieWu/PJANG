@@ -48,6 +48,7 @@ export default class Header extends React.Component {
                 itemsInCart={this.props.itemsInCart}
                 onAddToCartClick={this.props.handleAddToCartClick}
                 onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+                products={this.props.products}
               />
             </div>
           ) : (
@@ -72,6 +73,7 @@ export default class Header extends React.Component {
                 itemsInCart={this.props.itemsInCart}
                 onAddToCartClick={this.props.handleAddToCartClick}
                 onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+                products={this.props.products}
               />
             </div>
           )}

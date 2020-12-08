@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Home.css";
 import "./../../assets/style.css";
 
-import productInfo from "./../Product/productinfo.json";
 import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 import Header from "./../../components/Header/Header.js";
@@ -32,7 +31,7 @@ export default class Home extends React.Component {
     super(props);
   }
 
-  getProductPage(name) {
+  getProductPage(id, name) {
     let classPrePend, imgTop, imgBot;
     let desc1, desc2, scent1, scent2, scent3;
     let redirectpage, newpage, newpage2;
@@ -101,15 +100,17 @@ export default class Home extends React.Component {
         });
     };
 
-    const matching = productInfo.find((ele) => ele.name === name);
+    const matching = this.props.products.find(
+      (ele) => ele.metadata.priceID === id
+    );
     [desc1, desc2, scent1, scent2, scent3] = [
-      matching.desc1,
-      matching.desc2,
-      matching.scent1,
-      matching.scent2,
-      matching.scent3,
+      matching?.metadata.desc1,
+      matching?.metadata.desc2,
+      matching?.metadata.scent1,
+      matching?.metadata.scent2,
+      matching?.metadata.scent3,
     ];
-
+    let item = this.props.itemsInCart?.find((i) => i.id === id);
     return (
       <div className="child">
         <div className={classPrePend + " homeHeader"}>
@@ -126,12 +127,8 @@ export default class Home extends React.Component {
             <p className="price">$18.99</p>
 
             <AddToCartButton
-              quantity={
-                this.props.itemsInCart?.find(
-                  (i) => i.price_data.product_data.name === name
-                )?.quantity ?? 0
-              } // try to find the existing count in our shopping cart before assuming count = 0
-              name={name}
+              quantity={item?.quantity ?? 0}
+              id={id}
               onAddToCartClick={this.props.handleAddToCartClick}
               onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
             />
@@ -164,14 +161,7 @@ export default class Home extends React.Component {
     );
   }
   render() {
-    let productNames = [
-      "Watermelon Cucumber",
-      "Eucalyptus Tea Tree",
-      "White Gardenia",
-      "Fresh Air",
-      "Coffee Vanilla",
-      "Mahogany Teakwood",
-    ];
+    console.log(this.props.products);
 
     return (
       <div className="App">
@@ -181,8 +171,11 @@ export default class Home extends React.Component {
           handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           page={"home"}
           currentUser={this.props.currentUser}
+          products={this.props.products}
         />
-        {productNames.map((name) => this.getProductPage(name))}
+        {this.props.products.map((product) =>
+          this.getProductPage(product.metadata.priceID, product.metadata.name)
+        )}
       </div>
     );
   }
