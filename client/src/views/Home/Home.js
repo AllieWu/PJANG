@@ -182,6 +182,7 @@ export default class Home extends React.Component {
           handleAddToCartClick={this.props.handleAddToCartClick}
           handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           page={"home"}
+          currentUser={this.props.currentUser}
         />
         {productNames.map((name) => this.getProductPage(name))}
       </div>

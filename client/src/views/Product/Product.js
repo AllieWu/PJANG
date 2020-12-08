@@ -86,6 +86,7 @@ const Product = (props) => {
         handleAddToCartClick={props.handleAddToCartClick}
         handleRemoveFromCartClick={props.handleRemoveFromCartClick}
         page={"product"}
+        currentUser={props.currentUser}
       />
       <div style={{ top: "15%" }}>
         <div className={alt + "Background1"}></div>
