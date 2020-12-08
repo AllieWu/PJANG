@@ -18,43 +18,61 @@ import freshBackground from "./../../assets/backgroundPatterns/freshair_pattern.
 import coffeeBackground from "./../../assets/backgroundPatterns/vanilla_pattern.png";
 import mahoganyBackground from "./../../assets/backgroundPatterns/mahogany_pattern.png";
 
-let img, alt, back;
+import watermelonBottom from "./../../assets/detergentImages/watermelon_bottom.png";
+import coffeeBottom from "./../../assets/detergentImages/coffee_bottom.png";
+import eucalyptusBottom from "./../../assets/detergentImages/eucalyptus_bottom.png";
+import freshBottom from "./../../assets/detergentImages/freshair_bottom.png";
+import gardeniaBottom from "./../../assets/detergentImages/gardenia_bottom.png";
+import mahoganyBottom from "./../../assets/detergentImages/mahogany_bottom.png";
+import zipperSideways from "./../../assets/detergentImages/zipper_sideways.png";
+
+import bomb1_5 from "./../../assets/bombs/Laundr Bomb Angle1.5 White.png";
+import bomb1 from "./../../assets/bombs/Laundr Bomb Angle1 White.png";
+import bomb2 from "./../../assets/bombs/Laundr Bomb Angle2 White.png";
+
+let img, imgTop, imgBot, alt, back;
 const Product = (props) => {
   useEffect(() => {
     switch (props.match.params.pageNumber) {
       case "watermelon-cucumber":
         back = watermelonBackground;
         img = watermelonImg;
+        imgBot = watermelonBottom;
         alt = "watermelon";
         props.setPage(pages[0]);
         break;
       case "eucalyptus-tea-tree":
          back = eucalyptusBackground;
          img = eucalyptusImg;
+         imgBot = eucalyptusBottom;
          alt = "eucalyptus";
          props.setPage(pages[5]);
          break;  
       case "white-gardenia":
         back = gardeniaBackground;
         img = gardeniaImg;
+        imgBot = gardeniaBottom;
         alt = "gardenia";
         props.setPage(pages[1]);
         break;
       case "fresh-air":
         back = freshBackground;
         img = freshImg;
+        imgBot = freshBottom;
         alt = "freshair";
         props.setPage(pages[3]);
         break;  
       case "coffee-vanilla":
         back = coffeeBackground;
         img = coffeeImg;
+        imgBot = coffeeBottom;
         alt = "coffee";
         props.setPage(pages[4]);
         break;
       case "mahogany-teakwood":
         back = mahoganyBackground;
         img = mahoganyImg;
+        imgBot = mahoganyBottom;
         alt = "mahogany";
         props.setPage(pages[2]);
         break;
@@ -70,7 +88,25 @@ const Product = (props) => {
         <div className = {alt + "Background4"}></div>
         <div className = {alt + "Background5"}></div>
         <h1 className = {alt + "Title"}>{props.page.name2}</h1>
-        <img src={img} alt={props.page.name + " Image"} className="productpImage"></img>
+        
+
+        <div class="productpWrapper">
+          <img
+            src={zipperSideways} 
+            alt={"Product"}
+            class="productpZipper"
+          />     
+          <img
+            src={imgBot}
+            alt={"Product"}
+            class="productpBag"
+          />
+        </div>
+
+        <img src={bomb1_5} alt="Bomb Image 1.5" className="Bomb1_5"></img>
+        <img src={bomb1} alt="Bomb Image 1" className="Bomb1"></img>
+        <img src={bomb2} alt="Bomb Image 2" className="Bomb2"></img>
+
         <h1 className = {alt + "Title bottomTitle"}>{props.page.name3}</h1>
         <h3>{props.page.desc1}</h3>
         <h3>{props.page.desc2}</h3>
@@ -81,8 +117,6 @@ const Product = (props) => {
           <li>{props.page.scent3}</li>
         </ul>
       </div>
-
-      
       
       <AddToCartButton
         style={{ width: "200px" }}
