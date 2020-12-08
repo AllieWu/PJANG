@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
@@ -10,12 +10,28 @@ import LogIn from "./views/Authentication/LogIn.js";
 import SignUp from "./views/Authentication/SignUp";
 import LogOut from "./views/Authentication/LogOut";
 import httpUser from './httpUser';
+import axios from 'axios';
 
 import "./App.css";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(httpUser.getCurrentUser());
   console.log(currentUser);
+
+  const [productInfo, setProductInfo] = useState([]);
+  console.log(productInfo);
+
+  const [priceInfo, setPriceInfo] = useState([]);
+  console.log(priceInfo);
+
+  //??? how to prevent render on each set
+  //only runs when component mounts; get productInfo and priceInfo only once
+  useEffect(async () => {
+    const products = await axios.get('/api/product/retrieve-products');
+    const prices = await axios.get('/api/product/retrieve-prices');
+    setProductInfo(products.data.products);
+    setPriceInfo(prices.data.prices);
+  },[])
 
   const onLoginSuccess = () => {
       setCurrentUser(httpUser.getCurrentUser());
