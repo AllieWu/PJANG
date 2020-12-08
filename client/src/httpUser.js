@@ -52,7 +52,11 @@ httpUser.signUp = async function (userInfo) {
   const response2 = await axios.post("/api/users", userInfo2);
   console.log("Sign up complete");
 
+<<<<<<< HEAD
   const token = response.data.token;
+=======
+  const token = response2.data.token;
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   if (token) {
     this.defaults.headers.common.token = this.setToken(token);
     return jwtDecode(token);

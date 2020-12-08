@@ -626,6 +626,11 @@ p {
   height: 412.5px;
   width: 550px;
   position: absolute;
+<<<<<<< HEAD
+=======
+  top: 50%;
+  left: 50%;
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   transform: translate(-50%, -50%);
 }
 .zipper {
@@ -636,14 +641,21 @@ p {
   transform-origin: 26% bottom;
   animation-name: closingAnimation;
   animation-duration: 1s;
+<<<<<<< HEAD
 }
 .wrapper:hover .zipper,
 .zipper:hover .zipper,
 .circle:hover .zipper {
+=======
+  transform: translate(-50%, -50%);
+}
+.wrapper:hover .zipper {
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   animation-name: openingAnimation;
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
+<<<<<<< HEAD
 
 @keyframes openingAnimation {
   from {
@@ -651,14 +663,29 @@ p {
   }
   to {
     transform: rotate(-10deg);
+=======
+@keyframes openingAnimation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-10deg);
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   }
 }
 @keyframes closingAnimation {
   from {
+<<<<<<< HEAD
     transform: rotate(-10deg);
   }
   to {
     transform: rotate(0deg);
+=======
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   }
 }
 .bottomBag {
@@ -666,6 +693,11 @@ p {
   z-index: 5;
   position: absolute;
   bottom: 0px;
+<<<<<<< HEAD
+=======
+  top: 50%;
+  transform: translate(-50%, -50%);
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
 }
 .laundrBombs {
   width: 180px;
@@ -673,12 +705,19 @@ p {
   position: relative;
   animation-name: submergeAnimation;
   animation-duration: 1s;
+<<<<<<< HEAD
   top: 22%;
   left: 100%;
 }
 .wrapper:hover .laundrBombs,
 .zipper:hover .laundrBombs,
 .circle:hover .laundrBombs {
+=======
+  top: 5%;
+  left: -15%;
+}
+.wrapper:hover .laundrBombs {
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   animation-name: emergeAnimation;
   animation-duration: 2s;
   animation-fill-mode: forwards;

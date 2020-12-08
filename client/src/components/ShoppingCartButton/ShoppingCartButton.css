@@ -90,7 +90,10 @@ button {
   color: black;
   letter-spacing: 0.1em;
   border-radius: 0.5em;
+<<<<<<< HEAD
   border-width: 0.1em;
+=======
+>>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   width: auto;
   padding: 5px;
   margin-right: 5px;
