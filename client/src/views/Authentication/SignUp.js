@@ -23,16 +23,12 @@ const SignUp = (props) => {
     setFields({ name: "", email: "", password: "" });
     if (user) {
       props.onSignUpSuccess(user);
-<<<<<<< HEAD
       props.history.push("/");
     }
 
     setFields({ name: "", email: "", password: "" });
     if (user) {
       props.onSignUpSuccess(user);
-=======
-      console.log(props.history);
->>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
       props.history.push("/");
     }
   };

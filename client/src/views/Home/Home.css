@@ -15,10 +15,6 @@ html {
 
 .center {
   position: absolute;
-<<<<<<< HEAD
   transform: translate(68%, -750%);
-=======
-  transform: translate(70%, -911%);
->>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
   z-index: 1000;
 }

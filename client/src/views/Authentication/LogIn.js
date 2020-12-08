@@ -20,10 +20,6 @@ const LogIn = (props) => {
     setFields({ email: "", password: "" });
     if (user) {
       props.onLoginSuccess(user);
-<<<<<<< HEAD
-=======
-      console.log(props.history);
->>>>>>> fedcfea7a8fe951c494981c8178717a744858a1a
       props.history.push("/");
     }
   };
