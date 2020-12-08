@@ -90,26 +90,17 @@ module.exports = {
     res.json({ success: true, message: "Token attached", token });
   },
 
-  createCustomer: async (req, res) => {
-    console.log(req);
-    console.log(req.body);
-    console.log(req.body.name);
-    //console.log(config.REACT_APP_BKEY);
-    //console.log(stripeKey);
-    try {
-      const customer = await stripe.customers.create({
-        name: req.body.name,
-        email: req.body.email,
-      });
-      console.log("printing customer");
-      console.log(customer);
-      res.json({ success: true, customer });
-    } catch (err) {
-      console.log("printing err");
-      console.log(err);
-      res.json({ success: false, code: err.code });
+    createCustomer: async (req, res) => {
+        try {
+            const customer = await stripe.customers.create({
+                name: req.body.name,
+                email: req.body.email
+            });
+            res.json({success: true, customer})
+        } catch(err) {
+            res.json({success: false, code: err.code})
+        }
     }
-  },
 
   /*
         const customer = await stripe.customers.create({

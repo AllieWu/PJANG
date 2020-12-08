@@ -5,7 +5,8 @@ const path = require('path'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/examples.server.routes'),
     userRouter = require('../routes/user.js'),
-    stripeRouter = require('../routes/stripe.js');
+    stripeRouter = require('../routes/stripe.js'),
+    productRouter = require('../routes/product.js');
 
 module.exports.init = () => {
   /* 
@@ -30,13 +31,14 @@ module.exports.init = () => {
   // add a router
   app.use("/api/example", exampleRouter);
 
-  //user router for authentication
+  //api for authentication
   app.use('/api/users', userRouter);
 
-  //stripe router for payment processing
+  //api for payment processing
   app.use('/api/stripe', stripeRouter);
 
-  //product router for retrieving product info
+  //api for managing product info
+  app.use('/api/product', productRouter);
 
   // for production build
   if (process.env.NODE_ENV === "production") {
