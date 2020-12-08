@@ -96,10 +96,6 @@ module.exports = {
     },
 
     createCustomer: async (req, res) => {
-        console.log(req);
-        console.log(req.body);
-        console.log(req.body.name);
-        console.log(config.REACT_APP_BKEY);
         try {
             const customer = await stripe.customers.create({
                 name: req.body.name,
