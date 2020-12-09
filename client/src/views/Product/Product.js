@@ -17,59 +17,6 @@ import freshBackground from "./../../assets/backgroundPatterns/freshair_pattern.
 import coffeeBackground from "./../../assets/backgroundPatterns/vanilla_pattern.png";
 import mahoganyBackground from "./../../assets/backgroundPatterns/mahogany_pattern.png";
 
-<<<<<<< HEAD
-let img, alt, back, next, nextPage;
-const Product = (props) => {
-  useEffect(() => {
-    switch (props.match.params.pageNumber) {
-      case "watermelon-cucumber":
-        back = watermelonBackground;
-        img = watermelonImg;
-        alt = "watermelon";
-        next = eucalyptusImg;
-        nextPage = "/Product/eucalyptus-tea-tree";
-        props.setPage(pages[0]);
-        break;
-      case "eucalyptus-tea-tree":
-         back = eucalyptusBackground;
-         img = eucalyptusImg;
-         alt = "eucalyptus";
-         next = gardeniaImg;
-         nextPage = "/Product/white-gardenia";
-         props.setPage(pages[5]);
-         break;  
-      case "white-gardenia":
-        back = gardeniaBackground;
-        img = gardeniaImg;
-        alt = "gardenia";
-        next = freshImg;
-        nextPage = "/Product/fresh-air";
-        props.setPage(pages[1]);
-        break;
-      case "fresh-air":
-        back = freshBackground;
-        img = freshImg;
-        alt = "freshair";
-        next = coffeeImg;
-        nextPage = "/Product/coffee-vanilla";
-        props.setPage(pages[3]);
-        break;  
-      case "coffee-vanilla":
-        back = coffeeBackground;
-        img = coffeeImg;
-        alt = "coffee";
-        next = mahoganyImg;
-        nextPage = "/Product/mahogany-teakwood";
-        props.setPage(pages[4]);
-        break;
-      case "mahogany-teakwood":
-        back = mahoganyBackground;
-        img = mahoganyImg;
-        alt = "mahogany";
-        next = watermelonImg;
-        nextPage = "/Product/watermelon-cucumber";
-        props.setPage(pages[2]);
-=======
 export default class Product extends React.Component {
   constructor(props) {
     super(props);
@@ -79,6 +26,8 @@ export default class Product extends React.Component {
       img: undefined,
       back: undefined,
       alt: undefined,
+      next: undefined,
+      nextPage: undefined
     };
 
     this.handleLoad = this.handleLoad.bind(this);
@@ -99,6 +48,8 @@ export default class Product extends React.Component {
           back: watermelonBackground,
           img: watermelonImg,
           alt: "watermelon",
+          next = eucalyptusImg,
+          nextPage = "/Product/eucalyptus-tea-tree"
         });
         break;
       case "eucalyptus-tea-tree":
@@ -106,6 +57,8 @@ export default class Product extends React.Component {
           back: eucalyptusBackground,
           img: eucalyptusImg,
           alt: "eucalyptus",
+          next = gardeniaImg,
+          nextPage = "/Product/white-gardenia"
         });
 
         break;
@@ -114,6 +67,8 @@ export default class Product extends React.Component {
           back: gardeniaBackground,
           img: gardeniaImg,
           alt: "gardenia",
+          next = freshImg,
+          nextPage = "/Product/fresh-air"
         });
 
         break;
@@ -122,6 +77,8 @@ export default class Product extends React.Component {
           back: freshBackground,
           img: freshImg,
           alt: "freshair",
+          next = coffeeImg,
+          nextPage = "/Product/coffee-vanilla"
         });
 
         break;
@@ -130,6 +87,8 @@ export default class Product extends React.Component {
           back: coffeeBackground,
           img: coffeeImg,
           alt: "coffee",
+          next = mahoganyImg,
+          nextPage = "/Product/mahogany-teakwood"
         });
 
         break;
@@ -138,9 +97,10 @@ export default class Product extends React.Component {
           back: mahoganyBackground,
           img: mahoganyImg,
           alt: "mahogany",
+          next = watermelonImg,
+          nextPage = "/Product/watermelon-cucumber"
         });
 
->>>>>>> fd9000c19a89a7b3001ecf4996760aacadaab59e
         break;
     }
   }
