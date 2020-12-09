@@ -19,7 +19,7 @@ import freshBackground from "./../../assets/backgroundPatterns/freshair_pattern.
 import coffeeBackground from "./../../assets/backgroundPatterns/vanilla_pattern.png";
 import mahoganyBackground from "./../../assets/backgroundPatterns/mahogany_pattern.png";
 
-let img, alt, back;
+let img, alt, back, next, nextPage;
 const Product = (props) => {
   useEffect(() => {
     switch (props.match.params.pageNumber) {
@@ -27,36 +27,48 @@ const Product = (props) => {
         back = watermelonBackground;
         img = watermelonImg;
         alt = "watermelon";
+        next = eucalyptusImg;
+        nextPage = "/Product/eucalyptus-tea-tree";
         props.setPage(pages[0]);
         break;
       case "eucalyptus-tea-tree":
-        back = eucalyptusBackground;
-        img = eucalyptusImg;
-        alt = "eucalyptus";
-        props.setPage(pages[5]);
-        break;
+         back = eucalyptusBackground;
+         img = eucalyptusImg;
+         alt = "eucalyptus";
+         next = gardeniaImg;
+         nextPage = "/Product/white-gardenia";
+         props.setPage(pages[5]);
+         break;  
       case "white-gardenia":
         back = gardeniaBackground;
         img = gardeniaImg;
         alt = "gardenia";
+        next = freshImg;
+        nextPage = "/Product/fresh-air";
         props.setPage(pages[1]);
         break;
       case "fresh-air":
         back = freshBackground;
         img = freshImg;
         alt = "freshair";
+        next = coffeeImg;
+        nextPage = "/Product/coffee-vanilla";
         props.setPage(pages[3]);
-        break;
+        break;  
       case "coffee-vanilla":
         back = coffeeBackground;
         img = coffeeImg;
         alt = "coffee";
+        next = mahoganyImg;
+        nextPage = "/Product/mahogany-teakwood";
         props.setPage(pages[4]);
         break;
       case "mahogany-teakwood":
         back = mahoganyBackground;
         img = mahoganyImg;
         alt = "mahogany";
+        next = watermelonImg;
+        nextPage = "/Product/watermelon-cucumber";
         props.setPage(pages[2]);
         break;
     }
@@ -145,6 +157,9 @@ const Product = (props) => {
             {text(4)}
           </div>
         </div>
+        <a href={nextPage} target="blank">
+          <img class="nextImage" src={next} alt=""/>
+          </a>
       </div>
     </div>
   );

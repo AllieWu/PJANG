@@ -577,6 +577,14 @@ p {
   padding-bottom: 0.8em;
 }
 
+.nextImage {
+  width: 1000px;
+  position: relative;
+  left: 250px;
+  top: -500px;
+}
+
+
 @keyframes animatedBackground {
   from {
     background-position: 0 100%;
