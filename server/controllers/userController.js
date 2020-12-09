@@ -29,6 +29,16 @@ module.exports = {
     }
   },
 
+  //finds a user based on their email
+  find: async (req, res) => {
+    try {
+      const user = await User.findOne({email: req.query.email});
+      res.json({success: true, user: user});
+    } catch (err) {
+      alert(err);
+    }
+  },
+
   //create a new user (for sign up)
   //takes in the request body and fills in the parameters of the User mongo model
   create: async (req, res) => {
@@ -92,6 +102,7 @@ module.exports = {
 
     createCustomer: async (req, res) => {
         try {
+          console.log(req.body);
             const customer = await stripe.customers.create({
                 name: req.body.name,
                 email: req.body.email
