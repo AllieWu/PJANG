@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import moment from "moment";
+import moment from "moment-timezone";
+
+import "./History.css";
 import blueLaundrLogo from "./../../assets/blueCombine.png";
 
 export default class History extends React.Component {
@@ -38,13 +40,14 @@ export default class History extends React.Component {
       <div>
         {this.state.response?.data?.payments?.map(function (payment) {
           return (
-            <h3 style={{ marginBottom: ".2em" }}>
-              {payment.amount} {payment.currency}{" "}
-              {moment
-                .unix(payment.created)
-                .tz("MST")
-                .format("YYYY-MM-DDTHH:mm:ssZ")}
-            </h3>
+            <div className="pastOrder">
+              <h3 className="orderText left">
+                {Number((payment.amount / 100).toFixed(2))} {payment.currency}{" "}
+              </h3>
+              <h3 className="orderText right">
+                {moment.unix(payment.created).tz("EST").format("LLLL")}
+              </h3>
+            </div>
           );
         })}
       </div>
