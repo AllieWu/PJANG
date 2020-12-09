@@ -10,7 +10,13 @@ import dropdownImg from "./../../assets/dropdown.png";
 export default class History extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { response: [], openArr: {} };
+    this.state = {
+      response: [],
+      orderCount: 0,
+      open1: false,
+      open2: false,
+      open3: false,
+    };
 
     this.handleLoad = this.handleLoad.bind(this);
     this.togglePanel = this.togglePanel.bind(this);
@@ -36,65 +42,115 @@ export default class History extends React.Component {
     console.log("Getting payment history...");
     resp = await axios.get("/api/stripe/payment-intents?ID=" + customer);
     console.log("Payment history recieved!");
-
-    console.log("Specifying products...")
+    console.log(resp);
+    console.log("Specifying products...");
     //for each payment intent, find the associated checkout session and the line_items (products) included
     resp.data.payments.forEach(async (e) => {
       //get session
       session = await axios.get("/api/stripe/sessions?ID=" + e.id);
       //get line items of session
-      items = await axios.get("/api/stripe/line-items?ID=" + session.data.session[0].id);
+      items = await axios.get(
+        "/api/stripe/line-items?ID=" + session.data.session[0].id
+      );
       e.line_items = items.data.line_items;
-    })
+    });
     console.log(resp.data.payments);
 
     this.setState({ response: resp });
-    this.forceUpdate();
   }
 
-  togglePanel(e) {
-    let temp = this.state.openArr.find((ele) => ele.paymentId === e) !== undefined ? this.state.openArr.find((ele) => ele.paymentId === e).state : false;
-
-    this.setState({
-      openArr: :,
-    });
+  togglePanel(event, panel) {
+    console.log("toggling panel ", panel, " to");
+    switch (panel) {
+      case 1:
+        console.log(!this.state.open1);
+        this.setState({
+          open1: !this.state.open1,
+        });
+        break;
+      case 2:
+        console.log(!this.state.open2);
+        this.setState({
+          open2: !this.state.open2,
+        });
+        break;
+      case 3:
+        console.log(!this.state.open3);
+        this.setState({
+          open3: !this.state.open3,
+        });
+        break;
+    }
   }
 
   render() {
+    let varToCheck;
     let orders = (
       <div>
-        {this.state.response?.data?.payments?.map((payment) => (
-          <div className="pastOrderParent">
-            {this.state.open ? (
-              <div
-                className="active pastOrder"
-                onClick={(e) => this.togglePanel(e)}
-              >
-                <h3 className="orderText left">
-                  {Number((payment.amount / 100).toFixed(2))} {payment.currency}
-                </h3>
-                <h3 className="orderText">
-                  {moment.unix(payment.created).tz("EST").format("LLLL")}
-                </h3>
-                <img className="dropdown-icon" src={dropdownImg} />
-                <div className="content">Show</div>
-              </div>
-            ) : (
-              <div
-                className="pastOrder"
-                onClick={() => this.togglePanel(payment)}
-              >
-                <h3 className="orderText left">
-                  {Number((payment.amount / 100).toFixed(2))} {payment.currency}
-                </h3>
-                <h3 className="orderText">
-                  {moment.unix(payment.created).tz("EST").format("LLLL")}
-                </h3>
-                <img className="dropdown-icon" src={dropdownImg} />
-              </div>
-            )}
-          </div>
-        ))}
+        {this.state.response?.data?.payments?.map((payment, index) => {
+          index++;
+          switch (index) {
+            case 1:
+              varToCheck = this.state.open1;
+              break;
+            case 2:
+              varToCheck = this.state.open2;
+              break;
+            case 3:
+              varToCheck = this.state.open3;
+              break;
+          }
+          console.log("ordercount: ", index, " is set to ", varToCheck);
+
+          return (
+            <div className="pastOrderParent" id={"#" + index}>
+              {varToCheck ? (
+                <div
+                  className="active pastOrder"
+                  onClick={(e) => this.togglePanel(e, index)}
+                >
+                  <h3 className="orderText left">
+                    {Number((payment.amount / 100).toFixed(2))}
+                    {payment.currency}
+                  </h3>
+                  <h3 className="orderText">
+                    {moment.unix(payment.created).tz("EST").format("LLLL")}
+                  </h3>
+                  <img className="dropdown-icon" src={dropdownImg} />
+                  <div className="content">
+                    {payment?.line_items.map((product) => (
+                      <div>
+                        <h3 className="orderText left">
+                          {Number((product.amount_total / 100).toFixed(2))}
+                          {payment.currency}
+                        </h3>
+                        <h3>{product.description}</h3>
+                        <h3 className="orderText">
+                          {"Amount: " + product.quantity}
+                        </h3>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div
+                  id={"#" + index}
+                  className="pastOrder"
+                  onClick={(e) => this.togglePanel(e, index)}
+                >
+                  <h3 className="orderText left">
+                    {Number((payment.amount / 100).toFixed(2))}{" "}
+                    {payment.currency}
+                  </h3>
+                  <h3 className="orderText">
+                    {moment.unix(payment.created).tz("EST").format("LLLL")}
+                  </h3>
+                  <img className="dropdown-icon" src={dropdownImg} />
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     );
 
