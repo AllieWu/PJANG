@@ -5,17 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Home.css";
 import "./../../assets/style.css";
 
-import productInfo from "./../Product/productinfo.json";
 import NextPageButton from "./../../components/NextPageButton/NextPageButton";
 import AddToCartButton from "./../../components/AddToCartButton/AddToCartButton.js";
 import Header from "./../../components/Header/Header.js";
-
-import watermelonImg from "./../../assets/detergentImages/watermelonMockup.png";
-import coffeeImg from "./../../assets/detergentImages/coffeeMockup.png";
-import eucalyptusImg from "./../../assets/detergentImages/eucalyptusMockup.png";
-import freshImg from "./../../assets/detergentImages/freshairMockup.png";
-import gardeniaImg from "./../../assets/detergentImages/gardeniaMockup.png";
-import mahoganyImg from "./../../assets/detergentImages/mahoganyMockup.png";
 
 import watermelonTop from "./../../assets/detergentImages/watermelon_top.png";
 import coffeeTop from "./../../assets/detergentImages/coffee_top.png";
@@ -23,6 +15,7 @@ import eucalyptusTop from "./../../assets/detergentImages/eucalyptus_top.png";
 import freshTop from "./../../assets/detergentImages/freshair_top.png";
 import gardeniaTop from "./../../assets/detergentImages/gardenia_top.png";
 import mahoganyTop from "./../../assets/detergentImages/mahogany_top.png";
+
 import watermelonBottom from "./../../assets/detergentImages/watermelon_bottom.png";
 import coffeeBottom from "./../../assets/detergentImages/coffee_bottom.png";
 import eucalyptusBottom from "./../../assets/detergentImages/eucalyptus_bottom.png";
@@ -38,7 +31,7 @@ export default class Home extends React.Component {
     super(props);
   }
 
-  getProductPage(name) {
+  getProductPage(id, name) {
     let classPrePend, imgTop, imgBot;
     let desc1, desc2, scent1, scent2, scent3;
     let redirectpage, newpage, newpage2;
@@ -96,7 +89,9 @@ export default class Home extends React.Component {
     }
 
     window.onload = function () {
+      console.log("LOADED");
       const query = new URLSearchParams(window.location.search);
+      console.log(query);
       if (query.get("success"))
         toast("Success! You will be emailed your receipt shortly", {
           type: "success",
@@ -107,15 +102,17 @@ export default class Home extends React.Component {
         });
     };
 
-    const matching = productInfo.find((ele) => ele.name === name);
+    const matching = this.props.products.find(
+      (ele) => ele.metadata.priceID === id
+    );
     [desc1, desc2, scent1, scent2, scent3] = [
-      matching.desc1,
-      matching.desc2,
-      matching.scent1,
-      matching.scent2,
-      matching.scent3,
+      matching?.metadata.desc1,
+      matching?.metadata.desc2,
+      matching?.metadata.scent1,
+      matching?.metadata.scent2,
+      matching?.metadata.scent3,
     ];
-
+    let item = this.props.itemsInCart?.find((i) => i.price === id);
     return (
       <div className="child">
         <div className={classPrePend + " homeHeader"}>
@@ -132,29 +129,29 @@ export default class Home extends React.Component {
             <p className="price">$18.99</p>
 
             <AddToCartButton
-              quantity={
-                this.props.itemsInCart?.find(
-                  (i) => i.price_data.product_data.name === name
-                )?.quantity ?? 0
-              } // try to find the existing count in our shopping cart before assuming count = 0
-              name={name}
+              quantity={item?.quantity ?? 0}
+              id={id}
               onAddToCartClick={this.props.handleAddToCartClick}
               onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
             />
           </div>
 
           <div className="productParent">
-            <div className="center">
+            <div class="wrapper" id="wrapper">
+              <img src={imgTop} alt={"Product"} className="zipper" />
+              <img src={imgBot} alt={"Product"} className="bottomBag" />
+              <img
+                src={groupedBombs}
+                alt="groupedBombs"
+                className="laundrBombs"
+              />
+            </div>
+            <div className="center" id="openButton">
               <NextPageButton
                 id={newpage}
                 id2={newpage2}
                 redirectpage={redirectpage}
               />
-            </div>
-            <div class="wrapper">
-              <img src={imgTop} alt={"Product"} class="zipper" />
-              <img src={imgBot} alt={"Product"} class="bottomBag" />
-              <img src={groupedBombs} alt="groupedBombs" class="laundrBombs" />
             </div>
           </div>
         </div>
@@ -166,15 +163,6 @@ export default class Home extends React.Component {
     );
   }
   render() {
-    let productNames = [
-      "Watermelon Cucumber",
-      "Eucalyptus Tea Tree",
-      "White Gardenia",
-      "Fresh Air",
-      "Coffee Vanilla",
-      "Mahogany Teakwood",
-    ];
-
     return (
       <div className="App">
         <Header
@@ -183,8 +171,11 @@ export default class Home extends React.Component {
           handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           page={"home"}
           currentUser={this.props.currentUser}
+          products={this.props.products}
         />
-        {productNames.map((name) => this.getProductPage(name))}
+        {this.props.products.map((product) =>
+          this.getProductPage(product.metadata.priceID, product.metadata.name)
+        )}
       </div>
     );
   }

@@ -278,9 +278,9 @@ p {
   background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern4.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 1500px;
+  left: 85%;
   top: 300px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .freshairBackground5 {
@@ -290,7 +290,7 @@ p {
   background-repeat: no-repeat;
   left: 1200px;
   top: 900px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .eucalyptusBackground1 {
@@ -300,7 +300,7 @@ p {
   background-repeat: no-repeat;
   left: 600px;
   top: 1000px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .eucalyptusBackground2 {
@@ -310,7 +310,7 @@ p {
   background-repeat: no-repeat;
   left: 200px;
   bottom: 0px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .eucalyptusBackground3 {
@@ -320,7 +320,7 @@ p {
   background-repeat: no-repeat;
   left: 1300px;
   bottom: 70px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .eucalyptusBackground4 {
@@ -328,9 +328,9 @@ p {
   background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern4.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 1500px;
+  left: 85%;
   top: 300px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .eucalyptusBackground5 {
@@ -340,7 +340,7 @@ p {
   background-repeat: no-repeat;
   left: 1200px;
   top: 900px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .gardeniaBackground1 {
@@ -350,7 +350,7 @@ p {
   background-repeat: no-repeat;
   left: 600px;
   top: 1000px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -361,7 +361,7 @@ p {
   background-repeat: no-repeat;
   left: 200px;
   bottom: 0px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -372,7 +372,7 @@ p {
   background-repeat: no-repeat;
   left: 1300px;
   bottom: 70px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -381,9 +381,9 @@ p {
   background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern4.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 1500px;
+  left: 85%;
   top: 300px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -394,7 +394,7 @@ p {
   background-repeat: no-repeat;
   left: 1200px;
   top: 900px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -405,7 +405,7 @@ p {
   background-repeat: no-repeat;
   left: 600px;
   top: 1000px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -416,7 +416,7 @@ p {
   background-repeat: no-repeat;
   left: 200px;
   bottom: 0px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -427,7 +427,7 @@ p {
   background-repeat: no-repeat;
   left: 1300px;
   bottom: 70px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -436,9 +436,9 @@ p {
   background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern1.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 1500px;
+  left: 85%;
   top: 300px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -449,8 +449,9 @@ p {
   background-repeat: no-repeat;
   left: 1200px;
   top: 900px;
-  width: 100%;
+  width: 15%;
   height: 100%;
+  overflow: hidden;
 }
 
 .coffeeBackground1 {
@@ -460,7 +461,7 @@ p {
   background-repeat: no-repeat;
   left: 600px;
   top: 1000px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -471,7 +472,7 @@ p {
   background-repeat: no-repeat;
   left: 200px;
   bottom: 0px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -482,7 +483,7 @@ p {
   background-repeat: no-repeat;
   left: 1300px;
   bottom: 70px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -491,9 +492,9 @@ p {
   background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern2.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 1500px;
+  left: 85%;
   top: 300px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -504,7 +505,7 @@ p {
   background-repeat: no-repeat;
   left: 1200px;
   top: 900px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -515,7 +516,7 @@ p {
   background-repeat: no-repeat;
   left: 600px;
   top: 1000px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -526,7 +527,7 @@ p {
   background-repeat: no-repeat;
   left: 200px;
   bottom: 0px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -537,7 +538,7 @@ p {
   background-repeat: no-repeat;
   left: 1300px;
   bottom: 70px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -546,9 +547,9 @@ p {
   background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern2.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 1500px;
+  left: 85%;
   top: 300px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 
@@ -559,7 +560,7 @@ p {
   background-repeat: no-repeat;
   left: 1200px;
   top: 900px;
-  width: 100%;
+  width: 15%;
   height: 100%;
 }
 .placeholder-text {
@@ -634,8 +635,6 @@ p {
   height: 412.5px;
   width: 550px;
   position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 }
 .zipper {
@@ -646,27 +645,29 @@ p {
   transform-origin: 26% bottom;
   animation-name: closingAnimation;
   animation-duration: 1s;
-  transform: translate(-50%, -50%);
 }
-.wrapper:hover .zipper {
+.wrapper:hover .zipper,
+.zipper:hover .zipper,
+.circle:hover .zipper {
   animation-name: openingAnimation;
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
+
 @keyframes openingAnimation {
   from {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    transform: translate(-50%, -50%) rotate(-10deg);
+    transform: rotate(-10deg);
   }
 }
 @keyframes closingAnimation {
   from {
-    transform: translate(-50%, -50%) rotate(-10deg);
+    transform: rotate(-10deg);
   }
   to {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 .bottomBag {
@@ -674,8 +675,6 @@ p {
   z-index: 5;
   position: absolute;
   bottom: 0px;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 .laundrBombs {
   width: 180px;
@@ -683,10 +682,13 @@ p {
   position: relative;
   animation-name: submergeAnimation;
   animation-duration: 1s;
-  top: 5%;
-  left: -15%;
+
+  top: 22%;
+  left: 100%;
 }
-.wrapper:hover .laundrBombs {
+.wrapper:hover .laundrBombs,
+.zipper:hover .laundrBombs,
+.circle:hover .laundrBombs {
   animation-name: emergeAnimation;
   animation-duration: 2s;
   animation-fill-mode: forwards;

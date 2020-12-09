@@ -7,6 +7,8 @@ const SignUp = (props) => {
   //want 3 fields to signup with
   const [fields, setFields] = useState({ name: "", email: "", password: "" });
 
+  const [valid, setValid] = useState({success: true, message: ""});
+
   //update user input for either password or email
   //sets fields whenever input boxes are updated with new values
   const onInputChange = (e) => {
@@ -17,14 +19,17 @@ const SignUp = (props) => {
   //submit user values for password and email
   const onFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(fields);
     const user = await httpUser.signUp(fields);
+    console.log("sign up result:");
+    console.log(user);
 
     setFields({ name: "", email: "", password: "" });
-    if (user) {
-      props.onSignUpSuccess(user);
-      console.log(props.history);
+    if (user.success) {
+      props.onSignUpSuccess(user.token);
       props.history.push("/");
+    }
+    else {
+      setValid({success: false, message: user.message});
     }
   };
 
@@ -80,6 +85,7 @@ const SignUp = (props) => {
           Sign Up
         </button>
       </form>
+      {!valid.success && <h1>{valid.message}</h1>}
     </div>
   );
 };

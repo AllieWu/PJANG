@@ -15,7 +15,12 @@ userRouter.post('/authenticate', userController.authenticate);
 
 userRouter.post('/generateID', userController.createCustomer);
 
+userRouter.get('/find', userController.find);
+
 userRouter.use(verifyToken);
 userRouter.route('/id').get(userController.show).patch(userController.update).delete(userController.destroy);
+
+//REFACTOR
+//userRouter.route('/generateID2').post(userController.createCustomer).patch(userController.update);
 
 module.exports = userRouter;

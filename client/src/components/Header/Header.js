@@ -48,6 +48,8 @@ export default class Header extends React.Component {
                 itemsInCart={this.props.itemsInCart}
                 onAddToCartClick={this.props.handleAddToCartClick}
                 onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+                products={this.props.products}
+                currentUser={this.props.currentUser}
               />
             </div>
           ) : (
@@ -58,7 +60,6 @@ export default class Header extends React.Component {
             >
               <button
                 className="topnav-button"
-                style={{ border: "none" }}
                 onMouseDown={this.routeChange.bind(this, "/Login")}
               >
                 LOG IN
@@ -73,6 +74,8 @@ export default class Header extends React.Component {
                 itemsInCart={this.props.itemsInCart}
                 onAddToCartClick={this.props.handleAddToCartClick}
                 onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
+                products={this.props.products}
+                currentUser={this.props.currentUser}
               />
             </div>
           )}

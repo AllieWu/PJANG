@@ -29,6 +29,16 @@ module.exports = {
     }
   },
 
+  //finds a user based on their email
+  find: async (req, res) => {
+    try {
+      const user = await User.findOne({email: req.query.email});
+      res.json({success: true, user: user});
+    } catch (err) {
+      alert(err);
+    }
+  },
+
   //create a new user (for sign up)
   //takes in the request body and fills in the parameters of the User mongo model
   create: async (req, res) => {
@@ -37,6 +47,7 @@ module.exports = {
       //get all parameters from the body (name, email, password)
       const user = await User.create(req.body);
       console.log("User created");
+      console.log(req.body);
       //creating signed token by passing user as a JSON object (user is payload)
       const token = await signToken(user);
 
