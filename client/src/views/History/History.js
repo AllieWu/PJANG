@@ -12,7 +12,7 @@ export default class History extends React.Component {
     super(props);
     this.state = {
       response: [],
-      orderCount: 0,
+
       open1: false,
       open2: false,
       open3: false,
@@ -100,7 +100,6 @@ export default class History extends React.Component {
               varToCheck = this.state.open3;
               break;
           }
-          console.log("ordercount: ", index, " is set to ", varToCheck);
 
           return (
             <div className="pastOrderParent" id={"#" + index}>
@@ -110,7 +109,7 @@ export default class History extends React.Component {
                   onClick={(e) => this.togglePanel(e, index)}
                 >
                   <h3 className="orderText left">
-                    {Number((payment.amount / 100).toFixed(2))}
+                    {Number((payment.amount / 100).toFixed(2))}{" "}
                     {payment.currency}
                   </h3>
                   <h3 className="orderText">
@@ -118,16 +117,16 @@ export default class History extends React.Component {
                   </h3>
                   <img className="dropdown-icon" src={dropdownImg} />
                   <div className="content">
-                    {payment?.line_items.map((product) => (
-                      <div>
-                        <h3 className="orderText left">
+                    {payment?.line_items?.map((product) => (
+                      <div className="contentItem">
+                        <p className="contentDetails orderText left ">
                           {Number((product.amount_total / 100).toFixed(2))}
                           {payment.currency}
-                        </h3>
-                        <h3>{product.description}</h3>
-                        <h3 className="orderText">
+                        </p>
+                        <p className="contentDetails">{product.description}</p>
+                        <p className="contentDetails">
                           {"Amount: " + product.quantity}
-                        </h3>
+                        </p>
                       </div>
                     ))}
                   </div>

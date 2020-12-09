@@ -5,7 +5,7 @@
   border: 1px solid #ccc !important;
   background-color: #fdfdfd;
   padding: 0.01em 16px;
-  border-radius: 16px;
+  border-radius: 5px;
   margin-bottom: 0.5em;
   min-width: 37em;
   max-width: 80em;
@@ -38,4 +38,10 @@
   padding: 15px;
   font-family: verdana;
   font-size: 14px;
+}
+.contentItem {
+  padding: 0px 0px 1.5px 0px;
+}
+.contentDetails {
+  width: auto !important;
 }
