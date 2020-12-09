@@ -1,6 +1,6 @@
 const User = require("../models/userModel.js"),
-  config = require("../config/config.js"),
-  stripeKey = process.env.REACT_APP_BKEY || config.REACT_APP_BKEY,
+  stripeKey =
+    process.env.REACT_APP_BKEY || require("../config/config.js").REACT_APP_BKEY,
   stripe = require("stripe")(stripeKey),
   signToken = require("../authHelperFunctions").signToken;
 
@@ -32,8 +32,8 @@ module.exports = {
   //finds a user based on their email
   find: async (req, res) => {
     try {
-      const user = await User.findOne({email: req.query.email});
-      res.json({success: true, user: user});
+      const user = await User.findOne({ email: req.query.email });
+      res.json({ success: true, user: user });
     } catch (err) {
       alert(err);
     }
@@ -101,17 +101,17 @@ module.exports = {
     res.json({ success: true, message: "Token attached", token });
   },
 
-    createCustomer: async (req, res) => {
-        try {
-            const customer = await stripe.customers.create({
-                name: req.body.name,
-                email: req.body.email
-            });
-            res.json({success: true, customer})
-        } catch(err) {
-            res.json({success: false, code: err.code})
-        }
+  createCustomer: async (req, res) => {
+    try {
+      const customer = await stripe.customers.create({
+        name: req.body.name,
+        email: req.body.email,
+      });
+      res.json({ success: true, customer });
+    } catch (err) {
+      res.json({ success: false, code: err.code });
     }
+  },
 
   /*
         const customer = await stripe.customers.create({
