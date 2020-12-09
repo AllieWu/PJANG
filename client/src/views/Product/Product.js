@@ -36,6 +36,7 @@ export default class Product extends React.Component {
     this.state = {
       item: undefined,
       img: undefined,
+      imgBot: undefined,
       back: undefined,
       alt: undefined,
       next: undefined,
@@ -58,7 +59,8 @@ export default class Product extends React.Component {
       case "watermelon-cucumber":
         this.setState({
           back: watermelonBackground,
-          img: watermelonBottom,
+          img: watermelonImg,
+          imgBot: watermelonBottom,
           alt: "watermelon",
           next = eucalyptusImg,
           nextPage = "/Product/eucalyptus-tea-tree"
@@ -67,7 +69,8 @@ export default class Product extends React.Component {
       case "eucalyptus-tea-tree":
         this.setState({
           back: eucalyptusBackground,
-          img: eucalyptusBottom,
+          img: eucalyptusImg,
+          imgBot: eucalyptusBottom,
           alt: "eucalyptus",
           next = gardeniaImg,
           nextPage = "/Product/white-gardenia"
@@ -77,7 +80,8 @@ export default class Product extends React.Component {
       case "white-gardenia":
         this.setState({
           back: gardeniaBackground,
-          img: gardeniaBottom,
+          img: gardeniaImg,
+          imgBot: gardeniaBottom,
           alt: "gardenia",
           next = freshImg,
           nextPage = "/Product/fresh-air"
@@ -87,7 +91,8 @@ export default class Product extends React.Component {
       case "fresh-air":
         this.setState({
           back: freshBackground,
-          img: freshBottom,
+          img: freshImg,
+          imgBot: freshBottom,
           alt: "freshair",
           next = coffeeImg,
           nextPage = "/Product/coffee-vanilla"
@@ -97,7 +102,8 @@ export default class Product extends React.Component {
       case "coffee-vanilla":
         this.setState({
           back: coffeeBackground,
-          img: coffeeBottom,
+          img: coffeeImg,
+          imgBot: coffeeBottom,
           alt: "coffee",
           next = mahoganyImg,
           nextPage = "/Product/mahogany-teakwood"
@@ -107,7 +113,8 @@ export default class Product extends React.Component {
       case "mahogany-teakwood":
         this.setState({
           back: mahoganyBackground,
-          img: mahoganyBottom,
+          img: mahoganyImg,
+          imgBot: mahoganyBottom,
           alt: "mahogany",
           next = watermelonImg,
           nextPage = "/Product/watermelon-cucumber"
@@ -175,7 +182,7 @@ export default class Product extends React.Component {
             class="productpZipper"
           />     
           <img
-            src={this.state.img}
+            src={this.state.imgBot}
             alt={"Product"}
             class="productpBag"
           />
