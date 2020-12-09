@@ -5,21 +5,25 @@ import moment from "moment-timezone";
 
 import "./History.css";
 import blueLaundrLogo from "./../../assets/blueCombine.png";
+import dropdownImg from "./../../assets/dropdown.png";
 
 export default class History extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { response: undefined };
+    this.state = { response: [], openArr: {} };
 
     this.handleLoad = this.handleLoad.bind(this);
+    this.togglePanel = this.togglePanel.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener("load", this.handleLoad);
+    window.addEventListener("toggle", this.togglePanel);
   }
 
   componentWillUnmount() {
     window.removeEventListener("load", this.handleLoad);
+    window.removeEventListener("toggle", this.togglePanel);
   }
 
   async handleLoad() {
@@ -35,26 +39,49 @@ export default class History extends React.Component {
     this.forceUpdate();
   }
 
+  togglePanel(e) {
+    let temp = this.state.openArr.find((ele) => ele.paymentId === e) !== undefined ? this.state.openArr.find((ele) => ele.paymentId === e).state : false;
+
+    this.setState({
+      openArr: :,
+    });
+  }
+
   render() {
     let orders = (
       <div>
-        {this.state.response?.data?.payments?.map(function (payment) {
-          return (
-            <div style={{ display: "table-row" }}>
-              <div className="pastOrder">
+        {this.state.response?.data?.payments?.map((payment) => (
+          <div className="pastOrderParent">
+            {this.state.open ? (
+              <div
+                className="active pastOrder"
+                onClick={(e) => this.togglePanel(e)}
+              >
                 <h3 className="orderText left">
-                  {Number((payment.amount / 100).toFixed(2))} {payment.currency}{" "}
+                  {Number((payment.amount / 100).toFixed(2))} {payment.currency}
                 </h3>
-                <h3 className="orderText right">
+                <h3 className="orderText">
                   {moment.unix(payment.created).tz("EST").format("LLLL")}
                 </h3>
-                <div class="details">
-                  <p>example stuff</p>
-                </div>
+                <img className="dropdown-icon" src={dropdownImg} />
+                <div className="content">Show</div>
               </div>
-            </div>
-          );
-        })}
+            ) : (
+              <div
+                className="pastOrder"
+                onClick={() => this.togglePanel(payment)}
+              >
+                <h3 className="orderText left">
+                  {Number((payment.amount / 100).toFixed(2))} {payment.currency}
+                </h3>
+                <h3 className="orderText">
+                  {moment.unix(payment.created).tz("EST").format("LLLL")}
+                </h3>
+                <img className="dropdown-icon" src={dropdownImg} />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     );
 
