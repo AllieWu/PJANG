@@ -20,18 +20,16 @@ const App = () => {
   console.log(currentUser);
 
   const [productInfo, setProductInfo] = useState([]);
-  console.log(productInfo);
 
   const [priceInfo, setPriceInfo] = useState([]);
-  console.log(priceInfo);
 
   //??? how to prevent render on each set
   //only runs when component mounts; get productInfo and priceInfo only once
   useEffect(async () => {
     const products = await axios.get("/api/product/retrieve-products");
-    const prices = await axios.get("/api/product/retrieve-prices");
+    //const prices = await axios.get("/api/product/retrieve-prices");
     setProductInfo(products.data.products);
-    setPriceInfo(prices.data.prices);
+    //setPriceInfo(prices.data.prices);
   }, []);
 
   const onLoginSuccess = () => {
@@ -48,15 +46,15 @@ const App = () => {
 
   const handleAddToCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find((item) => item.id === id);
+      const itemInCart = itemsInCart.find((item) => item.price === id);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.id !== id) return item;
+          if (item.price !== id) return item;
 
           return {
-            id: item.id,
+            price: item.price,
             quantity: item.quantity + 1,
           };
         });
@@ -68,7 +66,7 @@ const App = () => {
         return [
           ...itemsInCart,
           {
-            id: item.metadata.priceID,
+            price: item.metadata.priceID,
             quantity: 1,
           },
         ];
@@ -81,15 +79,15 @@ const App = () => {
 
   const handleRemoveFromCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find((item) => item.id === id);
+      const itemInCart = itemsInCart.find((item) => item.price === id);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.id !== id) return item;
+          if (item.price !== id) return item;
 
           return {
-            id: item.id,
+            price: item.price,
             quantity: item.quantity - 1,
           };
         });

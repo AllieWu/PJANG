@@ -110,7 +110,7 @@ export default class Product extends React.Component {
       </div>
     );
     let cartItem = this.props.itemsInCart.find(
-      (c) => c.id === this.state.item.metadata.priceID
+      (c) => c.price === this.state.item.metadata.priceID
     );
     const {
       itemsInCart,
@@ -167,7 +167,7 @@ export default class Product extends React.Component {
 
             <AddToCartButton
               quantity={cartItem?.quantity ?? 0}
-              id={cartItem?.id}
+              id={cartItem?.price}
               onAddToCartClick={handleAddToCartClick}
               onRemoveFromCartClick={handleRemoveFromCartClick}
             />

@@ -29,6 +29,16 @@ module.exports = {
     }
   },
 
+  //finds a user based on their email
+  find: async (req, res) => {
+    try {
+      const user = await User.findOne({email: req.query.email});
+      res.json({success: true, user: user});
+    } catch (err) {
+      alert(err);
+    }
+  },
+
   //create a new user (for sign up)
   //takes in the request body and fills in the parameters of the User mongo model
   create: async (req, res) => {
@@ -91,17 +101,17 @@ module.exports = {
     res.json({ success: true, message: "Token attached", token });
   },
 
-  createCustomer: async (req, res) => {
-    try {
-      const customer = await stripe.customers.create({
-        name: req.body.name,
-        email: req.body.email,
-      });
-      res.json({ success: true, customer });
-    } catch (err) {
-      res.json({ success: false, code: err.code });
+    createCustomer: async (req, res) => {
+        try {
+            const customer = await stripe.customers.create({
+                name: req.body.name,
+                email: req.body.email
+            });
+            res.json({success: true, customer})
+        } catch(err) {
+            res.json({success: false, code: err.code})
+        }
     }
-  },
 
   /*
         const customer = await stripe.customers.create({
