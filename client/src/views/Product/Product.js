@@ -26,6 +26,8 @@ export default class Product extends React.Component {
       img: undefined,
       back: undefined,
       alt: undefined,
+      next: undefined,
+      nextPage: undefined
     };
 
     this.handleLoad = this.handleLoad.bind(this);
@@ -46,6 +48,8 @@ export default class Product extends React.Component {
           back: watermelonBackground,
           img: watermelonImg,
           alt: "watermelon",
+          next = eucalyptusImg,
+          nextPage = "/Product/eucalyptus-tea-tree"
         });
         break;
       case "eucalyptus-tea-tree":
@@ -53,6 +57,8 @@ export default class Product extends React.Component {
           back: eucalyptusBackground,
           img: eucalyptusImg,
           alt: "eucalyptus",
+          next = gardeniaImg,
+          nextPage = "/Product/white-gardenia"
         });
 
         break;
@@ -61,6 +67,8 @@ export default class Product extends React.Component {
           back: gardeniaBackground,
           img: gardeniaImg,
           alt: "gardenia",
+          next = freshImg,
+          nextPage = "/Product/fresh-air"
         });
 
         break;
@@ -69,6 +77,8 @@ export default class Product extends React.Component {
           back: freshBackground,
           img: freshImg,
           alt: "freshair",
+          next = coffeeImg,
+          nextPage = "/Product/coffee-vanilla"
         });
 
         break;
@@ -77,6 +87,8 @@ export default class Product extends React.Component {
           back: coffeeBackground,
           img: coffeeImg,
           alt: "coffee",
+          next = mahoganyImg,
+          nextPage = "/Product/mahogany-teakwood"
         });
 
         break;
@@ -85,6 +97,8 @@ export default class Product extends React.Component {
           back: mahoganyBackground,
           img: mahoganyImg,
           alt: "mahogany",
+          next = watermelonImg,
+          nextPage = "/Product/watermelon-cucumber"
         });
 
         break;
@@ -190,6 +204,9 @@ export default class Product extends React.Component {
             </div>
           </div>
         </div>
+        <a href={nextPage} target="blank">
+          <img class="nextImage" src={next} alt=""/>
+          </a>
       </div>
     );
   }
