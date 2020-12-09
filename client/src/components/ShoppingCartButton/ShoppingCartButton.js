@@ -83,7 +83,7 @@ export default class ShoppingCartButton extends React.Component {
           >
             Total Cost: {totalCost.toFixed(2)}
           </p>
-          <Checkout itemsInCart={this.props.itemsInCart} />
+          <Checkout itemsInCart={this.props.itemsInCart} currentUser={this.props.currentUser} />
         </div>
       </div>
     );

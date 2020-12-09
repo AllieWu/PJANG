@@ -20,18 +20,16 @@ const App = () => {
   console.log(currentUser);
 
   const [productInfo, setProductInfo] = useState([]);
-  console.log(productInfo);
 
   const [priceInfo, setPriceInfo] = useState([]);
-  console.log(priceInfo);
 
   //??? how to prevent render on each set
   //only runs when component mounts; get productInfo and priceInfo only once
   useEffect(async () => {
     const products = await axios.get("/api/product/retrieve-products");
-    const prices = await axios.get("/api/product/retrieve-prices");
+    //const prices = await axios.get("/api/product/retrieve-prices");
     setProductInfo(products.data.products);
-    setPriceInfo(prices.data.prices);
+    //setPriceInfo(prices.data.prices);
   }, []);
 
   const onLoginSuccess = () => {

@@ -89,7 +89,9 @@ export default class Home extends React.Component {
     }
 
     window.onload = function () {
+      console.log("LOADED");
       const query = new URLSearchParams(window.location.search);
+      console.log(query);
       if (query.get("success"))
         toast("Success! You will be emailed your receipt shortly", {
           type: "success",
@@ -161,8 +163,6 @@ export default class Home extends React.Component {
     );
   }
   render() {
-    console.log(this.props.products);
-
     return (
       <div className="App">
         <Header

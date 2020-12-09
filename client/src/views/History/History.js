@@ -27,13 +27,26 @@ export default class History extends React.Component {
   }
 
   async handleLoad() {
+    //get payment intents
     let resp;
+    let session;
+    let items;
     const customer = this.props.currentUser.id;
     console.log(customer);
     console.log("Getting payment history...");
     resp = await axios.get("/api/stripe/payment-intents?ID=" + customer);
     console.log("Payment history recieved!");
-    console.log(resp);
+
+    console.log("Specifying products...")
+    //for each payment intent, find the associated checkout session and the line_items (products) included
+    resp.data.payments.forEach(async (e) => {
+      //get session
+      session = await axios.get("/api/stripe/sessions?ID=" + e.id);
+      //get line items of session
+      items = await axios.get("/api/stripe/line-items?ID=" + session.data.session[0].id);
+      e.line_items = items.data.line_items;
+    })
+    console.log(resp.data.payments);
 
     this.setState({ response: resp });
     this.forceUpdate();
