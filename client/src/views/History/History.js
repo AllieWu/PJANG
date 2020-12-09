@@ -16,6 +16,8 @@ export default class History extends React.Component {
       open1: false,
       open2: false,
       open3: false,
+      open4: false,
+      open5: false,
     };
 
     this.handleLoad = this.handleLoad.bind(this);
@@ -55,6 +57,16 @@ export default class History extends React.Component {
       e.line_items = items.data.line_items;
     });
     console.log(resp.data.payments);
+    if (
+      resp !== undefined &&
+      resp.data !== undefined &&
+      resp.data.payments != undefined
+    ) {
+      resp.data.payments = resp.data.payments.filter(
+        (e) => e.amount_received > 0
+      );
+      console.log(resp.data.payments);
+    }
 
     this.setState({ response: resp });
   }
@@ -63,21 +75,28 @@ export default class History extends React.Component {
     console.log("toggling panel ", panel, " to");
     switch (panel) {
       case 1:
-        console.log(!this.state.open1);
         this.setState({
           open1: !this.state.open1,
         });
         break;
       case 2:
-        console.log(!this.state.open2);
         this.setState({
           open2: !this.state.open2,
         });
         break;
       case 3:
-        console.log(!this.state.open3);
         this.setState({
           open3: !this.state.open3,
+        });
+        break;
+      case 4:
+        this.setState({
+          open4: !this.state.open4,
+        });
+        break;
+      case 5:
+        this.setState({
+          open5: !this.state.open5,
         });
         break;
     }
@@ -98,6 +117,12 @@ export default class History extends React.Component {
               break;
             case 3:
               varToCheck = this.state.open3;
+              break;
+            case 3:
+              varToCheck = this.state.open4;
+              break;
+            case 3:
+              varToCheck = this.state.open5;
               break;
           }
 
