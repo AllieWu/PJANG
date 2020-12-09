@@ -36,7 +36,7 @@ export default class ShoppingCartButton extends React.Component {
       <div>
         {this.props.itemsInCart.map((ele) => {
           name = this.props.products.find(
-            (item) => item.metadata.priceID === ele.id
+            (item) => item.metadata.priceID === ele.price
           )?.metadata.name;
 
           // if you decrease to 0, remove from shopping cart
@@ -46,7 +46,7 @@ export default class ShoppingCartButton extends React.Component {
                 <p className="cart-item-name">{name}</p>
                 <AddToCartButton
                   quantity={ele?.quantity ?? 0}
-                  id={ele.id}
+                  id={ele.price}
                   onAddToCartClick={this.props.onAddToCartClick}
                   onRemoveFromCartClick={this.props.onRemoveFromCartClick}
                 />

@@ -89,7 +89,9 @@ export default class Home extends React.Component {
     }
 
     window.onload = function () {
+      console.log("LOADED");
       const query = new URLSearchParams(window.location.search);
+      console.log(query);
       if (query.get("success"))
         toast("Success! You will be emailed your receipt shortly", {
           type: "success",
@@ -110,7 +112,7 @@ export default class Home extends React.Component {
       matching?.metadata.scent2,
       matching?.metadata.scent3,
     ];
-    let item = this.props.itemsInCart?.find((i) => i.id === id);
+    let item = this.props.itemsInCart?.find((i) => i.price === id);
     return (
       <div className="child">
         <div className={classPrePend + " homeHeader"}>
@@ -161,8 +163,6 @@ export default class Home extends React.Component {
     );
   }
   render() {
-    console.log(this.props.products);
-
     return (
       <div className="App">
         <Header

@@ -9,7 +9,7 @@ const Checkout = (props) => {
   // When the customer clicks on the button, redirect them to Checkout.
   const handleClick = async (event) => {
     console.log(props.currentUser);
-    console.log(window.location.hostname);
+    console.log(window.location.origin);
     console.log(props.itemsInCart.filter((e) => e.quantity > 0));
 
     const stripe = await stripePromise;
@@ -20,7 +20,7 @@ const Checkout = (props) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         cart: props.itemsInCart.filter((e) => e.quantity > 0), 
-        domain: window.location.hostname, 
+        domain: `${window.location.origin}/Home`, 
         customer: props.currentUser}),
     });
     console.log("request made");

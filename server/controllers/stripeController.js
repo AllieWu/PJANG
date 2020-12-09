@@ -8,6 +8,9 @@ module.exports = {
     //?? why async callback?
     checkout: async (req, res) => {
 
+        console.log(req.body.domain);
+        console.log(req.body.customer);
+
         const YOUR_DOMAIN = req.body.domain;
         //const YOUR_DOMAIN = req.protocol + '://' + req.hostname + '/Home';
 
@@ -23,9 +26,10 @@ module.exports = {
             cancel_url: `${YOUR_DOMAIN}?canceled=true`,
         }
 
-        if (req.body.user == null) {
-            sessionInfo.customer = req.body.user;
-            console.log("Creating session without customer ID provided...");
+        if (req.body.customer != null) {
+            sessionInfo.customer = req.body.customer.id;
+            console.log("Creating session with customer ID provided...");
+            console.log(sessionInfo);
         }
 
         const session = await stripe.checkout.sessions.create(sessionInfo);
@@ -39,13 +43,23 @@ module.exports = {
     */
 
     history: async (req, res) => {
-        console.log(req.body);
-        console.log(req.params);
-        console.log(req.query);
         const paymentIntents = await stripe.paymentIntents.list({
             limit: 3,
             customer: req.query.ID
         });
         res.json({ success: true, payments: paymentIntents.data });
+    },
+
+    findSession: async (req, res) => {
+        const session = await stripe.checkout.sessions.list({
+            payment_intent: req.query.ID,
+        });
+        res.json({ success: true, session: session.data });
+    },
+
+    findItems: async (req, res) => {
+        console.log(req.query.ID);
+        const items = await stripe.checkout.sessions.listLineItems(req.query.ID);
+        res.json({ success: true, line_items: items.data });
     }
 }
