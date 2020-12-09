@@ -42,7 +42,7 @@ module.exports = {
 
   history: async (req, res) => {
     const paymentIntents = await stripe.paymentIntents.list({
-      limit: 3,
+      limit: 5,
       customer: req.query.ID,
     });
     res.json({ success: true, payments: paymentIntents.data });

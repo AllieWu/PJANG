@@ -278,7 +278,7 @@ p {
   background: url(backgroundPatterns/Freshair\ Pattern\ Images/freshair_pattern4.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 85%;
+  left: 1500px;
   top: 300px;
   width: 15%;
   height: 30%;
@@ -328,7 +328,7 @@ p {
   background: url(backgroundPatterns/Eucalyptus\ Pattern\ Images/eucalyptus_pattern4.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 85%;
+  left: 1500px;
   top: 300px;
   width: 15%;
   height: 30%;
@@ -381,7 +381,7 @@ p {
   background: url(backgroundPatterns/Gardenia\ Pattern\ Images/gardenia_pattern4.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 85%;
+  left: 1500px;
   top: 300px;
   width: 15%;
   height: 30%;
@@ -436,7 +436,7 @@ p {
   background: url(backgroundPatterns/Mahogany\ Pattern\ Images/mahogany_pattern1.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 85%;
+  left: 1500px;
   top: 300px;
   width: 15%;
   height: 30%;
@@ -492,7 +492,7 @@ p {
   background: url(backgroundPatterns/Vanilla\ Pattern\ Images/vanilla_pattern2.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 85%;
+  left: 1500px;
   top: 300px;
   width: 15%;
   height: 30%;
@@ -547,7 +547,7 @@ p {
   background: url(backgroundPatterns/Watermelon\ Pattern\ Images/watermelon_pattern2.png);
   background-size: 250px;
   background-repeat: no-repeat;
-  left: 85%;
+  left: 1500px;
   top: 300px;
   width: 15%;
   height: 30%;
@@ -708,5 +708,108 @@ p {
   }
   to {
     transform: translate(0px, 0px);
+  }
+}
+
+.productpWrapper {
+  overflow: hidden;
+  width: 1200px;
+  height: 900px;
+  position: relative;
+  right: 700px;
+  bottom: 220px;
+  z-index: 15;
+  margin: auto;
+}
+
+.productpZipper {
+  height: 1200px;
+  position: absolute;
+  z-index: 15;
+  top: -200px;
+  right: 99.5px;
+  animation-name: openingpAnimation;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.productpBag {
+  transform: rotate(90deg);
+  width: 1200px;
+  position: absolute;
+  z-index: 15;
+  left: 0px;
+}
+
+@keyframes openingpAnimation {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(0px, 775px);
+  }
+}
+
+.Bomb1_5 {
+  width: 300px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 0px;
+  animation-name: rollingAnimation1_5;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.Bomb1 {
+  width: 300px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 0px;
+  animation-name: rollingAnimation1;
+  animation-duration: 2.2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.Bomb2 {
+  width: 300px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 0px;
+  animation-name: rollingAnimation2;
+  animation-duration: 2.2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rollingAnimation1_5 {
+  from {
+    transform: translate(0) rotate(0deg);
+  }
+  to {
+    transform: translate(565px, -150px) rotate(45deg);
+  }
+}
+
+@keyframes rollingAnimation1 {
+  from {
+    transform: translate(0) rotate(0deg);
+  }
+  to {
+    transform: translate(985px, 135px) rotate(-5deg);
+  }
+}
+
+@keyframes rollingAnimation2 {
+  from {
+    transform: translate(0) rotate(0deg);
+  }
+  to {
+    transform: translate(1200px, -250px) rotate(-5deg);
   }
 }
