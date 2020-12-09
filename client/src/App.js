@@ -20,6 +20,7 @@ const App = () => {
   console.log(currentUser);
 
   const [productInfo, setProductInfo] = useState([]);
+  console.log(productInfo);
 
   const [priceInfo, setPriceInfo] = useState([]);
 
@@ -42,7 +43,6 @@ const App = () => {
   };
 
   const [itemsInCart, setItemsInCart] = useState([]);
-  console.log(itemsInCart);
 
   const handleAddToCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
@@ -61,7 +61,9 @@ const App = () => {
       }
 
       // otherwise, add new item to cart
+      console.log(productInfo);
       const item = productInfo.find((item) => item.metadata.priceID === id);
+      console.log("looking for product with id ", id);
       if (item !== undefined) {
         return [
           ...itemsInCart,

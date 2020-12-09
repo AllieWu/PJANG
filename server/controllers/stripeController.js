@@ -1,6 +1,6 @@
-(stripeKey =
-  process.env.REACT_APP_BKEY || require("../config/config.js").REACT_APP_BKEY),
-  (stripe = require("stripe")(stripeKey));
+const stripeKey =
+    process.env.REACT_APP_BKEY || require("../config/config.js").REACT_APP_BKEY,
+  stripe = require("stripe")(stripeKey);
 
 module.exports = {
   //create a checkout session
