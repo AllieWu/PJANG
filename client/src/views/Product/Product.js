@@ -22,12 +22,11 @@ export default class Product extends React.Component {
     super(props);
 
     this.state = {
-      item: undefined,
       img: undefined,
       back: undefined,
       alt: undefined,
       next: undefined,
-      nextPage: undefined
+      nextPage: undefined,
     };
 
     this.handleLoad = this.handleLoad.bind(this);
@@ -48,8 +47,8 @@ export default class Product extends React.Component {
           back: watermelonBackground,
           img: watermelonImg,
           alt: "watermelon",
-          next = eucalyptusImg,
-          nextPage = "/Product/eucalyptus-tea-tree"
+          next: eucalyptusImg,
+          nextPage: "/Product/eucalyptus-tea-tree",
         });
         break;
       case "eucalyptus-tea-tree":
@@ -57,8 +56,8 @@ export default class Product extends React.Component {
           back: eucalyptusBackground,
           img: eucalyptusImg,
           alt: "eucalyptus",
-          next = gardeniaImg,
-          nextPage = "/Product/white-gardenia"
+          next: gardeniaImg,
+          nextPage: "/Product/white-gardenia",
         });
 
         break;
@@ -67,8 +66,8 @@ export default class Product extends React.Component {
           back: gardeniaBackground,
           img: gardeniaImg,
           alt: "gardenia",
-          next = freshImg,
-          nextPage = "/Product/fresh-air"
+          next: freshImg,
+          nextPage: "/Product/fresh-air",
         });
 
         break;
@@ -77,8 +76,8 @@ export default class Product extends React.Component {
           back: freshBackground,
           img: freshImg,
           alt: "freshair",
-          next = coffeeImg,
-          nextPage = "/Product/coffee-vanilla"
+          next: coffeeImg,
+          nextPage: "/Product/coffee-vanilla",
         });
 
         break;
@@ -87,8 +86,8 @@ export default class Product extends React.Component {
           back: coffeeBackground,
           img: coffeeImg,
           alt: "coffee",
-          next = mahoganyImg,
-          nextPage = "/Product/mahogany-teakwood"
+          next: mahoganyImg,
+          nextPage: "/Product/mahogany-teakwood",
         });
 
         break;
@@ -97,8 +96,8 @@ export default class Product extends React.Component {
           back: mahoganyBackground,
           img: mahoganyImg,
           alt: "mahogany",
-          next = watermelonImg,
-          nextPage = "/Product/watermelon-cucumber"
+          next: watermelonImg,
+          nextPage: "/Product/watermelon-cucumber",
         });
 
         break;
@@ -123,30 +122,23 @@ export default class Product extends React.Component {
         </h4>
       </div>
     );
-    let cartItem = this.props.itemsInCart.find(
-      (c) => c.price === this.state.item.metadata.priceID
-    );
-    const {
-      itemsInCart,
-      handleAddToCartClick,
-      handleRemoveFromCartClick,
-      currentUser,
-      products,
-    } = this.props;
 
     let item = this.props.products.find(
       (i) => i.metadata.param === this.props.match.params.pageNumber
     );
 
+    let cartItem = this.props.itemsInCart.find(
+      (c) => c.price === item.metadata.priceID
+    );
     return (
-      <div>
+      <div className="App">
         <Header
-          itemsInCart={itemsInCart}
-          handleAddToCartClick={handleAddToCartClick}
-          handleRemoveFromCartClick={handleRemoveFromCartClick}
+          itemsInCart={this.props.itemsInCart}
+          handleAddToCartClick={this.props.handleAddToCartClick}
+          handleRemoveFromCartClick={this.props.handleRemoveFromCartClick}
           page={"product"}
-          currentUser={currentUser}
-          products={products}
+          currentUser={this.props.currentUser}
+          products={this.props.products}
         />
         <div style={{ top: "15%" }}>
           <div className={this.state.alt + "Background1"}></div>
@@ -181,9 +173,9 @@ export default class Product extends React.Component {
 
             <AddToCartButton
               quantity={cartItem?.quantity ?? 0}
-              id={cartItem?.price}
-              onAddToCartClick={handleAddToCartClick}
-              onRemoveFromCartClick={handleRemoveFromCartClick}
+              id={cartItem?.price ?? item?.metadata?.priceID}
+              onAddToCartClick={this.props.handleAddToCartClick}
+              onRemoveFromCartClick={this.props.handleRemoveFromCartClick}
             />
           </div>
           <div
@@ -204,9 +196,9 @@ export default class Product extends React.Component {
             </div>
           </div>
         </div>
-        <a href={nextPage} target="blank">
-          <img class="nextImage" src={next} alt=""/>
-          </a>
+        <a href={this.state.nextPage} target="blank">
+          <img class="nextImage" src={this.state.next} alt="" />
+        </a>
       </div>
     );
   }

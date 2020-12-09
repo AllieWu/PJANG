@@ -281,7 +281,7 @@ p {
   left: 85%;
   top: 300px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .freshairBackground5 {
   position: absolute;
@@ -291,7 +291,7 @@ p {
   left: 1200px;
   top: 900px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .eucalyptusBackground1 {
   position: absolute;
@@ -301,7 +301,7 @@ p {
   left: 600px;
   top: 1000px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .eucalyptusBackground2 {
   position: absolute;
@@ -311,7 +311,7 @@ p {
   left: 200px;
   bottom: 0px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .eucalyptusBackground3 {
   position: absolute;
@@ -321,7 +321,7 @@ p {
   left: 1300px;
   bottom: 70px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .eucalyptusBackground4 {
   position: absolute;
@@ -331,7 +331,7 @@ p {
   left: 85%;
   top: 300px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .eucalyptusBackground5 {
   position: absolute;
@@ -341,7 +341,7 @@ p {
   left: 1200px;
   top: 900px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .gardeniaBackground1 {
   position: absolute;
@@ -351,7 +351,7 @@ p {
   left: 600px;
   top: 1000px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .gardeniaBackground2 {
@@ -362,7 +362,7 @@ p {
   left: 200px;
   bottom: 0px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .gardeniaBackground3 {
@@ -373,7 +373,7 @@ p {
   left: 1300px;
   bottom: 70px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .gardeniaBackground4 {
@@ -384,7 +384,7 @@ p {
   left: 85%;
   top: 300px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .gardeniaBackground5 {
@@ -395,7 +395,7 @@ p {
   left: 1200px;
   top: 900px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .mahoganyBackground1 {
@@ -406,7 +406,7 @@ p {
   left: 600px;
   top: 1000px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .mahoganyBackground2 {
@@ -417,7 +417,7 @@ p {
   left: 200px;
   bottom: 0px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .mahoganyBackground3 {
@@ -428,7 +428,7 @@ p {
   left: 1300px;
   bottom: 70px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .mahoganyBackground4 {
@@ -439,7 +439,7 @@ p {
   left: 85%;
   top: 300px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .mahoganyBackground5 {
@@ -450,7 +450,7 @@ p {
   left: 1200px;
   top: 900px;
   width: 15%;
-  height: 100%;
+  height: 30%;
   overflow: hidden;
 }
 
@@ -462,7 +462,7 @@ p {
   left: 600px;
   top: 1000px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .coffeeBackground2 {
@@ -473,7 +473,7 @@ p {
   left: 200px;
   bottom: 0px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .coffeeBackground3 {
@@ -484,7 +484,7 @@ p {
   left: 1300px;
   bottom: 70px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .coffeeBackground4 {
@@ -495,7 +495,7 @@ p {
   left: 85%;
   top: 300px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .coffeeBackground5 {
@@ -506,7 +506,7 @@ p {
   left: 1200px;
   top: 900px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .watermelonBackground1 {
@@ -517,7 +517,7 @@ p {
   left: 600px;
   top: 1000px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .watermelonBackground2 {
@@ -528,7 +528,7 @@ p {
   left: 200px;
   bottom: 0px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .watermelonBackground3 {
@@ -539,7 +539,7 @@ p {
   left: 1300px;
   bottom: 70px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .watermelonBackground4 {
@@ -550,7 +550,7 @@ p {
   left: 85%;
   top: 300px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 
 .watermelonBackground5 {
@@ -561,7 +561,7 @@ p {
   left: 1200px;
   top: 900px;
   width: 15%;
-  height: 100%;
+  height: 30%;
 }
 .placeholder-text {
   color: black;
@@ -579,12 +579,11 @@ p {
 }
 
 .nextImage {
-  width: 1000px;
+  width: 800px;
   position: relative;
-  left: 250px;
-  top: -500px;
+  bottom: 20em;
+  transform: translate(50%, -50%);
 }
-
 
 @keyframes animatedBackground {
   from {
