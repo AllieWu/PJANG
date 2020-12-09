@@ -40,13 +40,18 @@ export default class History extends React.Component {
       <div>
         {this.state.response?.data?.payments?.map(function (payment) {
           return (
-            <div className="pastOrder">
-              <h3 className="orderText left">
-                {Number((payment.amount / 100).toFixed(2))} {payment.currency}{" "}
-              </h3>
-              <h3 className="orderText right">
-                {moment.unix(payment.created).tz("EST").format("LLLL")}
-              </h3>
+            <div style={{ display: "table-row" }}>
+              <div className="pastOrder">
+                <h3 className="orderText left">
+                  {Number((payment.amount / 100).toFixed(2))} {payment.currency}{" "}
+                </h3>
+                <h3 className="orderText right">
+                  {moment.unix(payment.created).tz("EST").format("LLLL")}
+                </h3>
+                <div class="details">
+                  <p>example stuff</p>
+                </div>
+              </div>
             </div>
           );
         })}

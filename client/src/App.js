@@ -48,15 +48,15 @@ const App = () => {
 
   const handleAddToCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find((item) => item.id === id);
+      const itemInCart = itemsInCart.find((item) => item.price === id);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.id !== id) return item;
+          if (item.price !== id) return item;
 
           return {
-            id: item.id,
+            price: item.price,
             quantity: item.quantity + 1,
           };
         });
@@ -68,7 +68,7 @@ const App = () => {
         return [
           ...itemsInCart,
           {
-            id: item.metadata.priceID,
+            price: item.metadata.priceID,
             quantity: 1,
           },
         ];
@@ -81,15 +81,15 @@ const App = () => {
 
   const handleRemoveFromCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find((item) => item.id === id);
+      const itemInCart = itemsInCart.find((item) => item.price === id);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.id !== id) return item;
+          if (item.price !== id) return item;
 
           return {
-            id: item.id,
+            price: item.price,
             quantity: item.quantity - 1,
           };
         });
