@@ -22,7 +22,12 @@ const SignUp = (props) => {
     setFields({ name: "", email: "", password: "" });
     if (user) {
       props.onSignUpSuccess(user);
-      console.log(props.history);
+      props.history.push("/");
+    }
+
+    setFields({ name: "", email: "", password: "" });
+    if (user) {
+      props.onSignUpSuccess(user);
       props.history.push("/");
     }
   };

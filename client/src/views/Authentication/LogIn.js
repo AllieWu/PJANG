@@ -20,7 +20,6 @@ const LogIn = (props) => {
     setFields({ email: "", password: "" });
     if (user) {
       props.onLoginSuccess(user);
-      console.log(props.history);
       props.history.push("/");
     }
   };

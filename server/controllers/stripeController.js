@@ -8,23 +8,27 @@ module.exports = {
     //?? why async callback?
     checkout: async (req, res) => {
 
-        const YOUR_DOMAIN = 'http://localhost:3000/Home';
+        const YOUR_DOMAIN = req.body.domain;
         //const YOUR_DOMAIN = req.protocol + '://' + req.hostname + '/Home';
 
-        const session = await stripe.checkout.sessions.create({
+        let sessionInfo = {
             billing_address_collection: 'auto',
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA'],
             },
             payment_method_types: ['card'],
-            line_items: [{
-                price: 'price_1HpdKdJLO8JomVlxhZCNxCfn',
-                quantity: 1,
-              }],
+            line_items: req.body.cart,
             mode: 'payment',
             success_url: `${YOUR_DOMAIN}?success=true`,
             cancel_url: `${YOUR_DOMAIN}?canceled=true`,
-        });
+        }
+
+        if (req.body.user == null) {
+            sessionInfo.customer = req.body.user;
+            console.log("Creating session without customer ID provided...");
+        }
+
+        const session = await stripe.checkout.sessions.create(sessionInfo);
         res.json({ id: session.id });
     },
 

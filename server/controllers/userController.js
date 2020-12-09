@@ -47,6 +47,7 @@ module.exports = {
       //get all parameters from the body (name, email, password)
       const user = await User.create(req.body);
       console.log("User created");
+      console.log(req.body);
       //creating signed token by passing user as a JSON object (user is payload)
       const token = await signToken(user);
 
@@ -102,7 +103,6 @@ module.exports = {
 
     createCustomer: async (req, res) => {
         try {
-          console.log(req.body);
             const customer = await stripe.customers.create({
                 name: req.body.name,
                 email: req.body.email

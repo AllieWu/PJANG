@@ -30,30 +30,25 @@ export default class ShoppingCartButton extends React.Component {
       0
     );
     const showCart = this.state.showCart;
+    let name;
 
     let shoppingCartItems = (
       <div>
         {this.props.itemsInCart.map((ele) => {
+          name = this.props.products.find(
+            (item) => item.metadata.priceID === ele.id
+          )?.metadata.name;
+
           // if you decrease to 0, remove from shopping cart
           if (ele.quantity !== 0) {
             return (
-              <div id={ele.price_data.product_data.name} className="cart-item">
-                <p className="cart-item-name">
-                  {ele.price_data.product_data.name}
-                </p>
+              <div id={name} className="cart-item">
+                <p className="cart-item-name">{name}</p>
                 <AddToCartButton
-                  quantity={ele.quantity}
-                  name={ele.price_data.product_data.name}
-                  onAddToCartClick={() =>
-                    this.props.onAddToCartClick(
-                      ele.price_data.product_data.name
-                    )
-                  }
-                  onRemoveFromCartClick={() =>
-                    this.props.onRemoveFromCartClick(
-                      ele.price_data.product_data.name
-                    )
-                  }
+                  quantity={ele?.quantity ?? 0}
+                  id={ele.id}
+                  onAddToCartClick={this.props.onAddToCartClick}
+                  onRemoveFromCartClick={this.props.onRemoveFromCartClick}
                 />
               </div>
             );
@@ -88,7 +83,7 @@ export default class ShoppingCartButton extends React.Component {
           >
             Total Cost: {totalCost.toFixed(2)}
           </p>
-          <Checkout itemsInCart={this.props.itemsInCart} />
+          <Checkout itemsInCart={this.props.itemsInCart} currentUser={this.props.currentUser} />
         </div>
       </div>
     );

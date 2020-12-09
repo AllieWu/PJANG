@@ -8,13 +8,20 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_FKEY}`);
 const Checkout = (props) => {
   // When the customer clicks on the button, redirect them to Checkout.
   const handleClick = async (event) => {
+    console.log(props.currentUser);
+    console.log(window.location.hostname);
+    console.log(props.itemsInCart.filter((e) => e.quantity > 0));
+
     const stripe = await stripePromise;
 
     //creates checkout session
     const response = await fetch("/api/stripe/create-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(props.itemsInCart.filter((e) => e.quantity > 0)),
+      body: JSON.stringify({
+        cart: props.itemsInCart.filter((e) => e.quantity > 0), 
+        domain: window.location.hostname, 
+        customer: props.currentUser}),
     });
     console.log("request made");
 
