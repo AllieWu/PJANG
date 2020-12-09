@@ -1,29 +1,47 @@
+.pastOrderParent {
+  display: table-row;
+}
 .pastOrder {
   border: 1px solid #ccc !important;
+  background-color: #fdfdfd;
   padding: 0.01em 16px;
-  border-radius: 16px;
+  border-radius: 5px;
   margin-bottom: 0.5em;
-  max-width: 60em;
-  display: inline-block;
+  min-width: 37em;
+  max-width: 80em;
 }
-.active .pastOrder:hover {
-  background-color: #ccc;
+.active,
+.pastOrder:hover {
+  background-color: #f0f0f0;
 }
 .orderText {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
   font-size: 15px;
+  margin: 0.5em 2.5em 0.5em 0px;
 }
 .left {
   float: left;
-  margin: 0.5em 5em 0.5em 0px;
 }
-.right {
+.dropdown-icon {
   float: right;
-  margin: 0.5em 2.5em 0.5em 0px;
+  height: 2em;
+  width: 2em;
+  transform: translate(0, -2.9em);
 }
-.details {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
+.content {
+  cursor: pointer;
+  border-left: solid 1px #f2f2f2;
+  border-right: solid 1px #f2f2f2;
+  border-bottom: solid 1px #f2f2f2;
+  border-radius: 0 0 5px 5px;
+  padding: 15px;
+  font-family: verdana;
+  font-size: 14px;
+}
+.contentItem {
+  padding: 0px 0px 1.5px 0px;
+}
+.contentDetails {
+  width: auto !important;
 }
