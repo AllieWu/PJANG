@@ -6,13 +6,12 @@ import Home from "./views/Home/Home";
 import Product from "./views/Product/Product";
 import History from "./views/History/History";
 import NotFound from "./views/NotFound";
-import items from "./views/Product/productinfo.json";
 
 import LogIn from "./views/Authentication/LogIn.js";
 import SignUp from "./views/Authentication/SignUp";
 import LogOut from "./views/Authentication/LogOut";
-import httpUser from './httpUser';
-import axios from 'axios';
+import httpUser from "./httpUser";
+import axios from "axios";
 
 import "./App.css";
 
@@ -29,11 +28,11 @@ const App = () => {
   //??? how to prevent render on each set
   //only runs when component mounts; get productInfo and priceInfo only once
   useEffect(async () => {
-    const products = await axios.get('/api/product/retrieve-products');
-    const prices = await axios.get('/api/product/retrieve-prices');
+    const products = await axios.get("/api/product/retrieve-products");
+    const prices = await axios.get("/api/product/retrieve-prices");
     setProductInfo(products.data.products);
     setPriceInfo(prices.data.prices);
-  },[])
+  }, []);
 
   const onLoginSuccess = () => {
     setCurrentUser(httpUser.getCurrentUser());
@@ -45,74 +44,52 @@ const App = () => {
   };
 
   const [itemsInCart, setItemsInCart] = useState([]);
-  const [page, setPage] = useState([{}]);
+  console.log(itemsInCart);
 
-  const handleAddToCartClick = (name) => {
+  const handleAddToCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find(
-        (item) => item.price_data.product_data.name === name
-      );
+      const itemInCart = itemsInCart.find((item) => item.id === id);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.price_data.product_data.name !== name) return item;
+          if (item.id !== id) return item;
 
           return {
-            price_data: {
-              currency: "usd",
-              product_data: {
-                name: item.price_data.product_data.name,
-                images: item.price_data.product_data.images,
-              },
-              unit_amount: 1899,
-            },
+            id: item.id,
             quantity: item.quantity + 1,
           };
         });
       }
 
       // otherwise, add new item to cart
-      const item = items.find((item) => item.name === name);
-      return [
-        ...itemsInCart,
-        {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: item.name,
-              images: item.images,
-            },
-            unit_amount: 1899,
+      const item = productInfo.find((item) => item.metadata.priceID === id);
+      if (item !== undefined) {
+        return [
+          ...itemsInCart,
+          {
+            id: item.metadata.priceID,
+            quantity: 1,
           },
-          quantity: 1,
-        },
-      ];
+        ];
+      } else {
+        console.log("Cannot find metadata for item with id: ", id);
+        return itemsInCart;
+      }
     });
-
-    itemsInCart.forEach((e) => console.log(e));
   };
 
-  const handleRemoveFromCartClick = (name) => {
+  const handleRemoveFromCartClick = (id) => {
     setItemsInCart((itemsInCart) => {
-      const itemInCart = itemsInCart.find(
-        (item) => item.price_data.product_data.name === name
-      );
+      const itemInCart = itemsInCart.find((item) => item.id === id);
 
       // if item is already in cart, update the quantity
       if (itemInCart) {
         return itemsInCart.map((item) => {
-          if (item.price_data.product_data.name !== name) return item;
+          if (item.id !== id) return item;
 
           return {
-            price_data: {
-              currency: "usd",
-              product_data: {
-                name: item.price_data.product_data.name,
-                images: item.price_data.product_data.images,
-              },
-              unit_amount: 1899,
-            },
+            id: item.id,
             quantity: item.quantity - 1,
           };
         });
@@ -133,6 +110,7 @@ const App = () => {
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
                 currentUser={currentUser}
+                products={productInfo}
               />
             );
           }}
@@ -146,12 +124,11 @@ const App = () => {
             return (
               <Product
                 {...props}
-                page={page}
-                setPage={setPage}
                 itemsInCart={itemsInCart}
                 handleAddToCartClick={handleAddToCartClick}
                 handleRemoveFromCartClick={handleRemoveFromCartClick}
                 currentUser={currentUser}
+                products={productInfo}
               />
             );
           }}

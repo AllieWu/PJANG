@@ -17,7 +17,7 @@ export default class AddToCartButton extends React.Component {
   }
 
   cartIncrement() {
-    this.state.onAddToCartClick(this.props.name); // update the shopping cart
+    this.state.onAddToCartClick(this.props.id); // update the shopping cart
 
     // this is to update the button type
     this.setState({ quantity: this.state.quantity + 1 });
@@ -25,7 +25,7 @@ export default class AddToCartButton extends React.Component {
   }
 
   cartDecrement() {
-    this.state.onRemoveFromCartClick(this.props.name); // up date the shopping cart
+    this.state.onRemoveFromCartClick(this.props.id); // up date the shopping cart
 
     // this is to update the button type
     this.setState({ quantity: this.state.quantity - 1 });

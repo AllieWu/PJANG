@@ -37,6 +37,7 @@ module.exports = {
       //get all parameters from the body (name, email, password)
       const user = await User.create(req.body);
       console.log("User created");
+      console.log(req.body);
       //creating signed token by passing user as a JSON object (user is payload)
       const token = await signToken(user);
 
@@ -90,17 +91,17 @@ module.exports = {
     res.json({ success: true, message: "Token attached", token });
   },
 
-    createCustomer: async (req, res) => {
-        try {
-            const customer = await stripe.customers.create({
-                name: req.body.name,
-                email: req.body.email
-            });
-            res.json({success: true, customer})
-        } catch(err) {
-            res.json({success: false, code: err.code})
-        }
+  createCustomer: async (req, res) => {
+    try {
+      const customer = await stripe.customers.create({
+        name: req.body.name,
+        email: req.body.email,
+      });
+      res.json({ success: true, customer });
+    } catch (err) {
+      res.json({ success: false, code: err.code });
     }
+  },
 
   /*
         const customer = await stripe.customers.create({

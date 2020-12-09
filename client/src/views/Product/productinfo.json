@@ -1,86 +1,91 @@
 [
-    {
-        "param": "watermelon-cucumber",
-        "name": "Watermelon Cucumber",
-        "name2": "WATERMELON",
-        "name3": "CUCUMBER",
-        "color": "#ff5656",
-        "desc1": "21 count bag of “Watermelon Cucumber” scented Laundr Bombs",
-        "desc2": "A sweet, cool and refreshing smell for brightening up your day. Great for picnic blankets, overalls, and being in a generally good mood.",
-        "scent1": "Crisp Cucumber",
-        "scent2": "Sweet Melon",
-        "scent3": "Cool Grapefruit",
-        "images": ["https://i.imgur.com/X3mBQfo.jpg"]
-    },
+  {
+    "id": "1",
+    "param": "watermelon-cucumber",
+    "name": "Watermelon Cucumber",
+    "name2": "WATERMELON",
+    "name3": "CUCUMBER",
+    "color": "#ff5656",
+    "desc1": "21 count bag of “Watermelon Cucumber” scented Laundr Bombs",
+    "desc2": "A sweet, cool and refreshing smell for brightening up your day. Great for picnic blankets, overalls, and being in a generally good mood.",
+    "scent1": "Crisp Cucumber",
+    "scent2": "Sweet Melon",
+    "scent3": "Cool Grapefruit",
+    "images": ["https://i.imgur.com/X3mBQfo.jpg"]
+  },
 
-    {
-        "param": "white-gardenia",
-        "name": "White Gardenia",
-        "name2": "WHITE",
-        "name3": "GARDENIA",
-        "color": "#f4ea9c",
-        "desc1": "21 count bag of “White Gardenia” scented Laundr Bombs",
-        "desc2": "A sweet and floral perfume with relaxing notes, best used after a carefree frolic through a field of wildflowers.",
-        "scent1": "Gardenia Shrub",
-        "scent2": "Floral Essence",
-        "scent3": "Apple Water",
-        "images": ["https://i.imgur.com/ZLWnA25.jpg"]
-    },
+  {
+    "id": "2",
+    "param": "white-gardenia",
+    "name": "White Gardenia",
+    "name2": "WHITE",
+    "name3": "GARDENIA",
+    "color": "#f4ea9c",
+    "desc1": "21 count bag of “White Gardenia” scented Laundr Bombs",
+    "desc2": "A sweet and floral perfume with relaxing notes, best used after a carefree frolic through a field of wildflowers.",
+    "scent1": "Gardenia Shrub",
+    "scent2": "Floral Essence",
+    "scent3": "Apple Water",
+    "images": ["https://i.imgur.com/ZLWnA25.jpg"]
+  },
 
-    {
-        "param": "mahogany-teakwood",
-        "name": "Mahogany Teakwood",
-        "name2": "MAHOGANY",
-        "name3": "TEAKWOOD",
-        "color": "#5b5b5b",
-        "desc1": "21 count bag of “Mahogany Teakwood” scented Laundr Bombs",
-        "desc2": "A great everyday alternative to cologne, or for a getaway to a log cabin hidden deep in a snowy forest.",
-        "scent1": "Oak and Mahogany Wood",
-        "scent2": "Boreal Forestry",
-        "scent3": "Light Musk",
-        "images": ["https://i.imgur.com/AXs5etu.jpg"]
-    },
+  {
+    "id": "3",
+    "param": "mahogany-teakwood",
+    "name": "Mahogany Teakwood",
+    "name2": "MAHOGANY",
+    "name3": "TEAKWOOD",
+    "color": "#5b5b5b",
+    "desc1": "21 count bag of “Mahogany Teakwood” scented Laundr Bombs",
+    "desc2": "A great everyday alternative to cologne, or for a getaway to a log cabin hidden deep in a snowy forest.",
+    "scent1": "Oak and Mahogany Wood",
+    "scent2": "Boreal Forestry",
+    "scent3": "Light Musk",
+    "images": ["https://i.imgur.com/AXs5etu.jpg"]
+  },
 
-    {
-        "param": "fresh-air",
-        "name": "Fresh Air",
-        "name2": "FRESH",
-        "name3": "AIR",
-        "color": "#8dcfdd",
-        "desc1": "21 count bag of “Fresh Air” scented Laundr Bombs",
-        "desc2": "A soft, cottony fragrance that smells even cleaner than clean. Great for leaping face-first into a gigantic, fluffy comforter.",
-        "scent1": "Cotton",
-        "scent2": "Ozone",
-        "scent3": "Tropical Fruit",
-        "images": ["https://i.imgur.com/JLbEBbg.jpg"]
-    },
+  {
+    "id": "4",
+    "param": "fresh-air",
+    "name": "Fresh Air",
+    "name2": "FRESH",
+    "name3": "AIR",
+    "color": "#8dcfdd",
+    "desc1": "21 count bag of “Fresh Air” scented Laundr Bombs",
+    "desc2": "A soft, cottony fragrance that smells even cleaner than clean. Great for leaping face-first into a gigantic, fluffy comforter.",
+    "scent1": "Cotton",
+    "scent2": "Ozone",
+    "scent3": "Tropical Fruit",
+    "images": ["https://i.imgur.com/JLbEBbg.jpg"]
+  },
 
-    {
-        "param": "coffee-vanilla",
-        "name": "Coffee Vanilla",
-        "name2": "COFFEE",
-        "name3": "VANILLA",
-        "color": "#e2cea3",
-        "desc1": "21 count bag of “Coffee Vanilla” scented Laundr Bombs",
-        "desc2": "Smells like the steam rising off of a hot vanilla latte. Great for sitting in an armchair in a quaint neighborhood cafe.",
-        "scent1": "Dark Coffee Beans",
-        "scent2": "Vanilla Extract",
-        "scent3": "Hazelnut Cream",
-        "images": ["https://i.imgur.com/TVUydqG.jpg"]
-    },
+  {
+    "id": "5",
+    "param": "coffee-vanilla",
+    "name": "Coffee Vanilla",
+    "name2": "COFFEE",
+    "name3": "VANILLA",
+    "color": "#e2cea3",
+    "desc1": "21 count bag of “Coffee Vanilla” scented Laundr Bombs",
+    "desc2": "Smells like the steam rising off of a hot vanilla latte. Great for sitting in an armchair in a quaint neighborhood cafe.",
+    "scent1": "Dark Coffee Beans",
+    "scent2": "Vanilla Extract",
+    "scent3": "Hazelnut Cream",
+    "images": ["https://i.imgur.com/TVUydqG.jpg"]
+  },
 
-    {
-        "param": "eucalyptus-tea-tree",
-        "name": "Eucalyptus Tea Tree",
-        "name2": "EUCALYPTUS",
-        "name3": "TEA TREE",
-        "color": "#48c47e",
-        "desc1": "21 count bag of “Eucalyptus Tea Tree” scented Laundr Bombs",
-        "desc2": "A natural scent inspired by popular aromatherapy oil mixtures. Great for towels, bath robes, and having a \"me day.\"",
-        "scent1": "Tea Tree and Eucalyptus",
-        "scent2": "Natural Herbs",
-        "scent3": "Bergamot Orange",
-        "images": ["https://i.imgur.com/cKUqNqK.jpg"]
-    }
-
+  {
+    "id": "6",
+    "param": "eucalyptus-tea-tree",
+    "name": "Eucalyptus Tea Tree",
+    "name2": "EUCALYPTUS",
+    "name3": "TEA TREE",
+    "color": "#48c47e",
+    "desc1": "21 count bag of “Eucalyptus Tea Tree” scented Laundr Bombs",
+    "desc2": "A natural scent inspired by popular aromatherapy oil mixtures. Great for towels, bath robes, and having a \"me day.\"",
+    "scent1": "Tea Tree and Eucalyptus",
+    "scent2": "Natural Herbs",
+    "scent3": "Bergamot Orange",
+    "images": ["https://i.imgur.com/cKUqNqK.jpg"]
+  }
 ]
