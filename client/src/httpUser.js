@@ -21,13 +21,14 @@ httpUser.logIn = async function (credentials) {
   try {
     console.log("Logging in...");
     const response = await axios.post("/api/users/authenticate", credentials);
-    console.log("Log in complete");
 
     const token = response.data.token;
     if (token) {
+      console.log("Log in complete");
       this.defaults.headers.common.token = this.setToken(token);
       return jwtDecode(token);
     } else {
+      console.log("Invalid login");
       return false;
     }
   } catch (err) {
@@ -42,9 +43,9 @@ httpUser.signUp = async function (userInfo) {
   console.log("Searching for user...");
   const response = await axios.get('/api/users/find?email=' + userInfo.email);
   console.log(response);
-  if(response.data == null) {
+  if(response.data.user) {
     console.log("User already exists");
-    return false;
+    return {success: false, message: "User with email already exists"};
   }
   else {
     console.log("User not found");
@@ -54,13 +55,12 @@ httpUser.signUp = async function (userInfo) {
   //create a customer with Stripe using the userInfo
   console.log("Signing up...");
   const response2 = await axios.post("/api/users/generateID", userInfo);
-  
-  const userID = response2.data.customer.id;
   var userInfo2 = userInfo;
-  if (response2) {
-    userInfo2.id = userID;
+  if (response2.data.success) {
+    userInfo2.id = response2.data.customer.id;
   } else {
-    return false;
+    console.log("Invalid email");
+    return {success: false, message: "Invalid email"};
   }
 
   //create a collection with User model, and store in database
@@ -70,9 +70,9 @@ httpUser.signUp = async function (userInfo) {
   const token = response3.data.token;
   if (token) {
     this.defaults.headers.common.token = this.setToken(token);
-    return jwtDecode(token);
+    return {success: true, token: jwtDecode(token)};
   } else {
-    return false;
+    return {success: false, message: "Error. Please try again later"};
   }
 
   //REFACTOR: generate a customer ID with userInfo then patch it to the created user 
