@@ -17,6 +17,18 @@ import freshBackground from "./../../assets/backgroundPatterns/freshair_pattern.
 import coffeeBackground from "./../../assets/backgroundPatterns/vanilla_pattern.png";
 import mahoganyBackground from "./../../assets/backgroundPatterns/mahogany_pattern.png";
 
+import watermelonBottom from "./../../assets/detergentImages/watermelon_bottom.png";
+import coffeeBottom from "./../../assets/detergentImages/coffee_bottom.png";
+import eucalyptusBottom from "./../../assets/detergentImages/eucalyptus_bottom.png";
+import freshBottom from "./../../assets/detergentImages/freshair_bottom.png";
+import gardeniaBottom from "./../../assets/detergentImages/gardenia_bottom.png";
+import mahoganyBottom from "./../../assets/detergentImages/mahogany_bottom.png";
+import zipperSideways from "./../../assets/detergentImages/zipper_sideways.png";
+
+import bomb1_5 from "./../../assets/bombs/Laundr Bomb Angle1.5 White.png";
+import bomb1 from "./../../assets/bombs/Laundr Bomb Angle1 White.png";
+import bomb2 from "./../../assets/bombs/Laundr Bomb Angle2 White.png";
+
 export default class Product extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +58,7 @@ export default class Product extends React.Component {
       case "watermelon-cucumber":
         this.setState({
           back: watermelonBackground,
-          img: watermelonImg,
+          img: watermelonBottom,
           alt: "watermelon",
           next = eucalyptusImg,
           nextPage = "/Product/eucalyptus-tea-tree"
@@ -55,7 +67,7 @@ export default class Product extends React.Component {
       case "eucalyptus-tea-tree":
         this.setState({
           back: eucalyptusBackground,
-          img: eucalyptusImg,
+          img: eucalyptusBottom,
           alt: "eucalyptus",
           next = gardeniaImg,
           nextPage = "/Product/white-gardenia"
@@ -65,7 +77,7 @@ export default class Product extends React.Component {
       case "white-gardenia":
         this.setState({
           back: gardeniaBackground,
-          img: gardeniaImg,
+          img: gardeniaBottom,
           alt: "gardenia",
           next = freshImg,
           nextPage = "/Product/fresh-air"
@@ -75,7 +87,7 @@ export default class Product extends React.Component {
       case "fresh-air":
         this.setState({
           back: freshBackground,
-          img: freshImg,
+          img: freshBottom,
           alt: "freshair",
           next = coffeeImg,
           nextPage = "/Product/coffee-vanilla"
@@ -85,7 +97,7 @@ export default class Product extends React.Component {
       case "coffee-vanilla":
         this.setState({
           back: coffeeBackground,
-          img: coffeeImg,
+          img: coffeeBottom,
           alt: "coffee",
           next = mahoganyImg,
           nextPage = "/Product/mahogany-teakwood"
@@ -95,7 +107,7 @@ export default class Product extends React.Component {
       case "mahogany-teakwood":
         this.setState({
           back: mahoganyBackground,
-          img: mahoganyImg,
+          img: mahoganyBottom,
           alt: "mahogany",
           next = watermelonImg,
           nextPage = "/Product/watermelon-cucumber"
@@ -155,11 +167,23 @@ export default class Product extends React.Component {
           <div className={this.state.alt + "Background4"}></div>
           <div className={this.state.alt + "Background5"}></div>
           <h1 className={this.state.alt + "Title"}>{item?.metadata.name2}</h1>
+
+          <div class="productpWrapper">
+          <img
+            src={zipperSideways} 
+            alt={"Product"}
+            class="productpZipper"
+          />     
           <img
             src={this.state.img}
-            alt={item?.metadata.name + " Image"}
-            className="productpImage"
-          ></img>
+            alt={"Product"}
+            class="productpBag"
+          />
+          </div>
+          <img src={bomb1_5} alt="Bomb Image 1.5" className="Bomb1_5"></img>
+          <img src={bomb1} alt="Bomb Image 1" className="Bomb1"></img>
+          <img src={bomb2} alt="Bomb Image 2" className="Bomb2"></img>
+
           <h1 className={this.state.alt + "Title bottomTitle"}>
             {item?.metadata.name3}
           </h1>
