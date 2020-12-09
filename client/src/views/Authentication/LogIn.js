@@ -6,6 +6,8 @@ import blueLaundrLogo from "./../../assets/blueCombine.png";
 const LogIn = (props) => {
   const [fields, setFields] = useState({ email: "", password: "" });
 
+  const [valid, setValid] = useState(true);
+
   // used to update user input for either password or email
   const onInputChange = (e) => {
     e.persist();
@@ -16,11 +18,16 @@ const LogIn = (props) => {
   const onFormSubmit = async (e) => {
     e.preventDefault();
     const user = await httpUser.logIn(fields);
+    console.log("login result:");
+    console.log(user);
 
     setFields({ email: "", password: "" });
     if (user) {
       props.onLoginSuccess(user);
       props.history.push("/");
+    }
+    else {
+      setValid(false);
     }
   };
 
@@ -68,6 +75,7 @@ const LogIn = (props) => {
         >
           Log In
         </button>
+        {!valid && <h1>Wrong username/password</h1>}
       </form>
     </div>
   );
